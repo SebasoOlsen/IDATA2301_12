@@ -1,2 +1,2 @@
-# IDATA2301_2306_12
-Project for IDATA2301 and IDATA2306 group 12.
+# IDATA2301_12
+Project for IDATA2301 group 12.

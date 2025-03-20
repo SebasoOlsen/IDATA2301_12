@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Stay Finder - Search Results</title>
+    <style>
+        /* Making main container full-width to avoid horizontal cutting */
+        main {
+            width: 100%;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
+        }
+        /* Ensuring the results list is laid vertically */
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <div class="header-left">
+        <a href="index.html">
+            <img src="src/main/resources/pictures/StayFinder-logo.jpg" alt="Stay Finder Logo" class="logo-img">
+        </a>
+    </div>
+    <div class="header-center">
+        <span class="header-title">Stay Finder</span>
+    </div>
+    <div class="header-right">
+        <a href="index.html" class="discover-btn">
+            <i class="fa-solid fa-earth-americas"></i>
+        </a>
+        <a href="login.html" class="sign-in">
+            <img src="src/main/resources/pictures/user-icon.png" alt="User Icon" class="user-icon">
+        </a>
+    </div>
+</header>
+
+<div class="search-container" style="margin-top: 1rem; max-height: unset;">
+    <form class="search-form" action="#" method="GET">
+        <input type="text" name="destination" class="search-input" placeholder="Where to?">
+        <input type="date" name="checkin" class="search-input">
+        <input type="date" name="checkout" class="search-input">
+        <select name="rooms" class="search-input">
+            <option>2 travelers, 1 room</option>
+            <option>3 travelers, 1 room</option>
+            <option>2 travelers, 2 rooms</option>
+        </select>
+        <button type="submit" class="search-button">Search Hotels</button>
+    </form>
+</div>
+
+<main>
+    <div class="results-info">
+        <h2>Search Results</h2>
+        <p>Showing available hotels from your project file.</p>
+    </div>
+
+    <div class="results-list">
+        <div class="hotel-card">
+            <div class="hotel-image" style="background-image: url('pictures/hotel1.jpg');"></div>
+            <div class="hotel-content">
+                <h3>Andante Hotel</h3>
+                <p>City Center &#8226; Rooftop Pool &#8226; 24-hour Gym</p>
+                <div class="rating">&#11088;&#11088;&#11088;&#11088; (8.5/10)</div>
+                <p class="price">From $150/night (Booking.com) &#8226; $200/night (Agoda)</p>
+                <a href="ProductPage.html" class="view-deals-button">View Deal</a>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-image" style="background-image: url('pictures/hotel2.jpeg');"></div>
+            <div class="hotel-content">
+                <h3>Thon Hotel Ålesund</h3>
+                <p>Coastal/Fjord View &#8226; Free Breakfast &#8226; Conference Facilities</p>
+                <div class="rating">&#11088;&#11088;&#11088;&#11088; (8.2/10)</div>
+                <p class="price">From 1200 NOK/night (momondo) &#8226; 1400 NOK/night (expedia)</p>
+                <a href="ProductPage.html" class="view-deals-button">View Deal</a>
+            </div>
+        </div>
+
+        <div class="hotel-card">
+            <div class="hotel-image" style="background-image: url('pictures/front-scandic-hotel.jpg');"></div>
+            <div class="hotel-content">
+                <h3>Scandic Parken</h3>
+                <p>Park Proximity &#8226; In-house Restaurant &#8226; EV Charging</p>
+                <div class="rating">&#11088;&#11088;&#11088; (8.0/10)</div>
+                <p class="price">From 1100 NOK/night (Airbnb) &#8226; 1500 NOK/night (Agoda)</p>
+                <a href="ProductPage.html" class="view-deals-button">View Deal</a>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-content">
+        <div>
+            <h4>About Stay Finder</h4>
+            <p>Your premier destination for comparing hotel prices across multiple providers.</p>
+        </div>
+        <div>
+            <h4>Contact</h4>
+            <p>NTNU Campus<br>Ålesund, Norway<br>contact@stayfinder.com</p>
+        </div>
+        <div>
+            <h4>Legal</h4>
+            <p>Privacy Policy<br>Terms of Use<br>Cookie Settings</p>
+        </div>
+    </div>
+    <div style="margin-top: 2rem;">
+        <p>This website is a result of a university group project, performed in the course IDATA2301 Web technologies at NTNU. All information is fictional.</p>
+    </div>
+</footer>
+</body>
+</html>

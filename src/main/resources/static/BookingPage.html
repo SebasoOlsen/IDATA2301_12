@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8" name= "viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Stay Finder - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stay Finder - Booking</title>
+    <link th:href="@{/styles.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-<div class = "wrapper">
-    <header class="header" style="">
+<div class="wrapper">
+    <header class="header">
         <div class="header-left">
-            <a href="index.html">
-                <img src="../pictures/StayFinder-logo.jpg" alt="Stay Finder Logo" class="logo-img">
+            <a th:href="@{/}">
+                <img th:src="@{/pictures/StayFinder-logo.jpg}" alt="Stay Finder Logo" class="logo-img">
             </a>
         </div>
         <div class="header-center">
             <span class="header-title">Stay Finder</span>
         </div>
         <div class="header-right">
-            <a href="index.html" class="discover-btn">
+            <a th:href="@{/}" class="discover-btn">
                 <i class="fa-solid fa-earth-americas"></i>
             </a>
-            <a href="login.html" class="sign-in">
-                <img src="../pictures/user-icon.png" alt="User Icon" class="user-icon">
+            <a th:href="@{/login}" class="sign-in">
+                <img th:src="@{/pictures/user-icon.png}" alt="User Icon" class="user-icon">
             </a>
         </div>
     </header>
+
     <main>
         <h1>Booking Details</h1>
-        <form class="booking-form" action="ConfirmationPage.html" method="post">
+        <form class="booking-form" th:action="@{/confirmation}" method="post">
             <div class="form-field">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -53,6 +53,7 @@
             <button type="submit">Confirm Booking</button>
         </form>
     </main>
+
     <footer class="footer">
         <div class="footer-content">
             <div>

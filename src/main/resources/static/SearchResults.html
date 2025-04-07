@@ -1,49 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>Stay Finder - Search Results</title>
-    <style>
-        /* Making main container full-width to avoid horizontal cutting */
-        main {
-            width: 100%;
-            margin: 1.5rem auto;
-            padding: 0 1rem;
-        }
-        /* Ensuring the results list is laid vertically */
-        .results-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-    </style>
+    <link th:href="@{/styles.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <header class="header">
     <div class="header-left">
-        <a href="index.html">
-            <img src="src/main/resources/pictures/StayFinder-logo.jpg" alt="Stay Finder Logo" class="logo-img">
+        <a th:href="@{/}">
+            <img th:src="@{/pictures/StayFinder-logo.jpg}" alt="Stay Finder Logo" class="logo-img">
         </a>
     </div>
     <div class="header-center">
         <span class="header-title">Stay Finder</span>
     </div>
     <div class="header-right">
-        <a href="index.html" class="discover-btn">
+        <a th:href="@{/}" class="discover-btn">
             <i class="fa-solid fa-earth-americas"></i>
         </a>
-        <a href="login.html" class="sign-in">
-            <img src="src/main/resources/pictures/user-icon.png" alt="User Icon" class="user-icon">
+        <a th:href="@{/login}" class="sign-in">
+            <img th:src="@{/pictures/user-icon.png}" alt="User Icon" class="user-icon">
         </a>
     </div>
 </header>
 
 <div class="search-container" style="margin-top: 1rem; max-height: unset;">
-    <form class="search-form" action="#" method="GET">
+    <form class="search-form" th:action="@{/search}" method="get">
         <input type="text" name="destination" class="search-input" placeholder="Where to?">
         <input type="date" name="checkin" class="search-input">
         <input type="date" name="checkout" class="search-input">
@@ -64,39 +48,20 @@
 
     <div class="results-list">
         <div class="hotel-card">
-            <div class="hotel-image" style="background-image: url('pictures/hotel1.jpg');"></div>
+            <div class="hotel-image" th:style="'background-image: url(' + @{/pictures/hotel1.jpg} + ')'"></div>
             <div class="hotel-content">
                 <h3>Andante Hotel</h3>
-                <p>City Center &#8226; Rooftop Pool &#8226; 24-hour Gym</p>
-                <div class="rating">&#11088;&#11088;&#11088;&#11088; (8.5/10)</div>
-                <p class="price">From $150/night (Booking.com) &#8226; $200/night (Agoda)</p>
-                <a href="ProductPage.html" class="view-deals-button">View Deal</a>
+                <p>City Center • Rooftop Pool • 24-hour Gym</p>
+                <div class="rating">⭐⭐⭐⭐ (8.5/10)</div>
+                <p class="price">From $150/night (Booking.com) • $200/night (Agoda)</p>
+                <a th:href="@{/product}" class="view-deals-button">View Deal</a>
             </div>
         </div>
 
-        <div class="hotel-card">
-            <div class="hotel-image" style="background-image: url('pictures/hotel2.jpeg');"></div>
-            <div class="hotel-content">
-                <h3>Thon Hotel Ålesund</h3>
-                <p>Coastal/Fjord View &#8226; Free Breakfast &#8226; Conference Facilities</p>
-                <div class="rating">&#11088;&#11088;&#11088;&#11088; (8.2/10)</div>
-                <p class="price">From 1200 NOK/night (momondo) &#8226; 1400 NOK/night (expedia)</p>
-                <a href="ProductPage.html" class="view-deals-button">View Deal</a>
-            </div>
-        </div>
-
-        <div class="hotel-card">
-            <div class="hotel-image" style="background-image: url('pictures/front-scandic-hotel.jpg');"></div>
-            <div class="hotel-content">
-                <h3>Scandic Parken</h3>
-                <p>Park Proximity &#8226; In-house Restaurant &#8226; EV Charging</p>
-                <div class="rating">&#11088;&#11088;&#11088; (8.0/10)</div>
-                <p class="price">From 1100 NOK/night (Airbnb) &#8226; 1500 NOK/night (Agoda)</p>
-                <a href="ProductPage.html" class="view-deals-button">View Deal</a>
-            </div>
-        </div>
+        <!-- More hotel cards (Thymeleaf loops can be added later) -->
     </div>
 </main>
+
 <footer class="footer">
     <div class="footer-content">
         <div>

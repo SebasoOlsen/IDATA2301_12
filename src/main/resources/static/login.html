@@ -1,41 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <title>Stay Finder - Home</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stay Finder - Login</title>
+  <link th:href="@{/styles.css}" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <header class="header">
   <div class="header-left">
-    <a href="index.html">
-      <img src="src/main/resources/pictures/StayFinder-logo.jpg" alt="Stay Finder Logo" class="logo-img">
+    <a th:href="@{/}">
+      <img th:src="@{/pictures/StayFinder-logo.jpg}" alt="Stay Finder Logo" class="logo-img">
     </a>
   </div>
   <div class="header-center">
     <span class="header-title">Stay Finder</span>
   </div>
   <div class="header-right">
-    <a href="index.html" class="discover-btn">
+    <a th:href="@{/}" class="discover-btn">
       <i class="fa-solid fa-earth-americas"></i>
     </a>
-    <a href="login.html" class="sign-in">
-      <img src="src/main/resources/pictures/user-icon.png" alt="User Icon" class="user-icon">
+    <a th:href="@{/login}" class="sign-in">
+      <img th:src="@{/pictures/user-icon.png}" alt="User Icon" class="user-icon">
     </a>
   </div>
 </header>
 
-
 <div class="container">
   <h2>Log In</h2>
-  <form class="login-form">
+  <form class="login-form" th:action="@{/login}" method="post">
     <label for="email">Email address</label>
-    <input type="email" id="email" placeholder="Enter your email" required>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
     <label for="password">Password</label>
-    <input type="password" id="password" placeholder="Enter your password" required>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
     <button type="submit">Log In</button>
   </form>
   <div class="extra-info">
@@ -46,6 +43,7 @@
 <div class="page-footer">
   <p>&copy; 2023 Stay Finder - All rights reserved.</p>
 </div>
+
 <footer class="footer">
   <div class="footer-content">
     <div>

@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Stay Finder - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stay Finder - Hotel</title>
+    <link th:href="@{/styles.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <header class="header">
     <div class="header-left">
-        <a href="index.html">
-            <img src="src/main/resources/pictures/StayFinder-logo.jpg" alt="Stay Finder Logo" class="logo-img">
+        <a th:href="@{/}">
+            <img th:src="@{/pictures/StayFinder-logo.jpg}" alt="Stay Finder Logo" class="logo-img">
         </a>
     </div>
     <div class="header-center">
         <span class="header-title">Stay Finder</span>
     </div>
     <div class="header-right">
-        <a href="index.html" class="discover-btn">
+        <a th:href="@{/}" class="discover-btn">
             <i class="fa-solid fa-earth-americas"></i>
         </a>
-        <a href="login.html" class="sign-in">
-            <img src="src/main/resources/pictures/user-icon.png" alt="User Icon" class="user-icon">
+        <a th:href="@{/login}" class="sign-in">
+            <img th:src="@{/pictures/user-icon.png}" alt="User Icon" class="user-icon">
         </a>
     </div>
 </header>
@@ -31,12 +29,11 @@
 <main>
     <div class="hotel-container">
         <div class="hotel-images">
-            <div class="main-image" style="background-image: url('pictures/andante_main.jpg');">
-            </div>
+            <div class="main-image" th:style="'background-image: url(' + @{/pictures/andante_main.jpg} + ')'"></div>
             <div class="thumbnails">
-                <div class="thumbnail" style="background-image: url('pictures/andante_room1.jpg');"></div>
-                <div class="thumbnail" style="background-image: url('pictures/andante_pool.jpg');"></div>
-                <div class="thumbnail" style="background-image: url('pictures/andante_view.jpg');"></div>
+                <div class="thumbnail" th:style="'background-image: url(' + @{/pictures/andante_room1.jpg} + ')'"></div>
+                <div class="thumbnail" th:style="'background-image: url(' + @{/pictures/andante_pool.jpg} + ')'"></div>
+                <div class="thumbnail" th:style="'background-image: url(' + @{/pictures/andante_view.jpg} + ')'"></div>
             </div>
         </div>
 
@@ -44,11 +41,7 @@
             <h2>Andante Hotel</h2>
             <p><strong>Location:</strong> City Center, Barcelona, Spain</p>
             <p><strong>Rating:</strong> ⭐⭐⭐⭐ (8.5/10)</p>
-            <p>
-                Andante Hotel offers modern rooms with complimentary Wi-Fi, a rooftop pool,
-                and 24-hour gym access. Enjoy a prime city-center location near cultural
-                attractions and top dining spots.
-            </p>
+            <p>Andante Hotel offers modern rooms with complimentary Wi-Fi, a rooftop pool, and 24-hour gym access...</p>
             <ul class="features">
                 <li>Complimentary Wi-Fi</li>
                 <li>Rooftop Pool</li>
@@ -56,7 +49,7 @@
                 <li>Breakfast Buffet (optional)</li>
             </ul>
             <p><strong>Price:</strong> From $150/night (Booking.com) • $200/night (Agoda)</p>
-            <button class="book-button">Book Now</button>
+            <a th:href="@{/booking}" class="book-button">Book Now</a>
         </div>
     </div>
 
@@ -107,6 +100,7 @@
         </div>
     </section>
 </main>
+
 <footer class="footer">
     <div class="footer-content">
         <div>

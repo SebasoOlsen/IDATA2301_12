@@ -33,7 +33,7 @@
 
   <div id="successMessage">
     <p>User was created successfully!</p>
-    <button onclick="window.location='http://localhost:8080/login.html'"></button>
+    <button id = "successMessageButton" onclick="window.location='http://localhost:8080/login.html'">Back to login</button>
   </div>
 
   <div class="extra-info">
@@ -46,6 +46,6 @@
 </div>
 
 <div th:replace="fragments.html :: footer"></div>
-<script th:source="scripts/register.js"></script>
+<script th:src="@{/scripts/register.js}"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@
 
   <div id="errorMessage"></div>
 
-  <form class="register-form">
+  <form id="register-form" class="register-form">
     <label for="firstname">First name</label>
     <input type="firstname" id="firstname" name="firstname" placeholder="Enter your first name" required>
     <label for="lastname">Last name</label>
@@ -31,7 +31,7 @@
     <button type="submit">Submit</button>
   </form>
 
-  <div id="successMessage">
+  <div id="successMessage" class="successMessage">
     <p>User was created successfully!</p>
     <button id = "successMessageButton" onclick="window.location='http://localhost:8080/login.html'">Back to login</button>
   </div>

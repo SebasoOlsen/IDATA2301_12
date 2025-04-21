@@ -3,23 +3,32 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>My Page</title>
-    <link rel="stylesheet" href="/css/global.css">
-    <link rel="stylesheet" href="/css/login-page.css">
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <link th:href="@{/css/global.css}" rel="stylesheet">
+    <link th:href="@{/css/my-page.css}" rel="stylesheet">
 </head>
 <body>
 <div th:replace="fragments.html :: header"></div>
-<div align="center" padding="10rem">
-    <button type="submit" >Bookings</button>
-    <button type="submit">Favourites</button>
-</div>
-<div>
-    <input type="text" name="firstName" placeholder="First Name">
-    <input type="text" name="lastName" placeholder="Last Name">
-    <input type="text" name="email" placeholder="Email">
-    <button type="submit">Save Changes</button>
-</div>
-
-
+<main class="myPage-main">
+    <h3>Your Bookings</h3>
+    <!-- one container for ALL the cards -->
+    <section id="bookings-list" class="bookings-list">
+        <template id="tmpl-booking-card" th:fragment="booking-list">
+            <div class="booking-card">
+                <h4>Booking #<span class="bk-id">1</span></h4>
+                <p>Hotel Name: <span class="bk-hotel">[Hotel Name]</span></p>
+                <p>Check-in: <span class="bk-start">[Date]</span></p>
+                <p>Check-out: <span class="bk-end">[Date]</span></p>
+                <p>Status: <span class="bk-status">[Payment]</span></p>
+                <button class="big-button">View Details</button>
+            </div>
+        </template>
+    </section>
+</main>
+<section class="quick-links">
+    <button class="big-button">Favorites</button>
+    <a class="big-button" th:href="@{/contactInformation}">Contact Information</a></section>
 <div th:replace="fragments.html :: footer"></div>
-</body>
-</html>
+<script th:src="@{/js/my-page.js}"></script>
+
+

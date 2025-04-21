@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Page</title>
+    <link th:href="@{/Stylesheets/styles.css}" rel="stylesheet">
+    <link th:href="@{/Stylesheets/myPage.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="fragments.html :: header"></div>
+<main class="myPage-main">
+    <h2>Welcome, [User Name]!</h2>
+    <h3>Your Bookings</h3>
+    <main class="bookings-container">
+        <section class="bookings-list">
+            <div class="booking-card">
+                <h4>Booking #1</h4>
+                <p>Hotel Name: [Hotel Name]</p>
+                <p>Check-in: [Date]</p>
+                <p>Check-out: [Date]</p>
+                <p>Status: [Payment]</p>
+                <button class="big-button">View Details</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="quick-links">
+        <button class="big-button">Favorites</button>
+    </section>
+</main>
+<main class="myPage-myInformation">
+    <section class="user-details">
+        <h3>My Information</h3>
+        <form class="user-info-form" th:action="@{/users/{id}}" method="post">
+            <input type="hidden" name="_method" value="put">
+            <input type="text" name="firstName" placeholder="First Name">
+            <input type="text" name="lastName" placeholder="Last Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="tel" name="phone" placeholder="Phone Number">
+            <input type="text" name="areaCode" placeholder="Area Code">
+            <button type="submit">Save Changes</button>
+        </form>
+    </section>
+</main>
+
+<div th:replace="fragments.html :: footer"></div>
+</body>
+</html>

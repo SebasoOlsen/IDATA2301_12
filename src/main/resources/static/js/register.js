@@ -1,6 +1,12 @@
 
-document.getElementById('register-form')
-    .addEventListener('submit', async function(event){
+console.log("register.js loaded");
+
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded");
+
+    const form = document.getElementById("register-form");
+
+    form.addEventListener('submit', async function(event){
         event.preventDefault();
 
         const errorMessageDiv = document.getElementById('errorMessage');
@@ -40,3 +46,6 @@ document.getElementById('register-form')
         }
 
     });
+
+});
+

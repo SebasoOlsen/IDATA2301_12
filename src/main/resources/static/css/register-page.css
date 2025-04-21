@@ -15,7 +15,7 @@
     text-align: center;
 }
 
-.errorMessage {
+#errorMessage {
     color: red;
     display: none;
     margin-bottom: 0.3rem;
@@ -38,7 +38,7 @@
     border-radius: 4px;
 }
 
-.successMessageButton,
+#successMessageButton,
 .register-form button {
     display: block;
     width: 100%;
@@ -52,12 +52,12 @@
     transition: background-color 0.3s;
 }
 
-.successMessageButton:hover,
+#successMessageButton:hover,
 .register-form button:hover {
     background-color: #002a63;
 }
 
-.successMessage {
+#successMessage {
     display: none;
     margin-top: 0.6rem;
 }

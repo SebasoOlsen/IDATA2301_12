@@ -38,6 +38,16 @@
     border-radius: 4px;
 }
 
+#passwordError {
+    color: red;
+    display: none;
+}
+
+#telephoneError {
+    color: red;
+    display: none;
+}
+
 #successMessageButton,
 .register-form button {
     display: block;

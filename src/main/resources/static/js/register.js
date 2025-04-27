@@ -78,13 +78,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //Check email availability using API call.
     async function checkEmailAvailability(email) {
-        const response = await fetch('/register/check_email?email=${encodeURIComponent(email)}');
+        const response = await fetch(`/register/check_email?email=${encodeURIComponent(email)}`);
         return response.ok;
     }
 
     //Check telephone number availablity using API call.
     async function checkTelephoneAvailability(telephone) {
-        const response = await fetch('/register/check_telephone?telephone=${encodeURIComponent(telephone)}');
+        const response = await fetch(`/register/check_telephone?telephone=${encodeURIComponent(telephone)}`);
         return response.ok;
     }
 

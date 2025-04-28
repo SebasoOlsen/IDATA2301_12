@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>User Management</title>
+  <link rel="stylesheet" th:href="@{/css/global.css}">
+  <link rel="stylesheet" th:href="@{/css/admin-users.css}">
+</head>
+<body>
+  <div th:replace="fragments.html :: header"></div>
+
+  <h1>User Management</h1>
+
+  <input type="text" id="searchInput" placeholder="Search for users...">
+
+  <table id="userTable">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th>Role</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+
+  <div id="paginationControls"></div>
+
+
+  <!-- Edit User Modal -->
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+          <h2>Edit User</h2>
+          <form id="editUserForm">
+            <input type="hidden" id="editUserId">
+
+            <label>First Name</label>
+            <input type="text" id="editFirstName" required>
+
+            <label>Last Name</label>
+            <input type="text" id="editLastName" required>
+        
+            <label>Email</label>
+            <input type="email" id="editEmail" required>
+
+            <label>telephone</label>
+            <input type="text" id="editTelephone" required>
+        
+            <label>Role</label>
+            <select id="editRole">
+                <option value="User">User</option>
+                <option value="Admin">Admin</option>
+            </select>
+
+            <lable>Set new password</label>
+            <input type="text" id="setPassword">
+        
+            <button type="submit">Save</button>
+          </form>
+        </div>
+    </div>
+
+  
+  <script th:src="@{/js/admin-users.js}" defer></script>
+</body>
+</html>

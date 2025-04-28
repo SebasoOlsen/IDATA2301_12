@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{IDATA2301_12\src\main\resources\static\css\admin-dashboard.css}">
 </head>
 <body>
     <header>
@@ -16,9 +16,9 @@
     <main>
         <nav>
             <ul>
-                <li><a href="/dashboard">Dashboard</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/settings">Settings</a></li>
+                <li><a href="/AdminDashboard">Dashboard</a></li>
+                <li><a href="/AdminUsers">Users</a></li>
+                <li><a href="/AdminListings">Listings</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
         </nav>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Page</title>
+  <link th:href="@{/css/styles.css}" rel="stylesheet">
+  <link th:href="@{/css/global.css}" rel="stylesheet">
+  <link th:href="@{/css/my-page.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="fragments.html :: header"></div>
+
+<section id="favourites-list" class="favourites-list">
+<!-- Favourites template -->
+<template id="tmpl-favourites-card" th:fragment="favourite-list">
+  <div class="favourites-card">
+    <p>Hotel Name: <span class="fv-hotel"></span></p>
+    <p>Location Type: <span class="fv-lc-type"></span></p>
+    <button class="big-button">View Details</button>
+  </div>
+</template>
+</section>
+
+<div th:replace="fragments.html ::footer"></div>
+<script th:src="@{/js/favourites.js}"></script>

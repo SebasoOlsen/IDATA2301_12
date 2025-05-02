@@ -11,6 +11,8 @@ body {
     margin: 0;
     padding: 0;
     overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
 }
 
 @media only screen and (max-width:350px){
@@ -244,12 +246,41 @@ i.fa\-solid.fa\-earth\-americas {
 .footer {
     background-color: var(--primary-color);
     color: var(--white);
-    padding: 2rem 5%;
     margin-top: 3rem;
     text-align: center;
+    display:flex;
+    flex-direction:column;
 }
 .footer-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
 }
+html,body{
+    height:100%;
+    margin: 0;
+}
+/* 1) Make sure the root fills the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+/* 2) Turn body into a column flex container */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 3) Your main content area “grows” to push the footer down */
+.page-content {
+    flex: 1 0 auto;
+}
+
+/* 4) Footer never shrinks, so it always sits at the bottom */
+.footer {
+    flex-shrink: 0;
+    /* if you still want a little gap above it, you can keep margin-top */
+    /* margin-top: 3rem; */
+}
+

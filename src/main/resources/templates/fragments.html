@@ -22,11 +22,12 @@
       <a th:href="@{/IDATA2301_12/src/main/resources/static}" class="discover-btn">
         <i class="fa-solid fa-earth-americas"></i>
       </a>
-      <a th:href="@{/login}" class="sign-in">
+      <a id="userBtn" th:href="@{/login}" class="sign-in">
         <img th:src="@{/pictures/user-icon.png}" alt="User Icon" class="user-icon">
       </a>
     </div>
   </header>
+  <script th:src="@{/js/logged-in-check.js}"></script>
 </div>
 <div th:fragment="footer">
   <footer class="footer">
@@ -62,6 +63,15 @@
     </div>
 </section>
 </div>
-
+<div th:fragment="favourites-list">
+  <div class="favourites-card">
+    <h4>Favourite</h4>
+    <p>Hotel Name: [Hotel Name]</p>
+    <p>Location type: [Location Type]</p>
+    <p>City: [City]</p>
+    <p>Country: [Country]</p>
+    <button class="big-button" th:href="@{/product-page.html}">View Details</button>
+  </div>
+</div>
 </body>
 </html>

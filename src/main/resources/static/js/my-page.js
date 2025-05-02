@@ -1,24 +1,26 @@
-
-    // 1) grab the container and the template
-    const listEl   = document.getElementById('bookings-list');
-    const tmpl     = document.getElementById('tmpl-booking-card');
-
-    fetch('bookings')
-    .then(r => r.json())
-    .then(bookings => {
-    bookings.forEach(b => {
-        // import the <template> content
-        const clone = document.importNode(tmpl.content, true);
-
-        // populate fields
-        clone.querySelector('.bk-id')     .textContent = b.id;
-        clone.querySelector('.bk-hotel')  .textContent = b.hotelName;
-        clone.querySelector('.bk-start')  .textContent = b.startDate;
-        clone.querySelector('.bk-end')    .textContent = b.endDate;
-        clone.querySelector('.bk-status') .textContent = b.status;
-
-        // append to container
-        listEl.appendChild(clone);
-    });
-})
-    .catch(console.error);
+// File: /src/main/resources/static/js/my-page.js
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Starting fetch for /bookings/user");
+    fetch("/bookings/user")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not OK: " + response.status);
+            }
+            return response.json();
+        })
+        .then(bookings => {
+            console.log("Bookings received:", bookings);
+            const tmpl = document.getElementById("tmpl-booking-card");
+            const listEl = document.getElementById("bookings-list");
+            bookings.forEach(b => {
+                const clone = document.importNode(tmpl.content, true);
+                clone.querySelector(".bk-id").textContent    = b.id;
+                clone.querySelector(".bk-hotel").textContent = b.listing.hotel.name;
+                clone.querySelector(".bk-start").textContent = b.startDate;
+                clone.querySelector(".bk-end").textContent   = b.endDate;
+                clone.querySelector(".bk-status").textContent= b.status;
+                listEl.appendChild(clone);
+            });
+        })
+        .catch(error => console.error("Fetch error:", error));
+});

@@ -9,6 +9,7 @@
 </head>
 <body>
 <div th:replace="fragments.html :: header"></div>
+<div class="page-content">
 <main class="myPage-main">
     <h3>Your Bookings</h3>
     <!-- one container for ALL the cards -->
@@ -24,11 +25,15 @@
             </div>
         </template>
     </section>
-</main>
 <section class="quick-links">
-    <button class="big-button">Favorites</button>
-    <a class="big-button" th:href="@{/contactInformation}">Contact Information</a></section>
+    <a class="big-button" th:href="@{/favourites}">Favourites</a>
+    <a class="big-button" th:href="@{/contactInformation}">Contact Information</a>
+</section>
+</main>
+</div>
 <div th:replace="fragments.html :: footer"></div>
 <script th:src="@{/js/my-page.js}"></script>
+</body>
+</html>
 
 

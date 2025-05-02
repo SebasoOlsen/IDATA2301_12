@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/global.css}">
     <link rel="stylesheet" th:href="@{/css/admin-dashboard.css}">
 </head>
 <body>
+    <div th:replace="~{fragments.html :: header}"></div>
+    
     <div class="dashboard-container">
         <header>
             <h1>Admin Dashboard</h1>
@@ -18,9 +21,9 @@
 
         <nav>
             <ul class="nav-buttons">
-                <li><a href="/admin/users">Users</a></li>
-                <li><a href="/admin/listings">Listings</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li><a th:href="@{/admin/users}">Users</a></li>
+                <li><a th:href="@{/admin/listings}">Listings</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
         </nav>
 

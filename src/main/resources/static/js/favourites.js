@@ -18,11 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 const locTypeEl = clone.querySelector(".fv-lc-type");
                 const cityEl = clone.querySelector(".fv-lc-city");
                 const countryEl = clone.querySelector(".fv-lc-country");
+                const hotelImageEl = clone.querySelector(".card-image img");
 
                 if (hotelNameEl) hotelNameEl.textContent = f.listing.hotel.name;
                 if (locTypeEl) locTypeEl.textContent = f.listing.hotel.roomTypes;
                 if (cityEl) cityEl.textContent = f.listing.hotel.city;
                 if (countryEl) countryEl.textContent = f.listing.hotel.country;
+                if (hotelImageEl && f.listing.hotel.id && f.listing.hotel.name) {
+                    const formattedName = f.listing.hotel.name.replace(/\s+/g, '-');
+                    const imageSrc = `/pictures/${f.listing.hotel.id}-${formattedName}-hotel.jpg`;
+                    console.log("Querying image source:", imageSrc);
+                    hotelImageEl.src = imageSrc;
+                }
                 listEl.appendChild(clone);
             });
         })

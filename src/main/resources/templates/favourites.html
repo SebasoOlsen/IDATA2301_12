@@ -5,21 +5,31 @@
   <title>My Page</title>
   <link th:href="@{/css/styles.css}" rel="stylesheet">
   <link th:href="@{/css/global.css}" rel="stylesheet">
-  <link th:href="@{/css/my-page.css}" rel="stylesheet">
+  <link th:href="@{/css/favourites.css}" rel="stylesheet">
 </head>
 <body>
 <div th:replace="fragments.html :: header"></div>
-
+<div class ="page-content">
+  <main class ="favourites-main">
 <section id="favourites-list" class="favourites-list">
-<!-- Favourites template -->
-<template id="tmpl-favourites-card" th:fragment="favourite-list">
+<template id="tmpl-favourites-card">
   <div class="favourites-card">
-    <p>Hotel Name: <span class="fv-hotel"></span></p>
+    <div class="card-info">
+      <div class="card-text">
+    <p>Hotel Name: <span class="fv-hotel-name"></span></p>
     <p>Location Type: <span class="fv-lc-type"></span></p>
+    <p>City: <span class="fv-lc-city"></span></p>
+    <p>Country: <span class="fv-lc-country"></span></p>
+      </div>
     <button class="big-button">View Details</button>
+    </div>
+    <div class="card-image">
+      <img src="/pictures/andante_main.jpg" alt="Hotel Picture">
+  </div>
   </div>
 </template>
 </section>
-
+  </main>
+</div>
 <div th:replace="fragments.html ::footer"></div>
 <script th:src="@{/js/favourites.js}"></script>

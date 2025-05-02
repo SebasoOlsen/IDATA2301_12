@@ -65,8 +65,11 @@
 </div>
 <div th:fragment="favourites-list">
   <div class="favourites-card">
-    <p>Hotel Name: <span class="fv-hotel">[[${hotelName}]]</span></p>
-    <p>Check-in: <span class="fv-date">[[${date}]]</span></p>
+    <h4>Favourite</h4>
+    <p>Hotel Name: [Hotel Name]</p>
+    <p>Location type: [Location Type]</p>
+    <p>City: [City]</p>
+    <p>Country: [Country]</p>
     <button class="big-button" th:href="@{/product-page.html}">View Details</button>
   </div>
 </div>

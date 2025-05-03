@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function displayFieldMessage(field, message, color) {
-        const fieldElement = document.getElementById('${field}Message');
+        const fieldElement = document.getElementById(`${field}Message`);
         if (fieldElement) {
             fieldElement.innerText = message;
             fieldElement.style.display = 'block';
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function clearFieldMessages() {
         const fields = ['email', 'password'];
         fields.forEach(field => {
-            const fieldElement = document.getElementById('${field}Message');
+            const fieldElement = document.getElementById(`${field}Message`);
             if (fieldElement) {
                 fieldElement.innerText = '';
                 fieldElement.style.display = 'none';
@@ -110,17 +110,26 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function validateForm() {
-        const firstName = document.getElementById('firstname'.value);
-        const lastName = document.getElementById('lastname'.value);
-        const email = document.getElementById('email'.value);
-        const password = document.getElementById('password'.value);
-        const telephone = document.getElementById('telephone'.value);
-        const areaCode = document.getElementById('areacode'.value);
+        console.log('Validating form...')
 
-        const isFormValid = firstName && lastName && telephone && password &&
+        const firstName = document.getElementById('firstname').value;
+        const lastName = document.getElementById('lastname').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const telephone = document.getElementById('telephone').value;
+        const areaCode = document.getElementById('areacode').value;
+
+        const isFormValid =
+            firstName !== '' &&
+            lastName !== '' &&
+            email !== '' &&
+            password !== '' &&
+            telephone !== '' &&
+            areaCode !== '' &&
             !document.getElementById('emailMessage').innerText.includes('already') &&
             !document.getElementById('telephoneMessage').innerText.includes('already');
 
+        console.log('Form valid result: ', isFormValid)
         submitButton.disabled = !isFormValid;
     }
 

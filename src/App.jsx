@@ -1,19 +1,21 @@
 // /src/App.jsx
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-// import ProductPage from './pages/ProductPage'; // for later
-// import Header from './components/Header';      // for later
-// import Footer from './components/Footer';      // for later
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/common/Layout";
+import HomePage from "./pages/HomePage";
+import AdminDashboard from "./pages/admin/Dashboard";
+import AdminUsers from "./pages/admin/Users";
 
 function App() {
   return (
     <BrowserRouter>
-      {/* Optional layout wrapper if you build a header/footer later */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        {/* <Route path="/product" element={<ProductPage />} /> */}
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/users" element={<AdminUsers />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   );
 }

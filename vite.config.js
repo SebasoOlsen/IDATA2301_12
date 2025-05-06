@@ -15,7 +15,12 @@ export default defineConfig({
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
-    }
+      },
+      '/users': {
+        target: "https://localhost:8443",
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
   }
   }
 });

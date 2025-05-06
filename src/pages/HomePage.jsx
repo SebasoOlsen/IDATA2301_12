@@ -9,7 +9,7 @@ export default function HomePage() {
       name: "Andante Hotel",
       location: "City Center",
       price: "From $150/night",
-      image: "/pictures/front-andante-hotel.jpg",
+      image: "/pictures/adante_main.jpg",
       providers: [
         { name: "Booking.com", price: "1500 NOK" },
         { name: "Agoda", price: "2000 NOK" },
@@ -21,7 +21,7 @@ export default function HomePage() {
 
   return (
     <div className="wrapper">
-      <div classname="page-content">
+      <div className="page-content">
         <div className="search-container">
           <form className="search-form" action="/search" method="get">
             <input

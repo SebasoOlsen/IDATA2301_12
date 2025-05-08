@@ -6,12 +6,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/pictures': {
+      '/images': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false  // allow self-signed certs (dev-only)
       },
-      '/api': {
+      '/hotels': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)

@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (countryEl) countryEl.textContent = f.listing.hotel.country;
                 if (hotelImageEl && f.listing.hotel.id && f.listing.hotel.name) {
                     const formattedName = f.listing.hotel.name.replace(/\s+/g, '-');
-                    const imageSrc = `/pictures/${f.listing.hotel.id}-${formattedName}-hotel.jpg`;
+                    const imageSrc = `/images/${f.listing.hotel.id}-${formattedName}-hotel.jpg`;
                     console.log("Querying image source:", imageSrc);
                     hotelImageEl.src = imageSrc;
                 }

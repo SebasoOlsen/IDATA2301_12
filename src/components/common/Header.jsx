@@ -9,7 +9,7 @@ export default function Header() {
       <div className="header-left">
         <Link to="/">
           <img
-            src="/pictures/StayFinder-logo.jpg"
+            src="/images/StayFinder-logo.jpg"
             alt="Stay Finder Logo"
             className="logo-img"
           />
@@ -24,7 +24,7 @@ export default function Header() {
         </Link>
         <Link id="userBtn" to="/login" className="sign-in">
           <img
-            src="/pictures/user-icon.png"
+            src="/images/user-icon.png"
             alt="User Icon"
             className="user-icon"
           />

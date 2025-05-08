@@ -5,6 +5,7 @@ import Layout from "./components/common/Layout";
 import HomePage from "./pages/HomePage";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminUsers from "./pages/admin/Users";
+import AddNewHotelForm from "./pages/AddNewHotelForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<AdminUsers />} />
+          <Route path="/AddNewHotelForm" element={<AddNewHotelForm />} />
         </Routes>
       </Layout>
     </BrowserRouter>

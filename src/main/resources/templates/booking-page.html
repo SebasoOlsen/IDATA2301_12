@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="/css/booking.css">
 </head>
 <body>
+<div class="page-content">
 <div class="wrapper">
     <div th:replace="fragments.html :: header"></div>
-
     <main>
         <h1>Booking Details</h1>
         <form class="booking-form" th:action="@{/confirmation}" method="post">
@@ -37,7 +37,7 @@
             <button type="submit">Confirm Booking</button>
         </form>
     </main>
-
+    </div>
     <div th:replace="fragments.html :: footer"></div>
 </div>
 </body>

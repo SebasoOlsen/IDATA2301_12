@@ -57,3 +57,6 @@
         grid-column: span 1;
     }
 }
+.wrapper{
+    min-height: 100vh;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stay Finder - Search Results</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" th:href="@{/css/search-results.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div th:replace="fragments.html :: header"></div>
+<div class="search-container" style="margin-top: 1rem; max-height: unset;">
+    <form class="search-form" th:action="@{/search}" method="get">
+        <input type="text" name="destination" class="search-input" placeholder="Where to?">
+        <input type="date" name="checkin" class="search-input">
+        <input type="date" name="checkout" class="search-input">
+        <select name="rooms" class="search-input">
+            <option>2 travelers, 1 room</option>
+            <option>3 travelers, 1 room</option>
+            <option>2 travelers, 2 rooms</option>
+        </select>
+        <button type="submit" class="search-button">Search Hotels</button>
+    </form>
+</div>
+
+<main>
+    <div class="results-info">
+        <h2>Search Results</h2>
+        <p>Showing available hotels from your project file.</p>
+    </div>
+
+    <div class="results-list">
+        <div class="hotel-card">
+            <div class="hotel-image" th:style="'background-image: url(' + @{/pictures/hotel1.jpg} + ')'"></div>
+            <div class="hotel-content">
+                <h3>Andante Hotel</h3>
+                <p>City Center • Rooftop Pool • 24-hour Gym</p>
+                <div class="rating">⭐⭐⭐⭐ (8.5/10)</div>
+                <p class="price">From $150/night (Booking.com) • $200/night (Agoda)</p>
+                <a th:href="@{/product}" class="view-deals-button">View Deal</a>
+            </div>
+        </div>
+
+        <!-- More hotel cards (Thymeleaf loops can be added later) -->
+    </div>
+</main>
+    <div th:replace="fragments.html :: footer"></div>
+</body>
+</html>

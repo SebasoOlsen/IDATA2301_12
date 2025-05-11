@@ -1,0 +1,64 @@
+/* =========================
+   HEADER (Common)
+========================= */
+.header {
+    background: linear-gradient(90deg, var(--teal), var(--navy));
+    color: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 350px;
+    min-height: 5rem;
+}
+.header-left,
+.header-center,
+.header-right {
+    flex: 1;
+}
+.header-left {
+    text-align: left;
+}
+.header-center {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    gap: 1rem;
+}
+.header-right a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+}
+.header-right a:hover {
+    opacity: 0.8;
+}
+img, .logo-img {
+    max-width: 100%;
+    height:auto;
+}
+.logo-img {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    object-fit: cover;
+}
+i.fa\-solid.fa\-earth\-americas {
+    min-height: 3rem;
+    min-width: 3rem;
+    align-content: center;
+}
+.user-icon {
+    height: 1rem;
+    width: 1rem;
+    flex: 0 0 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+}

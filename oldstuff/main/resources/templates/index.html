@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stay Finder - Home</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="fragments.html :: header"></div>
+    <div class="search-container">
+        <form class="search-form" th:action="@{/search}" method="get">
+            <input type="text" name="destination" class="search-input" placeholder="Destination">
+            <input type="date" name="checkin" class="search-input">
+            <input type="date" name="checkout" class="search-input">
+            <select name="rooms" class="search-input">
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>3 Adults</option>
+            </select>
+            <button type="submit" class="search-button">Search Hotels</button>
+        </form>
+    </div>
+
+    <div class="featured-deals">
+        <!-- Repeat for each hotel -->
+        <div class="hotel-card">
+            <div class="hotel-image" th:style="'background-image: url(' + @{/pictures/front-andante-hotel.jpg} + ')'"></div>
+            <div class="hotel-info">
+                <div class="hotel-name">Andante Hotel</div>
+                <div class="hotel-location">City Center</div>
+                <div class="hotel-price">From $150/night</div>
+                <div class="provider-prices">
+                    <span>Booking.com<br>1500 NOK</span>
+                    <span>Agoda<br>2000 NOK</span>
+                </div>
+                <a th:href="@{/product}" class="view-deals-button">View Deal</a>
+            </div>
+        </div>
+        <!-- Repeat hotel cards... -->
+    </div>
+
+    <div th:replace="fragments.html :: footer"></div>
+</div>
+
+</body>
+</html>

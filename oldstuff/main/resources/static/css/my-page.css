@@ -1,0 +1,113 @@
+.myPage-myInformation {
+    max-width: 800px;                /* Prevents stretching too wide */
+    margin: 2rem auto;               /* Centers horizontally */
+    padding: 1rem;                   /* Inner spacing */
+    background-color: #fff;          /* White card-like background */
+    border-radius: 10px;             /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    text-align: center;
+    /* Centers text inside */
+}
+
+/* Quick Links (the big buttons) */
+.quick-links {
+    display: flex;
+    justify-content: center;         /* Centers the buttons horizontally */
+    gap: 2rem;                       /* Spacing between buttons */
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+/* Style for the big buttons */
+.big-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #0071c2;       /* Your site’s blue shade */
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.big-button:hover {
+    background-color: #005a9c;       /* Slightly darker for hover */
+}
+
+/* User Details (the form) */
+.user-details {
+    margin-top: 2rem;
+}
+
+/* Form Inputs */
+.user-details form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.user-details input {
+    width: 80%;                      /* Input scales with container width */
+    max-width: 400px;                /* But doesn't get too wide */
+    padding: 0.8rem;
+    margin: 0.5rem auto;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Form Submit Button */
+.user-details button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #003580;       /* Another brand color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-details button:hover {
+    background-color: #002a63;
+}
+.bookings-container {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width:290px;
+    width:100%;
+    max-width:360px;
+}
+.myPage-main{
+    padding-left: 2rem;
+    padding-right:2rem;
+}
+.bookings-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.booking-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width:290px;
+    width:100%;
+    max-width:360px;
+}

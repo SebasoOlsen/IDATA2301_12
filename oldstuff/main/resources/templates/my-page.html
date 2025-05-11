@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Page</title>
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+    <link th:href="@{/css/global.css}" rel="stylesheet">
+    <link th:href="@{/css/my-page.css}" rel="stylesheet">
+</head>
+<body>
+<div th:replace="fragments.html :: header"></div>
+<div class="page-content">
+<main class="myPage-main">
+    <h3>Your Bookings</h3>
+    <!-- one container for ALL the cards -->
+    <section id="bookings-list" class="bookings-list">
+        <template id="tmpl-booking-card" th:fragment="booking-list">
+            <div class="booking-card">
+                <h4>Booking #<span class="bk-id">1</span></h4>
+                <p>Hotel Name: <span class="bk-hotel">[Hotel Name]</span></p>
+                <p>Check-in: <span class="bk-start">[Date]</span></p>
+                <p>Check-out: <span class="bk-end">[Date]</span></p>
+                <p>Status: <span class="bk-status">[Payment]</span></p>
+                <button class="big-button">View Details</button>
+            </div>
+        </template>
+    </section>
+<section class="quick-links">
+    <a class="big-button" th:href="@{/favourites}">Favourites</a>
+    <a class="big-button" th:href="@{/contactInformation}">Contact Information</a>
+</section>
+</main>
+</div>
+<div th:replace="fragments.html :: footer"></div>
+<script th:src="@{/js/my-page.js}"></script>
+</body>
+</html>
+
+

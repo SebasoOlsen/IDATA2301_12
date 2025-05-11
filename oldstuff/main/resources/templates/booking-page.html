@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stay Finder - Booking</title>
+    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/booking.css">
+</head>
+<body>
+<div class="wrapper">
+    <div th:replace="fragments.html :: header"></div>
+
+    <main>
+        <h1>Booking Details</h1>
+        <form class="booking-form" th:action="@{/confirmation}" method="post">
+            <div class="form-field">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-field">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-field">
+                <label for="checkIn">Check-In Date:</label>
+                <input type="date" id="checkIn" name="checkIn" required>
+            </div>
+            <div class="form-field">
+                <label for="checkOut">Check-Out Date:</label>
+                <input type="date" id="checkOut" name="checkOut" required>
+            </div>
+            <div class="form-field">
+                <label for="guests">Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" required>
+            </div>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </main>
+
+    <div th:replace="fragments.html :: footer"></div>
+</div>
+</body>
+</html>

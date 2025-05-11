@@ -1,0 +1,128 @@
+/* =========================
+   INDEX PAGE (Home)
+========================= */
+.search-container {
+    background: url('pictures/search-bg.jpg');
+    background-size: cover;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 90%;
+    min-width:300px;
+    max-width: 1000px;
+    max-height: 200px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.search-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.search-input {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.9);
+}
+.search-button {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Featured Deals on Home */
+.featured-deals {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex: 0;
+}
+/* Hotel Card Styling */
+.hotel-card {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hotel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.hotel-image {
+    height: 200px;
+    background: #ddd;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.hotel-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hotel-content h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.hotel-content p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.rating {
+    color: #f5a623;
+    font-size: 1rem;
+}
+
+.price {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.view-deals-button {
+    background-color: var(--secondary-color);
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.view-deals-button:hover {
+    background-color: #0056b3;
+}
+.provider-prices {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}

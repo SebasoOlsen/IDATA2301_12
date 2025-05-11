@@ -1,0 +1,216 @@
+/* Container for page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 2rem;
+}
+
+/* Page heading */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+/* Search bar */
+#searchInput {
+    display: block;
+    margin: 0 auto 1rem auto;
+    padding: 0.5rem 1rem;
+    width: 300px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Table styling */
+table {
+    width: 90%;
+    margin: 0 auto 2rem auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+}
+
+thead {
+    background-color: #0071c2;
+    color: #fff;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button styles */
+button {
+    background-color: #0071c2;
+    color: #fff;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 0.5rem;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Pagination controls */
+#paginationControls {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+#paginationControls button {
+    margin: 0 0.3rem;
+    padding: 0.4rem 0.7rem;
+    border: 1px solid #0071c2;
+    background-color: white;
+    color: #0071c2;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#paginationControls button:hover {
+    background-color: #0071c2;
+    color: white;
+}
+
+#paginationControls button:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
+
+#paginationControls .active-page {
+    background-color: #0071c2;
+    color: white;
+    pointer-events: none;
+}
+
+/* Modal container */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal content box */
+.modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-family: 'Segoe UI', sans-serif;
+}
+  
+/* Modal heading */
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+  
+/* Form label & input styles */
+.modal-content label {
+    display: block;
+    margin: 0.5rem 0 0.25rem;
+    font-weight: bold;
+}
+  
+.modal-content input[type="text"],
+.modal-content input[type="email"] {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+  
+/* Save button */
+.modal-content button[type="submit"] {
+    background-color: #0071c2;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+  
+.modal-content button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+  
+/* Close icon */
+.modal-close {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+}
+  
+.modal-close:hover {
+    color: #333;
+}
+
+/* Styling for select dropdown inside modal */
+.modal-content select {
+    width: 100%;
+    padding: 0.6rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    background-color: #fff;
+    appearance: none; /* Removes default browser styling */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%230071c2" d="M2 0L0 2h4L2 0zM2 5l2-2H0l2 2z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 0.7rem center;
+    background-size: 0.65rem auto;
+}
+
+/* Adjust hover and focus styles */
+.modal-content select:focus {
+    border-color: #0071c2;
+    outline: none;
+}
+
+.modal-content select:hover {
+    border-color: #0056b3;
+}
+
+  
+
+
+  
+
+
+

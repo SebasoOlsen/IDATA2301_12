@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stay Finder - Register</title>
+  <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" th:href="@{/css/register-page.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<div th:replace="fragments.html :: header"></div>
+
+<div class="container">
+  <h2>Create new account</h2>
+
+  <div id="errorMessage"></div>
+
+  <form id="register-form" class="register-form">
+    <label for="firstname">First name</label>
+    <input type="firstname" id="firstname" name="firstname" placeholder="Enter your first name" required>
+    <label for="lastname">Last name</label>
+    <input type="lastname" id="lastname" name="lastname" placeholder="Enter your last name" required>
+    <label for="email">Email address</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    <div id="emailMessage" class="availabilityMessage"></div>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    <label for="telephone">Phone number</label>
+    <input type="telephone" id="telephone" name="telephone" placeholder="Enter your phone number" required>
+    <div id="telephoneMessage" class="availabilityMessage"></div>
+    <label for="areacode">Area Code</label>
+    <input type="areacode" id="areacode" name="areacode" placeholder="Example: +47" required>
+    <button id="submitButton" type="submit">Submit</button>
+  </form>
+
+  <div id="successMessage">
+    <p>User was created successfully!</p>
+    <button id = "successMessageButton" onclick="window.location='http://localhost:8080/login'">Back to login</button>
+  </div>
+
+  <div class="extra-info">
+    <p>By logging in, you agree to our <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Statement</a>.</p>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p>&copy; 2023 Stay Finder - All rights reserved.</p>
+</div>
+
+<div th:replace="fragments.html :: footer"></div>
+<script th:src="@{/js/register.js}" defer></script>
+</body>
+</html>

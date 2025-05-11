@@ -1,0 +1,197 @@
+/* =========================
+   RESET & GLOBAL
+========================= */
+
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* ensures full screen */
+  }
+  
+  .main-content {
+    flex: 1; /* expands to push footer down */
+  }
+
+/* Responsive adjustments for mobile devices */
+
+/* Mobile-First Base Styles (default) */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    overflow-x:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+
+@media only screen and (max-width:350px){
+    .footer{
+        min-width:350px;
+    }
+    .container {
+        min-width:22rem;
+        align-items: center;
+    }
+}
+/* Small devices (phones, up to 480px) */
+@media only screen and (max-width: 480px) {
+    .reviews-section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items:center;
+    }
+
+    .header {
+        flex-direction: row;
+        padding: 0.5rem;
+        min-height:100rem;
+    }
+    .header-right {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+        padding-left:5rem;
+    }
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+    .search-input, .search-button {
+        width: 100%;
+    }
+    i.fa\-solid.fa\-earth\-americas {
+        min-height: 3rem;
+        min-width: 3rem;
+    }
+    .header-title {
+        font-size: 1rem;
+        text-align: center;
+    }
+    .search-container {
+        flex :1;
+        min-height: 350px;
+        display: grid;
+    }
+    .logo-img
+    {
+        height: 1rem;
+        width: 1rem;
+    }
+    .header-left,
+    .header-center {
+        display: flex;
+        align-items: center;
+        flex: none;
+    }
+    .featured-deals {
+        padding: 1rem;
+        gap: 1rem;
+        align-items: center;
+    }
+    .header-title{
+        display:none;
+    }
+}
+
+/* Medium devices (tablets, 481px to 768px) */
+@media only screen and (min-width: 481px) and (max-width: 532px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1rem;
+    }
+    .search-form {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    i.fa\-solid.fa\-earth\-americas {
+        height:3rem;
+        width:3rem;
+    }
+    .search-container {
+        flex :1;
+        min-height: 350px;
+        display: grid;
+    }
+    .header-title{
+        display:none;
+    }
+}
+@media only screen and (min-width: 533px) and (max-width: 768px) {
+    .search-container {
+        flex:1;
+        min-height: 150px;
+        display:grid;
+    }
+    .header-title{
+        display:none;
+    }
+}
+
+/* Large devices (desktops, 769px and up) */
+@media only screen and (min-width: 769px) {
+    .search-form {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+@media only screen and (min-width: 3840px) {
+    /* Increase padding and margins for spacious layouts */
+    .header {
+        padding: 2rem 10%;
+    }
+    .header-title {
+        font-size: 3rem;
+    }
+
+    /* Expand the search container */
+    .search-container {
+        max-width: 1400px;
+        padding: 3rem;
+    }
+
+    /* Adjust grid layouts to utilize extra space */
+    .featured-deals {
+        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+
+    /* Enhance typography for readability on large screens */
+    body {
+        font-size: 1.2rem;
+    }
+
+    /* Optionally, scale up images and cards */
+    .hotel-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+}
+@media (min-height: 1000px) {
+    .footer {
+        margin-top: 1rem;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --primary-color: #003580;
+    --secondary-color: #0071c2;
+    --background-color: #f5f5f5;
+    --teal: #1c4966;
+    --navy: #003580;
+    --white: #fff;
+    --text-color: #333;
+}
+

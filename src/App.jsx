@@ -18,6 +18,8 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/users" element={<AdminUsers />} />
           <Route path="/AddNewHotelForm" element={<AddNewHotelForm />} />
+          <Route path="/ProductPage" element={<ProductPage />} />
+          <Route path="/PaymentPage" element={<PaymentPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "../assets/css/common/global.css";
-import "../assets/css/common/registerpage.css";
+import "../assets/css/registerpage.css";
 import {checkEmailAvailability, checkTelephoneAvailability, submitForm} from "../api/userRegistration.js";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";

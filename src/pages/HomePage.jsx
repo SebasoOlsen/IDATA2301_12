@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/common/global.css";
 import "../assets/css/homepage.css";
+import "../components/HotelCard";
+import { getRandomHotels } from "../service/api/hotelAPI";
+import HotelCard from "../components/HotelCard";
 
 export default function HomePage() {
-  // Mocked hotel data for now
-  const hotels = [
-    {
-      name: "Andante Hotel",
-      location: "City Center",
-      price: "From $150/night",
-      image: "/pictures/adante_main.jpg",
-      providers: [
-        { name: "Booking.com", price: "1500 NOK" },
-        { name: "Agoda", price: "2000 NOK" },
-      ],
-      link: "/product",
-    },
-    // Add more hotel objects here if needed
-  ];
+  const [hotels, setHotels] = useState([]);
+
+  useEffect(() => {
+    const fetchHotels = async () => {
+      try {
+        const data = await getRandomHotels(3);
+        setHotels(data);
+      } catch (error) {
+        console.error("Error fetching random hotels:", error);
+      }
+    };
+    fetchHotels();
+  }, []);
 
   return (
     <div className="wrapper">
@@ -42,34 +43,9 @@ export default function HomePage() {
             </button>
           </form>
         </div>
-
         <div className="featured-deals">
-          {hotels.map((hotel, index) => (
-            <div className="hotel-card" key={index}>
-              <div
-                className="hotel-image"
-                style={{
-                  backgroundImage: `url('${hotel.image}')`,
-                }}
-              ></div>
-              <div className="hotel-info">
-                <div className="hotel-name">{hotel.name}</div>
-                <div className="hotel-location">{hotel.location}</div>
-                <div className="hotel-price">{hotel.price}</div>
-                <div className="provider-prices">
-                  {hotel.providers.map((provider, idx) => (
-                    <span key={idx}>
-                      {provider.name}
-                      <br />
-                      {provider.price}
-                    </span>
-                  ))}
-                </div>
-                <a href={hotel.link} className="view-deals-button">
-                  View Deal
-                </a>
-              </div>
-            </div>
+          {hotels.map((hotel) => (
+            <HotelCard key={hotel.id} hotel={hotel} />
           ))}
         </div>
       </div>

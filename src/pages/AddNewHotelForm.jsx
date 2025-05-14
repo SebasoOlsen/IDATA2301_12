@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { createHotel } from "../service/api/hotelAPI";
+import { uploadImage } from "../service/api/imageAPI";
 import "../assets/css/AddNewHotelForm.css";
 
 const AddNewHotelForm = () => {
@@ -8,11 +9,12 @@ const AddNewHotelForm = () => {
     locationType: "",
     country: "",
     city: "",
-    roomTypes: "",
-    extraFeatures: "",
+    roomType: "",
+    extraFeature: "",
   });
 
   const [images, setImages] = useState([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,40 +27,34 @@ const AddNewHotelForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      // Step 1: Save hotel data
-      const hotelRes = await axios.post(
-        "https://localhost:8443/hotels",
-        formData
+      console.log("Submitting Hotel:", formData);
+
+      const { id: hotelId } = await createHotel(formData);
+
+      await Promise.all(
+        images.map((img) => uploadImage(img, "HOTEL", hotelId))
       );
-      const hotelId = hotelRes.data.id;
-
-      // Step 2: Upload images
-      for (let file of images) {
-        const imageForm = new FormData();
-        imageForm.append("file", file);
-        imageForm.append("type", "HOTEL");
-        imageForm.append("typeId", hotelId);
-
-        await axios.post("https://localhost:8443/images/upload", imageForm, {
-          headers: { "Content-Type": "multipart/form-data" },
-        });
-      }
 
       alert("Hotel and images uploaded successfully!");
+
+      // Reset form
       setFormData({
         name: "",
         locationType: "",
         country: "",
         city: "",
-        roomTypes: "",
-        extraFeatures: "",
+        roomType: "",
+        extraFeature: "",
       });
       setImages([]);
     } catch (err) {
       console.error(err);
       alert("Error saving hotel or uploading images.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -66,53 +62,24 @@ const AddNewHotelForm = () => {
     <div className="hotel-form-container">
       <h2 className="hotel-form-title">Add New Hotel</h2>
       <form onSubmit={handleSubmit} className="hotel-form">
-        <label className="hotel-form-label">Name</label>
-        <input
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className="hotel-form-input"
-        />
-
-        <label className="hotel-form-label">Location Type</label>
-        <input
-          name="locationType"
-          value={formData.locationType}
-          onChange={handleChange}
-          className="hotel-form-input"
-        />
-
-        <label className="hotel-form-label">Country</label>
-        <input
-          name="country"
-          value={formData.country}
-          onChange={handleChange}
-          className="hotel-form-input"
-        />
-
-        <label className="hotel-form-label">City</label>
-        <input
-          name="city"
-          value={formData.city}
-          onChange={handleChange}
-          className="hotel-form-input"
-        />
-
-        <label className="hotel-form-label">Room Types</label>
-        <input
-          name="roomTypes"
-          value={formData.roomTypes}
-          onChange={handleChange}
-          className="hotel-form-input"
-        />
-
-        <label className="hotel-form-label">Extra Features</label>
-        <input
-          name="extraFeatures"
-          value={formData.extraFeatures}
-          onChange={handleChange}
-          className="hotel-form-input"
-        />
+        {[
+          { label: "Name", name: "name" },
+          { label: "Location Type", name: "locationType" },
+          { label: "Country", name: "country" },
+          { label: "City", name: "city" },
+          { label: "Room Type", name: "roomType" },
+          { label: "Extra Feature", name: "extraFeature" },
+        ].map(({ label, name }) => (
+          <div key={name}>
+            <label className="hotel-form-label">{label}</label>
+            <input
+              name={name}
+              value={formData[name]}
+              onChange={handleChange}
+              className="hotel-form-input"
+            />
+          </div>
+        ))}
 
         <label className="hotel-form-label">Hotel Images</label>
         <input
@@ -123,8 +90,12 @@ const AddNewHotelForm = () => {
           className="hotel-form-input"
         />
 
-        <button type="submit" className="hotel-form-button">
-          Submit
+        <button
+          type="submit"
+          className="hotel-form-button"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Submitting..." : "Submit"}
         </button>
       </form>
     </div>

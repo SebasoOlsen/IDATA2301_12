@@ -14,7 +14,8 @@
     "idata2301-12": "file:",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-router-dom": "^7.5.3"
+    "react-router-dom": "^7.5.3",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

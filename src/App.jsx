@@ -9,6 +9,7 @@ import AddNewHotelForm from "./pages/AddNewHotelForm";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import ProductPage from "./pages/ProductPage";
 import PaymentPage from "./pages/PaymentPage";
+import HotelSearchResultsPage from "./pages/HotelSearchResultsPage.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/RegisterPage" element={<RegisterPage />} />
           <Route path="/ProductPage" element={<ProductPage />} />
           <Route path="/PaymentPage" element={<PaymentPage />} />
+          <Route path="/search" element={<HotelSearchResultsPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

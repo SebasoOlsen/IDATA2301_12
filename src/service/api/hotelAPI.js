@@ -37,3 +37,26 @@ export const getRandomHotels = async (count = 3) => {
   }
   return await response.json();
 };
+
+export const searchHotels = async (query) => {
+  console.log("Searching for: " + query);
+  const params = new URLSearchParams({
+    destination: query.destination,
+    checkin: query.checkin,
+    checkout: query.checkout,
+    rooms: query.rooms
+  });
+  const response = await fetch(`${BASE_URL}/search?${params}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch hotels");
+  }
+  return await response.json();
+}
+
+
+
+
+
+
+
+

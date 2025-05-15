@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage.jsx";
 import ProductPage from "./pages/ProductPage";
 import PaymentPage from "./pages/PaymentPage";
 import HotelSearchResultsPage from "./pages/HotelSearchResultsPage.jsx";
+import SwaggerUIPage from "./pages/SwaggerUIPage.jsx";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path="/ProductPage" element={<ProductPage />} />
           <Route path="/PaymentPage" element={<PaymentPage />} />
           <Route path="/search" element={<HotelSearchResultsPage />} />
+          <Route path="/api-docs" element={<SwaggerUIPage />} />
+          <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

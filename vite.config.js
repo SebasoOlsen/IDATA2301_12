@@ -21,6 +21,16 @@ export default defineConfig({
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
+      '/api-docs': {
+        target: "https://localhost:8443",
+        changeOrigin: true,
+        secure: false
+      },
+      '/v3/api-docs': {
+        target: "https://localhost:8443",
+        changeOrigin: true,
+        secure: false
+      }
   }
   }
 });

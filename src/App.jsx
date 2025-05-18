@@ -14,6 +14,7 @@ import SwaggerUIPage from "./pages/SwaggerUIPage.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import FavouritesPage from "./pages/FavouritesPage.jsx";
+import BookingPage from "./pages/BookingPage";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/api-docs" element={<SwaggerUIPage />} />
           <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
           <Route path="/favourites" element={<FavouritesPage/>} />
+          <Route path="/booking" element={<BookingPage />} />
           {/*<Route path="/contactInformation" element={<ContactInformation/>} />*/}
           <Route path="/my-page" element={<MyPage />} />
           <Route path="/login" element={<LoginPage />} />

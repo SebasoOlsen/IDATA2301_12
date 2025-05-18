@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import "../assets/css/common/global.css";
 
+/**
+ * PaymentPage component simulates a credit card payment form.
+ * Validates simple input formats for name, card number, expiry date, and CVC.
+ * On success, it shows a confirmation message.
+ *
+ * @component
+ * @returns {JSX.Element} Payment form or success message.
+ */
 export default function PaymentPage() {
     const [formData, setFormData] = useState({
         name: "",
@@ -32,67 +40,79 @@ export default function PaymentPage() {
             return;
         }
 
-        // Simulate success (nothing is saved)
+        // Simulate success
         setSubmitted(true);
     };
 
     if (submitted) {
         return (
-            <div className="container">
-                <h2>Payment Complete</h2>
-                <p>Thank you for your booking!</p>
-            </div>
+            <main className="container">
+                <section aria-labelledby="payment-success-title">
+                    <h2 id="payment-success-title">Payment Complete</h2>
+                    <p>Thank you for your booking!</p>
+                </section>
+            </main>
         );
     }
 
     return (
-        <div className="container">
-            <h2>Payment Information</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Cardholder's Name</label>
-                <input
-                    type="text"
-                    name="name"
-                    placeholder="Name on Card"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                />
+        <main className="container">
+            <section aria-labelledby="payment-form-title">
+                <h2 id="payment-form-title">Payment Information</h2>
+                <form onSubmit={handleSubmit}>
+                    <fieldset>
+                        <legend>Card Details</legend>
 
-                <label>Card Number</label>
-                <input
-                    type="text"
-                    name="cardNumber"
-                    placeholder="1234 5678 9012 3456"
-                    value={formData.cardNumber}
-                    onChange={handleChange}
-                    required
-                />
+                        <label htmlFor="name">Cardholder's Name</label>
+                        <input
+                            id="name"
+                            type="text"
+                            name="name"
+                            placeholder="Name on Card"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
 
-                <label>Expiration Date (MM/YY)</label>
-                <input
-                    type="text"
-                    name="expiry"
-                    placeholder="MM/YY"
-                    value={formData.expiry}
-                    onChange={handleChange}
-                    required
-                />
+                        <label htmlFor="cardNumber">Card Number</label>
+                        <input
+                            id="cardNumber"
+                            type="text"
+                            name="cardNumber"
+                            placeholder="1234 5678 9012 3456"
+                            value={formData.cardNumber}
+                            onChange={handleChange}
+                            required
+                        />
 
-                <label>CVC</label>
-                <input
-                    type="text"
-                    name="cvc"
-                    placeholder="123"
-                    value={formData.cvc}
-                    onChange={handleChange}
-                    required
-                />
+                        <label htmlFor="expiry">Expiration Date (MM/YY)</label>
+                        <input
+                            id="expiry"
+                            type="text"
+                            name="expiry"
+                            placeholder="MM/YY"
+                            value={formData.expiry}
+                            onChange={handleChange}
+                            required
+                        />
 
-                {error && <p style={{ color: "red" }}>{error}</p>}
+                        <label htmlFor="cvc">CVC</label>
+                        <input
+                            id="cvc"
+                            type="text"
+                            name="cvc"
+                            placeholder="123"
+                            value={formData.cvc}
+                            onChange={handleChange}
+                            required
+                        />
+                    </fieldset>
 
-                <button type="submit">Simulate Payment</button>
-            </form>
-        </div>
+                    {error && <p role="alert" style={{ color: "red" }}>{error}</p>}
+
+                    <button type="submit">Simulate Payment</button>
+                </form>
+            </section>
+        </main>
     );
 }

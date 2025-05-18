@@ -9,7 +9,7 @@ export default function FavouritesCard({ hotel, location, city, country }) {
       <p>Location type: {location}</p>
       <p>City: {city}</p>
       <p>Country: {country}</p>
-      <Link to="/product-page">
+      <Link to="/ProductPage">
         <button className="big-button">View Details</button>
       </Link>
     </div>

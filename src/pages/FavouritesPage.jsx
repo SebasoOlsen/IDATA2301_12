@@ -4,7 +4,7 @@ import "../assets/css/common/global.css";
 import "../assets/css/favourites.css";
 import FavouritesCard from "../components/FavouritesCard";
 
-export default function Favourites() {
+export default function FavouritesPage() {
     const [favourites, setFavourites] = useState([]);
     const [error, setError] = useState("");
 
@@ -18,7 +18,6 @@ export default function Favourites() {
                     throw new Error("Network response was not OK: " + response.status);
                 }
                 const data = await response.json();
-                // Transform the fetched data to match the FavouritesCard props
                 const formattedFavourites = data.map((f) => ({
                     id: f.id,
                     hotelName: f.listing.hotel.name,

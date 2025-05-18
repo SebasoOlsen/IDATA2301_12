@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../assets/css/common/global.css";
 import "../assets/css/my-page.css";
+import { Link } from "react-router-dom";
 import BookingCard from "../components/BookingCard";
 
 export default function MyPage() {
@@ -52,8 +53,8 @@ export default function MyPage() {
                     ))}
                 </section>
                 <section className="quick-links">
-                    <a className="big-button" href="/favourites">Favourites</a>
-                    <a className="big-button" href="/contactInformation">Contact Information</a>
+                    <Link className="big-button" to="/favourites">Favourites</Link>
+                    <Link className="big-button" to="/contactInformation">Contact Information</Link>
                 </section>
             </main>
         </div>

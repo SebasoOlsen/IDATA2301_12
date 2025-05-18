@@ -6,6 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+        '/favourites':{
+            target: 'https://localhost:8443',
+            changeOrigin: true,
+            secure: false // allow self-signed certs (dev-only)
+        },
       '/favourites/user':{
         target: 'https://localhost:8443',
         changeOrigin: true,

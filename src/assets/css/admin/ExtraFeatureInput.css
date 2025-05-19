@@ -1,0 +1,35 @@
+.extra-feature-container {
+  margin-bottom: 16px;
+}
+
+.extra-feature-input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.extra-feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.extra-feature-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  padding: 4px 8px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.extra-feature-remove-btn {
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+}

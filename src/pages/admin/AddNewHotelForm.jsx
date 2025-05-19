@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { createHotel } from "../service/api/hotelAPI";
-import { uploadImage } from "../service/api/imageAPI";
-import "../assets/css/AddNewHotelForm.css";
+import { createHotel } from "../../service/api/hotelAPI";
+import { uploadImage } from "../../service/api/imageAPI";
+import "../../assets/css/AddNewHotelForm.css";
+import ExtraFeatureInput from "../../components/admin/ExtraFeatureInput";
 
 const AddNewHotelForm = () => {
   const [formData, setFormData] = useState({
@@ -10,9 +11,9 @@ const AddNewHotelForm = () => {
     country: "",
     city: "",
     roomType: "",
-    extraFeature: "",
   });
 
+  const [extraFeatures, setExtraFeatures] = useState([]);
   const [images, setImages] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -30,9 +31,12 @@ const AddNewHotelForm = () => {
     setIsSubmitting(true);
 
     try {
-      console.log("Submitting Hotel:", formData);
+      const payload = { ...formData, extraFeatures };
 
-      const { id: hotelId } = await createHotel(formData);
+      console.log("Submitting Hotel:", formData);
+      console.log("Payload:", JSON.stringify(payload, null, 2));
+
+      const { id: hotelId } = await createHotel(payload);
 
       await Promise.all(
         images.map((img) => uploadImage(img, "HOTEL", hotelId))
@@ -47,9 +51,9 @@ const AddNewHotelForm = () => {
         country: "",
         city: "",
         roomType: "",
-        extraFeature: "",
       });
       setImages([]);
+      setExtraFeatures([]);
     } catch (err) {
       console.error(err);
       alert("Error saving hotel or uploading images.");
@@ -68,7 +72,6 @@ const AddNewHotelForm = () => {
           { label: "Country", name: "country" },
           { label: "City", name: "city" },
           { label: "Room Type", name: "roomType" },
-          { label: "Extra Feature", name: "extraFeature" },
         ].map(({ label, name }) => (
           <div key={name}>
             <label className="hotel-form-label">{label}</label>
@@ -80,6 +83,12 @@ const AddNewHotelForm = () => {
             />
           </div>
         ))}
+
+        {/* Extra Feature Input */}
+        <ExtraFeatureInput
+          features={extraFeatures}
+          setFeatures={setExtraFeatures}
+        />
 
         <label className="hotel-form-label">Hotel Images</label>
         <input

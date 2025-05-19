@@ -5,12 +5,17 @@ import Layout from "./components/common/Layout";
 import HomePage from "./pages/HomePage";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminUsers from "./pages/admin/Users";
-import AddNewHotelForm from "./pages/AddNewHotelForm";
+import AddNewHotelForm from "./pages/admin/AddNewHotelForm.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import ProductPage from "./pages/ProductPage";
 import PaymentPage from "./pages/PaymentPage";
 import HotelSearchResultsPage from "./pages/HotelSearchResultsPage.jsx";
 import SwaggerUIPage from "./pages/SwaggerUIPage.jsx";
+//import FavouritesPage from "./pages/FavouritesPage.jsx";
+//import BookingPage from "./pages/BookingPage.jsx";
+//import MyPage from "./pages/MyPage.jsx";
+//import LoginPage from "./pages/LoginPage.jsx";
+import Test from "./pages/Test.jsx";
 
 function App() {
   return (
@@ -27,11 +32,11 @@ function App() {
           <Route path="/search" element={<HotelSearchResultsPage />} />
           <Route path="/api-docs" element={<SwaggerUIPage />} />
           <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
-          <Route path="/favourites" element={<FavouritesPage />} />
-          <Route path="/booking" element={<BookingPage />} />
-          {/*<Route path="/contactInformation" element={<ContactInformation/>} />*/}
-          <Route path="/my-page" element={<MyPage />} />
-          <Route path="/login" element={<LoginPage />} />
+          {/*<Route path="/favourites" element={<FavouritesPage />} />*/}
+          {/*<Route path="/booking" element={<BookingPage />} />*/}
+          {/*{/*<Route path="/contactInformation" element={<ContactInformation/>} />*/}
+          {/*<Route path="/myPage" element={<MyPage />} />*/}
+          {/*<Route path="/login" element={<LoginPage />} />*/}
           <Route path="/test" element={<Test />} />
         </Routes>
       </Layout>

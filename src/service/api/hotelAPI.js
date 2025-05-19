@@ -14,7 +14,8 @@ export const createHotel = async (hotelData) => {
     throw new Error("Failed to create hotel");
   }
 
-  return await response.json(); // returns the created hotel object
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
 
 //Fetch a hotel by ID

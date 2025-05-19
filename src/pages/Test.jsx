@@ -1,5 +1,5 @@
 import "../assets/css/common/global.css";
-import "../assets/css/common/product-page.css";
+import "../assets/css/product-page.css";
 
 export default function Test() {
   return (

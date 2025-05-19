@@ -4,11 +4,13 @@ import "../assets/css/booking.css"; // Adjust path if necessary
 
 /**
  * BookingPage allows users to input their booking details.
- * On submission, it confirms the reservation.
+ *
+ * On submission it will confirm the reservation.
  *
  * @component
  * @returns {JSX.Element}
  */
+
 export default function BookingPage() {
     const [formData, setFormData] = useState({
         name: "",
@@ -107,7 +109,6 @@ export default function BookingPage() {
                             required
                         />
                     </fieldset>
-
                     <button type="submit" className="submit-button">Confirm Booking</button>
                 </form>
             </section>

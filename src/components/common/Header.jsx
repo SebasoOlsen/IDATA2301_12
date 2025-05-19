@@ -3,11 +3,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../../assets/css/common/global.css";
 import "../../assets/css/common/header.css";
+import UserDropdown from "../UserDropdown.jsx";
 
 export default function Header() {
     const navigate = useNavigate();
-
-    const handleUserClick = (e) => {
+    const handleMyAccountClick = (e) => {
         e.preventDefault();
         fetch("/isLoggedIn", { credentials: "same-origin" })
             .then((response) => {
@@ -41,18 +41,7 @@ export default function Header() {
                 <a href="/" className="discover-btn">
                     <i className="fa-solid fa-earth-americas"></i>
                 </a>
-                <button
-                    id="userBtn"
-                    onClick={handleUserClick}
-                    className="sign-in"
-                    style={{ background: "none", border: "none", padding: 0 }}
-                >
-                    <img
-                        src="/images/user-icon.png"
-                        alt="User Icon"
-                        className="user-icon"
-                    />
-                </button>
+                <UserDropdown/>
             </div>
         </header>
     );

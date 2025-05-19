@@ -6,6 +6,26 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
+      '/favourites/user':{
+        target: 'https://localhost:8443',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/bookings':{
+        target: 'https://localhost:8443',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/bookings/user':{
+        target: 'https://localhost:8443',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/login':{
+        target: 'https://localhost:8443',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
       '/images': {
         target: 'https://localhost:8443',
         changeOrigin: true,

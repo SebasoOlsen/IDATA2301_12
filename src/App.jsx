@@ -11,6 +11,7 @@ import ProductPage from "./pages/ProductPage";
 import PaymentPage from "./pages/PaymentPage";
 import HotelSearchResultsPage from "./pages/HotelSearchResultsPage.jsx";
 import SwaggerUIPage from "./pages/SwaggerUIPage.jsx";
+import Test from "./pages/Test.jsx";
 
 function App() {
   return (
@@ -22,11 +23,12 @@ function App() {
           <Route path="/admin/users" element={<AdminUsers />} />
           <Route path="/AddNewHotelForm" element={<AddNewHotelForm />} />
           <Route path="/RegisterPage" element={<RegisterPage />} />
-          <Route path="/ProductPage" element={<ProductPage />} />
+          <Route path="/Product/:id" element={<ProductPage />} />
           <Route path="/PaymentPage" element={<PaymentPage />} />
           <Route path="/search" element={<HotelSearchResultsPage />} />
           <Route path="/api-docs" element={<SwaggerUIPage />} />
           <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
+          <Route path="/test" element={<Test />} />
         </Routes>
       </Layout>
     </BrowserRouter>

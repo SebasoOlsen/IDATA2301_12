@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getImageByTypeAndId } from "../service/api/imageAPI";
 
 const HotelCard = ({ hotel }) => {
@@ -43,9 +44,9 @@ const HotelCard = ({ hotel }) => {
         <div className="hotel-location-type">
           <strong>Location Type:</strong> {hotel.locationType}
         </div>
-        <a href={`/product/${hotel.id}`} className="view-deals-button">
+        <Link to={`/product/${hotel.id}`} className="view-deals-button">
           View Deal
-        </a>
+        </Link>
       </div>
     </div>
   );

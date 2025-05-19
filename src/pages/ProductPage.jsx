@@ -1,29 +1,40 @@
-import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { getHotel } from "../service/api/hotelAPI";
 import { getImageByTypeAndId } from "../service/api/imageAPI";
-import ImageCarousel from "../components/ImageCarousel";
+import ImageCarousel from "../components/Product/ImageCarousel";
+import InfoBox from "../components/Product/InfoBox";
 
 export default function ProductPage() {
+  const { id } = useParams();
+  const [hotel, setHotel] = useState(null);
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    async function fetchImage() {
+    async function fetchHotelData() {
       try {
-        const urls = await getImageByTypeAndId("HOTEL", hotel.id);
-        if (urls.length > 0) {
-          setImageUrl(urls[0]);
-        }
-      } catch (e) {
-        console.error(e);
+        const hotelData = await getHotel(id);
+        setHotel(hotelData);
+
+        const urls = await getImageByTypeAndId("HOTEL", id);
+        setImages(urls || []);
+      } catch (error) {
+        console.error("Error fetching hotel data:", error);
       }
     }
 
-    fetchImage();
-  }, [hotel.id]);
+    fetchHotelData();
+  }, [id]);
+
+  if (!hotel) return <div>Loading...</div>;
 
   return (
-    <>
-      <ImageCarousel images={images} />
-    </>
+    <div>
+      <h1>{hotel.name}</h1>
+      <div style={{ display: "flex", gap: "24px", padding: "20px" }}>
+        <ImageCarousel images={images} />
+        <InfoBox hotel={hotel} />
+      </div>
+    </div>
   );
 }

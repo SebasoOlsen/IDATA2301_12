@@ -3,6 +3,7 @@ import { createHotel } from "../../service/api/hotelAPI";
 import { uploadImage } from "../../service/api/imageAPI";
 import "../../assets/css/AddNewHotelForm.css";
 import ExtraFeatureInput from "../../components/admin/ExtraFeatureInput";
+import ImageUploadList from "../../components/admin/ImageUploadList";
 
 const AddNewHotelForm = () => {
   const [formData, setFormData] = useState({
@@ -90,14 +91,7 @@ const AddNewHotelForm = () => {
           setFeatures={setExtraFeatures}
         />
 
-        <label className="hotel-form-label">Hotel Images</label>
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onChange={handleImageChange}
-          className="hotel-form-input"
-        />
+        <ImageUploadList images={images} setImages={setImages} />
 
         <button
           type="submit"

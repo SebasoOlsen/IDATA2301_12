@@ -4,6 +4,7 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import "../../assets/css/admin/ImageCarousel.css";
 
 const ImageCarousel = ({ images }) => {
   if (!images || images.length === 0) {

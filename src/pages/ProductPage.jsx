@@ -4,6 +4,7 @@ import { getHotel } from "../service/api/hotelAPI";
 import { getImageByTypeAndId } from "../service/api/imageAPI";
 import ImageCarousel from "../components/Product/ImageCarousel";
 import InfoBox from "../components/Product/InfoBox";
+import "../assets/css/product-page.css";
 
 export default function ProductPage() {
   const { id } = useParams();

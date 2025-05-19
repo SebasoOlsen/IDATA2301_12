@@ -1,10 +1,10 @@
-// File: `IDATA2301_12/src/pages/Favourites.jsx`
+// Language: javascript
 import React, { useState, useEffect } from "react";
 import "../assets/css/common/global.css";
 import "../assets/css/favourites.css";
 import FavouritesCard from "../components/FavouritesCard";
 
-export default function Favourites() {
+export default function FavouritesPage() {
     const [favourites, setFavourites] = useState([]);
     const [error, setError] = useState("");
 
@@ -18,16 +18,14 @@ export default function Favourites() {
                     throw new Error("Network response was not OK: " + response.status);
                 }
                 const data = await response.json();
-                // Transform the fetched data to match the FavouritesCard props
-                const formattedFavourites = data.map((f) => ({
-                    id: f.id,
-                    hotelName: f.listing.hotel.name,
-                    roomTypes: f.listing.hotel.roomTypes,
-                    city: f.listing.hotel.city,
-                    country: f.listing.hotel.country,
-                    imageSrc: f.listing.hotel.id && f.listing.hotel.name
-                        ? `/images/${f.listing.hotel.id}-${f.listing.hotel.name.replace(/\s+/g, "-")}-hotel.jpg`
-                        : "/images/default-hotel.jpg",
+                console.log("JSON response:", data);
+                const formattedFavourites = data.map((f, index) => ({
+                    // Use f.id if available; also pass hotelId required for image fetching.
+                    id: f.id || index,
+                    hotelId: (f.listing && f.listing.hotel && f.listing.hotel.id) || null,
+                    hotelName: (f.listing && f.listing.hotel && f.listing.hotel.name) || f.hotelName,
+                    city: (f.listing && f.listing.hotel && f.listing.hotel.city) || f.city,
+                    country: (f.listing && f.listing.hotel && f.listing.hotel.country) || f.country,
                 }));
                 setFavourites(formattedFavourites);
             } catch (err) {
@@ -42,17 +40,16 @@ export default function Favourites() {
     return (
         <div className="page-content">
             <main className="favourites-main">
-                <h3>Your Favourites</h3>
+                <h3 class="favourites-writing">Your Favourites</h3>
                 {error && <p className="error-message">{error}</p>}
                 <section id="favourites-list" className="favourites-list">
                     {favourites.map((fav) => (
                         <FavouritesCard
                             key={fav.id}
+                            hotelId={fav.hotelId}
                             hotelName={fav.hotelName}
-                            roomTypes={fav.roomTypes}
                             city={fav.city}
                             country={fav.country}
-                            imageSrc={fav.imageSrc}
                         />
                     ))}
                 </section>

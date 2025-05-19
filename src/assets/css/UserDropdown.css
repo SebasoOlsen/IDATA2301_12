@@ -1,0 +1,191 @@
+/* UserDropdown.css */
+
+/* Container for the dropdown */
+.user-dropdown-container {
+    position: relative;
+}
+
+/* Styling for the user icon button */
+.user-dropdown-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for the user icon */
+.user-icon {
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    flex: 0 0 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    /* If you need a border or shadow: */
+    /* border: 1px solid #e0e0e0; */
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+    /* Animation for the dropdown */
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Animation for the dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header section of the dropdown */
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+/* User avatar/profile picture */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    background-color: #f8ca39; /* Yellow similar to Booking.com */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Initial letter for avatar if no image */
+.user-initial {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Container for user information */
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* User name style */
+.user-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+}
+
+/* User level/membership level style */
+.user-level {
+    font-size: 14px;
+    color: #f8ca39; /* Yellow similar to Booking.com */
+}
+
+/* List of dropdown menu items */
+.dropdown-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual menu item */
+.dropdown-items li {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Hover effect for menu items */
+.dropdown-items li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Icon in menu items */
+.dropdown-items li i {
+    margin-right: 12px;
+    color: #666;
+    width: 20px;
+    text-align: center;
+}
+
+/* Text in menu items */
+.dropdown-items li span {
+    color: #333;
+}
+
+/* Footer section of dropdown */
+.dropdown-footer {
+    border-top: 1px solid #eaeaea;
+    padding: 8px 0;
+}
+
+/* Logout button */
+.logout-button {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #333;
+}
+
+/* Hover effect for logout button */
+.logout-button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Icon in logout button */
+.logout-button i {
+    margin-right: 12px;
+    color: #666;
+    width: 20px;
+    text-align: center;
+}
+
+/* Text in logout button */
+.logout-button span {
+    color: #333;
+}
+
+/* Add a subtle arrow/pointer to the dropdown */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    transform: rotate(45deg);
+    border-top: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+}

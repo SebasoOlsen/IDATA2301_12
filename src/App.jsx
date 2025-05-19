@@ -11,6 +11,11 @@ import ProductPage from "./pages/ProductPage";
 import PaymentPage from "./pages/PaymentPage";
 import HotelSearchResultsPage from "./pages/HotelSearchResultsPage.jsx";
 import SwaggerUIPage from "./pages/SwaggerUIPage.jsx";
+import FavouritesPage from "./pages/FavouritesPage.jsx";
+import BookingPage from "./pages/BookingPage.jsx";
+import MyPage from "./pages/MyPage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
+import Test from "./pages/Test.jsx";
 
 function App() {
   return (

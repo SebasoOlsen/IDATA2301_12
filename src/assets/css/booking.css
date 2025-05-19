@@ -1,0 +1,62 @@
+/* Booking Form Layout */
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.form-field input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+.form-field input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+/* Submit Button spans full width on large screens */
+.booking-form button[type="submit"] {
+    grid-column: span 2;
+    padding: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .booking-form {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form button[type="submit"] {
+        grid-column: span 1;
+    }
+}
+.wrapper{
+    min-height: 100vh;
+}

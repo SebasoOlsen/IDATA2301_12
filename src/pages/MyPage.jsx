@@ -18,10 +18,9 @@ export default function MyPage() {
                     throw new Error("Network response was not OK: " + response.status);
                 }
                 const data = await response.json();
-                // Transform the fetched data to match the BookingCard props
                 const formattedBookings = data.map((b) => ({
                     id: b.id,
-                    hotel: b.listing.hotel.name,
+                    hotel: b.listing.room.hotel.name,
                     checkin: b.startDate,
                     checkout: b.endDate,
                     status: b.status,

@@ -1,5 +1,12 @@
 import React from "react";
 
+/**
+ * This React functional component renders the Privacy Policy page for the StayFinder project.
+ *
+ * @component
+ * @returns {JSX.Element} A structured JSX layout of the privacy policy content
+ */
+
 export default function PrivacyPolicy() {
     return (
         <main className="main">
@@ -63,6 +70,7 @@ export default function PrivacyPolicy() {
                     <li>Request account deletion</li>
                 </ul>
             </section>
+
 
             <section className="content_section">
                 <h2 className="section_header">7. Changes to This Policy</h2>

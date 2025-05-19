@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "../assets/css/common/global.css";
 
 /**
- * PaymentPage component simulates a credit card payment form.
+ * PaymentPage simulates a credit card payment form.
  * Validates simple input formats for name, card number, expiry date, and CVC.
- * On success, it shows a confirmation message.
+ * On succes, it shows a confirmation message.
  *
  * @component
  * @returns {JSX.Element} Payment form or success message.

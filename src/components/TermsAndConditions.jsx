@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * Displays the Terms & Conditions for the StayFinder demo project.
+ * @component
+ * @returns {JSX.Element} A JSX layout outlining the terms and conditions of using the demo site.
+ */
+
 export default function TermsAndConditions() {
     return (
         <main className="main">
@@ -35,16 +41,13 @@ export default function TermsAndConditions() {
             </section>
 
             <section className="content_section">
-                <h2 className="section_header">5. Use of the Website</h2>
-                <p className="paragraph_text">
-                    You agree not to misuse StayFinder, including submitting false information or trying to disrupt the site.
+                <h2 className="section_header">5. Use of the Website</h2> <p className="paragraph_text">
+                You agree not to misuse StayFinder, including submitting false information or trying to disrupt the site.
                 </p>
             </section>
 
-            <section className="content_section">
-                <h2 className="section_header">6. Intellectual Property</h2>
-                <p className="paragraph_text">
-                    All content on StayFinder is part of the school project and may not be copied without permission.
+            <section className="content_section"> <h2 className="section_header">6. Intellectual Property</h2>
+                <p className="paragraph_text"> All content on StayFinder is part of the school project and may not be copied without permission.
                 </p>
             </section>
 

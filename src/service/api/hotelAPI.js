@@ -18,6 +18,12 @@ export const createHotel = async (hotelData) => {
   return text ? JSON.parse(text) : {};
 };
 
+
+export const getAllHotels = async () => {
+  const res = await fetch(`${BASE_URL}`);
+  return res.json();
+};
+
 //Fetch a hotel by ID
 export const getHotel = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/${hotelId}`);
@@ -53,6 +59,11 @@ export const searchHotels = async (query) => {
   }
   return await response.json();
 }
+
+export const getRoomsByHotelId = async (hotelId) => {
+  const res = await fetch(`${BASE_URL}/${hotelId}/rooms`);
+  return res.json();
+};
 
 
 

@@ -7,6 +7,7 @@ import InfoBox from "../components/Product/InfoBox";
 import "../assets/css/product-page.css";
 import ExtraFeaturesBox from "../components/Product/ExtraFeaturesBox";
 import AvailableListingsBox from "../components/Product/AvailableListingsBox";
+import { getListingsByHotelId } from "../service/api/listingAPI";
 
 export default function ProductPage() {
   const { id } = useParams();

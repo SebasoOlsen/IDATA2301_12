@@ -1,7 +1,9 @@
 import React from "react";
 
 export default function AvailableListingsBox({ listings }) {
-  const { room, provider, price, currncy } = listings;
+  const { room, provider, price, currency } = listings;
+  console.log("Available Listings: ", listings);
+  console.log("Room: ", room);
   return (
     <div className="available-listings-box">
       <h3>Available Listings</h3>
@@ -13,7 +15,7 @@ export default function AvailableListingsBox({ listings }) {
             <h4>{room.name}</h4>
             <p>{provider.name}</p>
             <p>
-              <strong>Price:</strong> {price} {currncy}
+              <strong>Price:</strong> {price} {currency}
             </p>
           </div>
         ))

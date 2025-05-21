@@ -2,7 +2,7 @@ const BASE_URL = "https://localhost:8443/api/images";
 
 // GET: Fetch images by type and typeId
 export const getImageByTypeAndId = async (type, typeId) => {
-  const url = `${BASE_URL}/urls?type=${encodeURIComponent(type)}&typeId=${encodeURIComponent(typeId)}`;
+  const url = `${BASE_URL}/public/urls?type=${encodeURIComponent(type)}&typeId=${encodeURIComponent(typeId)}`;
 
   const response = await fetch(url);
   if (!response.ok) {

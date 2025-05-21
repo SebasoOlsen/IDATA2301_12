@@ -6,37 +6,47 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/isLoggedIn':{
+      '/api-docs': {
+        target: "https://localhost:8443",
+        changeOrigin: true,
+        secure: false
+      },
+      '/api/bookings/account/user': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
-      '/logout':{
+      '/api/favourites/account/user': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
-        '/favourites':{
-            target: 'https://localhost:8443',
-            changeOrigin: true,
-            secure: false // allow self-signed certs (dev-only)
-        },
-      '/favourites/user':{
+      '/api/login/account/logout': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
-      '/bookings':{
+      '/api/login/public/isLoggedIn': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
-      '/bookings/user':{
+      '/api/login/public/process': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
-      '/login':{
+      '/bookings': {
+        target: 'https://localhost:8443',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/favourites': {
+        target: 'https://localhost:8443',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/hotels': {
         target: 'https://localhost:8443',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
@@ -46,26 +56,16 @@ export default defineConfig({
         changeOrigin: true,
         secure: false  // allow self-signed certs (dev-only)
       },
-      '/hotels': {
-        target: 'https://localhost:8443',
-        changeOrigin: true,
-        secure: false // allow self-signed certs (dev-only)
-      },
       '/users': {
         target: "https://localhost:8443",
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
-      },
-      '/api-docs': {
-        target: "https://localhost:8443",
-        changeOrigin: true,
-        secure: false
       },
       '/v3/api-docs': {
         target: "https://localhost:8443",
         changeOrigin: true,
         secure: false
       }
-  }
+    }
   }
 });

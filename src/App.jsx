@@ -5,7 +5,7 @@ import Layout from "./components/common/Layout";
 import HomePage from "./pages/HomePage";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminUsers from "./pages/admin/Users";
-import AddNewHotelForm from "./pages/AddNewHotelForm";
+import AddNewHotelForm from "./pages/admin/AddNewHotelForm";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import ProductPage from "./pages/ProductPage";
 import PaymentPage from "./pages/PaymentPage";

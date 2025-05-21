@@ -12,7 +12,7 @@ export default function LoginPage() {
         e.preventDefault();
         const { email, password } = e.target.elements;
         try {
-            const response = await fetch("/login", {
+            const response = await fetch("/api/login/public/process", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",

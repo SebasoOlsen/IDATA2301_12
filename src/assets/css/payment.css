@@ -77,3 +77,15 @@ section p {
     color: #333;
     margin-top: 1rem;
 }
+
+.payment-warning {
+    background-color: #fff3cd;
+    color: #856402;
+    border: 1px solid #ffeebc;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    text-align: center;
+}

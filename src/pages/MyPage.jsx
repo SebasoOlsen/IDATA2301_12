@@ -11,19 +11,22 @@ export default function MyPage() {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const response = await fetch("/bookings/user", {
+                const response = await fetch("/api/bookings/account/user", {
                     credentials: "include",
                 });
                 if (!response.ok) {
                     throw new Error("Network response was not OK: " + response.status);
                 }
                 const data = await response.json();
+                console.log("Raw booking data:", data); // Add this to debug
+
                 const formattedBookings = data.map((b) => ({
                     id: b.id,
-                    hotel: b.listing.room.hotel.name,
+                    hotel: b.listing?.hotel?.name || "Unknown Hotel",
                     checkin: b.startDate,
                     checkout: b.endDate,
                     status: b.status,
+                    roomType: b.listing?.room?.name || "Unknown Room Type",
                 }));
                 setBookings(formattedBookings);
             } catch (err) {
@@ -40,6 +43,9 @@ export default function MyPage() {
             <main className="myPage-main">
                 <h3>Your Bookings</h3>
                 {error && <p className="error-message">{error}</p>}
+                {bookings.length === 0 && !error && (
+                    <p>You don't have any bookings yet.</p>
+                )}
                 <section id="bookings-list" className="bookings-list">
                     {bookings.map((booking) => (
                         <BookingCard
@@ -48,6 +54,7 @@ export default function MyPage() {
                             checkin={booking.checkin}
                             checkout={booking.checkout}
                             status={booking.status}
+                            roomType={booking.roomType}
                         />
                     ))}
                 </section>

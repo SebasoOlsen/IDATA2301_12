@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BookingCard({ hotel, checkin, checkout, status }) {
+export default function BookingCard({ hotel, checkin, checkout, status, roomType }) {
   return (
     <section className="bookings-list">
       <div className="booking-card">
@@ -9,6 +9,7 @@ export default function BookingCard({ hotel, checkin, checkout, status }) {
         <p>Check-in: {checkin}</p>
         <p>Check-out: {checkout}</p>
         <p>Status: {status}</p>
+        <p>Room Type: {roomType}</p>
         <button className="big-button">View Details</button>
       </div>
     </section>

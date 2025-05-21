@@ -4,6 +4,7 @@ import { uploadImage } from "../../service/api/imageAPI";
 import "../../assets/css/AddNewHotelForm.css";
 import ExtraFeatureInput from "../../components/admin/ExtraFeatureInput";
 import ImageUploadList from "../../components/admin/ImageUploadList";
+import RoomTypeInput from "../../components/admin/RoomTypeInput";
 
 const AddNewHotelForm = () => {
   const [formData, setFormData] = useState({
@@ -11,11 +12,11 @@ const AddNewHotelForm = () => {
     locationType: "",
     country: "",
     city: "",
-    roomType: "",
   });
 
   const [extraFeatures, setExtraFeatures] = useState([]);
   const [images, setImages] = useState([]);
+  const [roomTypes, setRoomTypes] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
@@ -32,7 +33,7 @@ const AddNewHotelForm = () => {
     setIsSubmitting(true);
 
     try {
-      const payload = { ...formData, extraFeatures };
+      const payload = { ...formData, extraFeatures, roomTypes };
 
       console.log("Submitting Hotel:", formData);
       console.log("Payload:", JSON.stringify(payload, null, 2));
@@ -51,10 +52,10 @@ const AddNewHotelForm = () => {
         locationType: "",
         country: "",
         city: "",
-        roomType: "",
       });
       setImages([]);
       setExtraFeatures([]);
+      setRoomTypes([]);
     } catch (err) {
       console.error(err);
       alert("Error saving hotel or uploading images.");
@@ -72,7 +73,6 @@ const AddNewHotelForm = () => {
           { label: "Location Type", name: "locationType" },
           { label: "Country", name: "country" },
           { label: "City", name: "city" },
-          { label: "Room Type", name: "roomType" },
         ].map(({ label, name }) => (
           <div key={name}>
             <label className="hotel-form-label">{label}</label>
@@ -84,6 +84,9 @@ const AddNewHotelForm = () => {
             />
           </div>
         ))}
+
+        {/* Room Type Input */}
+        <RoomTypeInput roomTypes={roomTypes} setRoomTypes={setRoomTypes} />
 
         {/* Extra Feature Input */}
         <ExtraFeatureInput

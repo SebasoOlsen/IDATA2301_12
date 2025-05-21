@@ -5,11 +5,15 @@ import { getImageByTypeAndId } from "../service/api/imageAPI";
 import ImageCarousel from "../components/Product/ImageCarousel";
 import InfoBox from "../components/Product/InfoBox";
 import "../assets/css/product-page.css";
+import ExtraFeaturesBox from "../components/Product/ExtraFeaturesBox";
+import AvailableListingsBox from "../components/Product/AvailableListingsBox";
+import { getListingsByHotelId } from "../service/api/listingAPI";
 
 export default function ProductPage() {
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
   const [images, setImages] = useState([]);
+  const [listings, setListings] = useState([]);
 
   useEffect(() => {
     async function fetchHotelData() {
@@ -22,6 +26,9 @@ export default function ProductPage() {
       } catch (error) {
         console.error("Error fetching hotel data:", error);
       }
+
+      const listingsData = await getListingsByHotelId(id);
+      setListings(listingsData);
     }
 
     fetchHotelData();
@@ -35,6 +42,8 @@ export default function ProductPage() {
       <div style={{ display: "flex", gap: "24px", padding: "20px" }}>
         <ImageCarousel images={images} />
         <InfoBox hotel={hotel} />
+        <ExtraFeaturesBox hotel={hotel} />
+        <AvailableListingsBox listings={listings} />
       </div>
     </div>
   );

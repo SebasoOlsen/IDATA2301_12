@@ -16,6 +16,8 @@ import BookingPage from "./pages/BookingPage.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import Test from "./pages/Test.jsx";
+import CreateNewListingPage from "./pages/admin/CreateNewListingPage.jsx";
+import CreateNewProviderPage from "./pages/admin/CreateNewProviderPage.jsx";
 
 function App() {
   return (
@@ -38,6 +40,14 @@ function App() {
           <Route path="/my-page" element={<MyPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/test" element={<Test />} />
+          <Route
+            path="/admin/create-new-listing"
+            element={<CreateNewListingPage />}
+          />
+          <Route
+            path="/admin/create-new-provider"
+            element={<CreateNewProviderPage />}
+          />
         </Routes>
       </Layout>
     </BrowserRouter>

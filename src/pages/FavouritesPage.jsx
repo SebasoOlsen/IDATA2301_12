@@ -11,7 +11,7 @@ export default function FavouritesPage() {
     useEffect(() => {
         const fetchFavourites = async () => {
             try {
-                const response = await fetch("/favourites/user", {
+                const response = await fetch("/api/favourites/account/user", {
                     credentials: "include",
                 });
                 if (!response.ok) {
@@ -23,9 +23,9 @@ export default function FavouritesPage() {
                     // Use f.id if available; also pass hotelId required for image fetching.
                     id: f.id || index,
                     hotelId: (f.listing && f.listing.hotel && f.listing.hotel.id) || null,
-                    hotelName: (f.listing && f.listing.hotel && f.listing.hotel.name) || f.hotelName,
-                    city: (f.listing && f.listing.hotel && f.listing.hotel.city) || f.city,
-                    country: (f.listing && f.listing.hotel && f.listing.hotel.country) || f.country,
+                    hotelName: f.listing?.hotel?.name || "Unknown Hotel",
+                    city: f.listing?.hotel?.city || "Unknown City",
+                    country: f.listing?.hotel?.country || "Unknown Country",
                 }));
                 setFavourites(formattedFavourites);
             } catch (err) {

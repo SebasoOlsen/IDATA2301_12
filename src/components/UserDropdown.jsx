@@ -24,7 +24,7 @@ export default function UserDropdown() {
 
     const toggleDropdown = () => {
         console.log("User icon clicked, checking login status...");
-        fetch("/isLoggedIn", { credentials: "same-origin" })
+        fetch("/api/login/public/isLoggedIn", { credentials: "same-origin" })
             .then((response) => response.json())
             .then((data) => {
                 console.log("Response loggedIn value:", data.loggedIn);
@@ -50,7 +50,7 @@ export default function UserDropdown() {
 
     const handleLogout = () => {
         console.log("Initiating logout process.");
-        fetch("/logout", {
+        fetch("/api/login/account/logout", {
             method: "POST",
             credentials: "same-origin",
         })

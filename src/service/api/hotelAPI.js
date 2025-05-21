@@ -1,8 +1,8 @@
-const BASE_URL = "https://localhost:8443/hotels";
+const BASE_URL = "https://localhost:8443/api/hotels";
 
 //Create a new hotel
 export const createHotel = async (hotelData) => {
-  const response = await fetch(BASE_URL, {
+  const response = await fetch(`${BASE_URL}/admin/createHotel`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -20,13 +20,13 @@ export const createHotel = async (hotelData) => {
 
 
 export const getAllHotels = async () => {
-  const res = await fetch(`${BASE_URL}`);
+  const res = await fetch(`${BASE_URL}/admin/allHotels`);
   return res.json();
 };
 
 //Fetch a hotel by ID
 export const getHotel = async (hotelId) => {
-  const response = await fetch(`${BASE_URL}/${hotelId}`);
+  const response = await fetch(`${BASE_URL}/public/searchById/${hotelId}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch hotel");
@@ -38,7 +38,7 @@ export const getHotel = async (hotelId) => {
 // Get n random hotels
 export const getRandomHotels = async (count = 3) => {
   
-  const response = await fetch(`${BASE_URL}/random?count=${count}`);
+  const response = await fetch(`${BASE_URL}/public/randomHotels?count=${count}`);
   if (!response.ok) {
     throw new Error("Failed to fetch random hotels");
   }
@@ -53,7 +53,7 @@ export const searchHotels = async (query) => {
     checkout: query.checkout,
     rooms: query.rooms
   });
-  const response = await fetch(`${BASE_URL}/search?${params}`);
+  const response = await fetch(`${BASE_URL}/public/search?${params}`);
   if (!response.ok) {
     throw new Error("Failed to fetch hotels");
   }
@@ -61,7 +61,7 @@ export const searchHotels = async (query) => {
 }
 
 export const getRoomsByHotelId = async (hotelId) => {
-  const res = await fetch(`${BASE_URL}/${hotelId}/rooms`);
+  const res = await fetch(`${BASE_URL}/public/${hotelId}/rooms`);
   return res.json();
 };
 

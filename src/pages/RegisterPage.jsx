@@ -4,6 +4,14 @@ import "../assets/css/registerpage.css";
 import {checkEmailAvailability, checkTelephoneAvailability, submitForm} from "../api/userRegistration.js";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
+/**
+ * RegisterPage component for user account registration.
+ *
+ * Handles form input, validation, and submission for new user registration.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered registration page.
+ */
 
 export default function RegisterPage() {
 

@@ -5,7 +5,15 @@ import "../../assets/css/AddNewHotelForm.css";
 import ExtraFeatureInput from "../../components/admin/ExtraFeatureInput";
 import ImageUploadList from "../../components/admin/ImageUploadList";
 import RoomTypeInput from "../../components/admin/RoomTypeInput";
-
+/**
+ * Admin form component for adding a new hotel.
+ *
+ * Renders a form for administrators to input hotel details, room types, extra features, and upload images.
+ * Handles form submission, hotel creation, and image uploads via API calls.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered add new hotel form.
+ */
 const AddNewHotelForm = () => {
   const [formData, setFormData] = useState({
     name: "",

@@ -6,7 +6,15 @@ import {
   getAllHotels,
   updateHotelVisibility,
 } from "../../service/api/hotelAPI";
-
+/**
+ * Hotels admin page for managing hotel listings.
+ *
+ * Displays a searchable, paginated list of hotels with options to edit or toggle their visibility.
+ * Integrates hotel search, filtering by hidden status, editing via modal, and visibility toggling.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered hotel management admin page.
+ */
 const Hotels = () => {
   const [hotels, setHotels] = useState([]);
   const [search, setSearch] = useState("");

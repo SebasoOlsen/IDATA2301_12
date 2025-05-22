@@ -19,6 +19,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import CreateNewListingPage from "./pages/admin/CreateNewListingPage.jsx";
 import CreateNewProviderPage from "./pages/admin/CreateNewProviderPage.jsx";
 import AdminHotels from "./pages/admin/Hotels.jsx";
+import ConfirmBookingPage from "./pages/ConfirmBookingPage.jsx";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
             element={<CreateNewProviderPage />}
           />
           <Route path="/admin/hotels" element={<AdminHotels />} />
+          <Route path="/confirm-booking" element={<ConfirmBookingPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

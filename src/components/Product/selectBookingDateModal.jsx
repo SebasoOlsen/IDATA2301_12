@@ -5,18 +5,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import {getBookedDates} from "../../service/api/bookingAPI.js";
 import "../../assets/css/select-booking-date-modal.css";
 
-const selectBookingDateModal = ({ listingId, onClose }) => {
+const selectBookingDateModal = ({ listingId, onClose, onSubmit}) => {
 
     const [bookedDates, setBookedDates] = useState([]);
     const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-    };
 
     useEffect(() => {
         const fetchBookedDates = async () => {
@@ -52,6 +47,20 @@ const selectBookingDateModal = ({ listingId, onClose }) => {
     const handleDateChange = (startDate, endDate) => {
         setStartDate(startDate);
         setEndDate(endDate);
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Submitting dates: ', startDate, endDate);
+        if (startDate && endDate) {
+            console.log("Passed check.")
+            onSubmit({
+                listingId: listingId,
+                startDate: startDate,
+                endDate: endDate});
+        } else {
+            setError('Please select a date range.');
+        }
     }
 
     return (

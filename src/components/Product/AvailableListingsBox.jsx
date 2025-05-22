@@ -1,11 +1,13 @@
 import React, {useState} from "react";
 import "../../assets/css/available-listings.css"
 import SelectBookingDateModal from "./selectBookingDateModal.jsx";"./selectBookingDateModal.jsx"
+import {useNavigate} from "react-router-dom";
 
 export default function AvailableListingsBox({ listings }) {
 
   const [selectedListingId, setSelectedListingId] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleOpenDateSelector = listingId => {
       setSelectedListingId(listingId);
@@ -15,7 +17,17 @@ export default function AvailableListingsBox({ listings }) {
       setShowModal(false);
   }
 
-  const handleDateSelect = (date) => {}
+  const handleSubmitDates = (bookingData) => {
+      console.log("Handling submit dates.")
+      setShowModal(false);
+      navigate('/confirm-booking', {
+          state: {
+              listing: listings.find(listing => listing.id === bookingData.listingId),
+              startDate: bookingData.startDate,
+              endDate: bookingData.endDate
+          }
+      })
+  }
 
   return (
       <div className="wrapper">
@@ -48,7 +60,8 @@ export default function AvailableListingsBox({ listings }) {
           {showModal && (
               <SelectBookingDateModal
               listingId = {selectedListingId}
-              onClose = {() =>handleCloseDateSelector}
+              onClose = {handleCloseDateSelector}
+              onSubmit = {handleSubmitDates}
               />
           )}
 

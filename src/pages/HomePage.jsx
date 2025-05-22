@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../assets/css/common/global.css";
 import "../assets/css/homepage.css";
-import "../components/HotelCard";
 import { getRandomHotels } from "../service/api/hotelAPI";
 import HotelCard from "../components/HotelCard";
+import beachImage from "../assets/images/beach.jpg"; // Import the static image
 
 export default function HomePage() {
   const [hotels, setHotels] = useState([]);
@@ -21,34 +21,43 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="wrapper">
-      <div className="page-content">
-        <div className="search-container">
-          <form className="search-form" action="/search" method="get">
-            <input
-              type="text"
-              name="destination"
-              className="search-input"
-              placeholder="Destination"
+      <main className="wrapper">
+        <section className="page-content">
+          {/* Optional: Beach image as img element for better loading control */}
+          <figure className="beach-image">
+            <img
+                src={beachImage}
+                alt="Beautiful beach resort background"
             />
-            <input type="date" name="checkin" className="search-input" />
-            <input type="date" name="checkout" className="search-input" />
-            <select name="rooms" className="search-input">
-              <option>1 Adult</option>
-              <option>2 Adults</option>
-              <option>3 Adults</option>
-            </select>
-            <button type="submit" className="search-button">
-              Search Hotels
-            </button>
-          </form>
-        </div>
-        <div className="featured-deals">
-          {hotels.map((hotel) => (
-            <HotelCard key={hotel.id} hotel={hotel} />
-          ))}
-        </div>
-      </div>
-    </div>
+          </figure>
+
+          <section className="search-container">
+            <form className="search-form" action="/search" method="get">
+              <input
+                  type="text"
+                  name="destination"
+                  className="search-input"
+                  placeholder="Destination"
+              />
+              <input type="date" name="checkin" className="search-input" />
+              <input type="date" name="checkout" className="search-input" />
+              <select name="rooms" className="search-input">
+                <option>1 Adult</option>
+                <option>2 Adults</option>
+                <option>3 Adults</option>
+              </select>
+              <button type="submit" className="search-button">
+                Search Hotels
+              </button>
+            </form>
+          </section>
+
+          <section className="featured-deals">
+            {hotels.map((hotel) => (
+                <HotelCard key={hotel.id} hotel={hotel} />
+            ))}
+          </section>
+        </section>
+      </main>
   );
 }

@@ -11,6 +11,11 @@ export default defineConfig({
         changeOrigin: true,
         secure: false
       },
+        '/api/users/account/edit': {
+          target: 'http://localhost:8080',
+              changeOrigin: true,
+              secure: false // allow self-signed certs (dev-only)
+        },
       '/api/bookings/account/user': {
         target: 'http://localhost:8080',
         changeOrigin: true,
@@ -47,6 +52,11 @@ export default defineConfig({
         secure: false // allow self-signed certs (dev-only)
       },
       '/bookings': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/api/listings/public/hotel/': {
         target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)

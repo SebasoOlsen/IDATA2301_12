@@ -1,0 +1,231 @@
+/* Contact Information Form Styles */
+.main {
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    padding: 2rem 1rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.main h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.user-info-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e8ed;
+}
+
+.user-info-form input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #fafbfc;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.user-info-form input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+    transform: translateY(-1px);
+}
+
+.user-info-form input::placeholder {
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+.user-info-form input:hover {
+    border-color: #bdc3c7;
+    background-color: white;
+}
+
+/* Special styling for different input types */
+.user-info-form input[type="email"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237f8c8d' viewBox='0 0 16 16'%3E%3Cpath d='M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.user-info-form input[type="tel"] {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%237f8c8d' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
+}
+
+.user-info-form button {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.user-info-form button:hover {
+    background: linear-gradient(135deg, #357abd 0%, #2c5aa0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+}
+
+.user-info-form button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.2);
+}
+
+/* Message styling */
+.main p {
+    max-width: 600px;
+    margin: 2rem auto 0;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.main p:contains("successfully") {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.main p:contains("Error") {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Default message styling (for any message) */
+.main p {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .main {
+        padding: 1rem 0.5rem;
+    }
+
+    .main h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .user-info-form {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .user-info-form input {
+        padding: 0.875rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .user-info-form button {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main h1 {
+        font-size: 1.75rem;
+    }
+
+    .user-info-form {
+        padding: 1.5rem 1rem;
+        margin: 0 0.5rem;
+    }
+
+    .user-info-form input {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Loading state for button */
+.user-info-form button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.user-info-form button:disabled:hover {
+    background: #95a5a6;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Focus visible for accessibility */
+.user-info-form input:focus-visible,
+.user-info-form button:focus-visible {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+/* Animation for form appearance */
+.user-info-form {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Input group styling for better visual hierarchy */
+.user-info-form input:first-of-type {
+    margin-top: 0;
+}
+
+/* Custom scrollbar for the page */
+.main::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.main::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

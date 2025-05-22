@@ -6,22 +6,6 @@ import "../../assets/css/common/header.css";
 import UserDropdown from "../UserDropdown.jsx";
 
 export default function Header() {
-    const navigate = useNavigate();
-    const handleMyAccountClick = (e) => {
-        e.preventDefault();
-        fetch("/isLoggedIn", { credentials: "same-origin" })
-            .then((response) => {
-                if (response.ok) {
-                    navigate("/my-page");
-                } else {
-                    navigate("/login");
-                }
-            })
-            .catch((error) => {
-                console.error("Error checking login status:", error);
-                navigate("/login");
-            });
-    };
 
     return (
         <header className="header">

@@ -1,4 +1,4 @@
-const BASE_URL = "https://localhost:8443/api/listings";
+const BASE_URL = "http://localhost:8080/api/listings";
 
 export const getListingsByHotelId = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/public/hotel/${hotelId}`);

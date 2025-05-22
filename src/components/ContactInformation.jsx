@@ -1,28 +1,83 @@
-import React from "react";
+// File: IDATA2301_12/src/components/ContactInformationForm.jsx
+import React, { useState } from "react";
+import "../assets/css/contact-information.css";
 
-export default function ContactInformation() {
+export default function ContactInformationForm() {
+    const [form, setForm] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        areaCode: ""
+    });
+    const [message, setMessage] = useState("");
+
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch("/api/users/account/edit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(form)
+            });
+            if (response.ok) {
+                setMessage("User updated successfully.");
+            } else {
+                setMessage("Error updating user.");
+            }
+        } catch (error) {
+            setMessage("Error updating user.");
+        }
+    };
+
     return (
         <main className="main">
-            <h1>Contact Information</h1>
-
-            <section className="content_section">
-                <h2 className="section_header">How to Reach Us</h2>
-                <address>
-                    NTNU Campus<br />
-                    Ålesund, Norway<br />
-                    <a href="mailto:contact@stayfinder.com">contact@stayfinder.com</a>
-                </address>
-            </section>
-
-            <section className="content_section">
-                <h2 className="section_header">About the Project</h2>
-                <p className="paragraph_text">
-                    StayFinder is a school project built by students at NTNU for the Web Technologies course (IDATA2301).
-                </p>
-                <p className="paragraph_text">
-                    The platform simulates hotel booking functionality for educational purposes only.
-                </p>
-            </section>
+            <h1>Edit Contact Information</h1>
+            <form className="user-info-form" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={form.firstName}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={form.lastName}
+                    onChange={handleChange}
+                />
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    value={form.email}
+                    onChange={handleChange}
+                />
+                <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone Number"
+                    value={form.phone}
+                    onChange={handleChange}
+                />
+                <input
+                    type="text"
+                    name="areaCode"
+                    placeholder="Area Code"
+                    value={form.areaCode}
+                    onChange={handleChange}
+                />
+                <button type="submit">Save Changes</button>
+            </form>
+            {message && <p>{message}</p>}
         </main>
     );
 }

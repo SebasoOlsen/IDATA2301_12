@@ -36,15 +36,39 @@ export default function ProductPage() {
 
   if (!hotel) return <div>Loading...</div>;
 
-  return (
-    <div>
-      <h1>{hotel.name}</h1>
-      <div style={{ display: "flex", gap: "24px", padding: "20px" }}>
-        <ImageCarousel images={images} />
-        <InfoBox hotel={hotel} />
-        <ExtraFeaturesBox hotel={hotel} />
-        <AvailableListingsBox listings={listings} />
-      </div>
-    </div>
-  );
+    return (
+        <main>
+          <div className="product-page">
+            <div className="hotel-header">
+              <h1 className="hotel-title">{hotel.name}</h1>
+              <div className="hotel-location">{hotel.location}</div>
+            </div>
+
+            <div className="image-gallery">
+              {/* Your image gallery */}
+              <ImageCarousel images={images} />
+            </div>
+
+            <div className="hotel-details">
+              <div className="description-section">
+                <h2 className="section-title">About this hotel</h2>
+                {/* Description content */}
+                <InfoBox hotel={hotel} />
+              </div>
+
+              <div className="amenities-section">
+                <h2 className="section-title">Amenities</h2>
+                <ul className="amenities-list">
+                  {/* Amenities items */}
+                  <ExtraFeaturesBox hotel={hotel} />
+                </ul>
+              </div>
+            </div>
+
+            <div className="rooms-section">
+              <AvailableListingsBox listings={listings} />
+            </div>
+          </div>
+        </main>
+    )
 }

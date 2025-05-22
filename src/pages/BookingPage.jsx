@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {useParams} from "react-router-dom"
+import "../service/api/listingAPI.js"
 import "../assets/css/common/global.css";
 import "../assets/css/booking.css";
+import {getListingById} from "../service/api/listingAPI.js";
 
 /**
  * BookingPage allows users to input their booking details.
@@ -19,6 +22,18 @@ export default function BookingPage() {
         checkout: "",
         guests: 1,
     });
+
+    const [listing, setListing] = useState(null);
+
+    const {listingId} = useParams();
+
+    useEffect(async () => {
+        try {
+            setListing(await getListingById(listingId));
+        } catch (error) {
+            console.log('Error while getting listing:' + error);
+        }
+    })
 
     const [submitted, setSubmitted] = useState(false);
 

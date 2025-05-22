@@ -1,4 +1,7 @@
-const BASE_URL = "https://localhost:8443/api/listings";
+import {Urls} from "./Urls.js";
+
+//const BASE_URL = "https://localhost:8443/api/listings";
+const BASE_URL = (`${Urls.BASE}/api/listings`);
 
 export const getListingsByHotelId = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/public/hotel/${hotelId}`);
@@ -10,7 +13,7 @@ export const getListingsByHotelId = async (hotelId) => {
 };
 
 export const createListing = async (data) => {
-  const res = await fetch(`${BASE_URL}`, {
+  const res = await fetch(`${BASE_URL}/admin/createListing`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -19,3 +22,8 @@ export const createListing = async (data) => {
   if (!res.ok) throw new Error("Failed to create listing");
   return res.json();
 };
+
+export const getListingById = async (listingId) => {
+  const res = await fetch(`${BASE_URL}/${listingId}`);
+  if (!res.ok) throw new Error("Failed to fetch listing");
+}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const HotelTable = ({ hotels, page, rowsPerPage, onEdit, onDelete }) => {
+const HotelTable = ({ hotels, page, rowsPerPage, onEdit, onToggleHide }) => {
   const start = (page - 1) * rowsPerPage;
   const paginatedHotels = hotels.slice(start, start + rowsPerPage);
 
@@ -8,7 +8,7 @@ const HotelTable = ({ hotels, page, rowsPerPage, onEdit, onDelete }) => {
     <table id="hotelTable">
       <thead>
         <tr>
-          <th>Hotel ID</th>
+          <th>ID</th>
           <th>Name</th>
           <th>Location Type</th>
           <th>City</th>
@@ -16,7 +16,8 @@ const HotelTable = ({ hotels, page, rowsPerPage, onEdit, onDelete }) => {
           <th>Rooms</th>
           <th>Features</th>
           <th>Avg. Review</th>
-          <th></th>
+          <th>Visibility</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -30,9 +31,12 @@ const HotelTable = ({ hotels, page, rowsPerPage, onEdit, onDelete }) => {
             <td>{hotel.rooms?.length || 0}</td>
             <td>{hotel.extraFeatures?.length || 0}</td>
             <td>{hotel.averageReview?.toFixed(1)}</td>
+            <td>{hotel.hidden ? "Hidden" : "Visible"}</td>
             <td>
               <button onClick={() => onEdit(hotel)}>Edit</button>
-              <button onClick={() => onDelete(hotel.id)}>Delete</button>
+              <button onClick={() => onToggleHide(hotel)}>
+                {hotel.hidden ? "Unhide" : "Hide"}
+              </button>
             </td>
           </tr>
         ))}

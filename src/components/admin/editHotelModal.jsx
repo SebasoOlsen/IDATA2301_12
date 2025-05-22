@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { updateHotel } from "../../service/api/hotelAPI";
 
 const EditHotelModal = ({ hotel, onClose, onUpdate }) => {
   const [form, setForm] = useState({
@@ -20,12 +21,7 @@ const EditHotelModal = ({ hotel, onClose, onUpdate }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/api/hotels/${hotel.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) throw new Error("Update failed");
+      await updateHotel(hotel.id, form);
       onUpdate();
     } catch (err) {
       alert("Hotel update failed.");

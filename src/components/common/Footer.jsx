@@ -1,7 +1,15 @@
 import React from "react";
 import "../../assets/css/common/global.css";
 import "../../assets/css/common/footer.css";
-
+/**
+ * Footer component for displaying site-wide footer information.
+ *
+ * Renders the footer section with information about Stay Finder, contact details, and legal notices.
+ * Includes a disclaimer about the website's purpose as a university group project.
+ *
+ * @component
+ * @returns {JSX.Element} The footer UI for the application.
+ */
 export default function Footer() {
   return (
     <footer className="footer">

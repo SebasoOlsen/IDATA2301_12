@@ -3,7 +3,14 @@ import "../assets/css/common/global.css";
 import "../assets/css/my-page.css";
 import { Link } from "react-router-dom";
 import BookingCard from "../components/BookingCard";
-
+/**
+ * MyPage component for displaying the user's bookings and quick links.
+ *
+ * Fetches and lists user bookings, and provides navigation to favourites and contact information.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered user page.
+ */
 export default function MyPage() {
     const [bookings, setBookings] = useState([]);
     const [error, setError] = useState("");

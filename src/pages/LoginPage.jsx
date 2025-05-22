@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/common/global.css";
 import "../assets/css/login-page.css";
-
+/**
+ * LoginPage component for user authentication.
+ *
+ * Handles login form input, submission and error display.
+ * Goes to user page on successful login.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered login page
+ */
 export default function LoginPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");

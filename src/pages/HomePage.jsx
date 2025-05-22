@@ -4,7 +4,15 @@ import "../assets/css/homepage.css";
 import { getRandomHotels } from "../service/api/hotelAPI";
 import HotelCard from "../components/HotelCard";
 import beachImage from "../assets/images/beach.jpg"; // Import the static image
-
+/**
+ * HomePage component for displaying the main page.
+ *
+ * Shows a featured image, a hotel search form, and random featured hotel deals.
+ * Fetches random hotels to display as featured deals.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered home page.
+ */
 export default function HomePage() {
   const [hotels, setHotels] = useState([]);
 

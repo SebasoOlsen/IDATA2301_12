@@ -8,7 +8,14 @@ import "../assets/css/product-page.css";
 import ExtraFeaturesBox from "../components/Product/ExtraFeaturesBox";
 import AvailableListingsBox from "../components/Product/AvailableListingsBox";
 import { getListingsByHotelId } from "../service/api/listingAPI";
-
+/**
+ * ProductPage component for displaying detailed hotel information.
+ *
+ * Fetches and displays hotel details, images, amenities, and available room listings.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered product (hotel) page.
+ */
 export default function ProductPage() {
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);

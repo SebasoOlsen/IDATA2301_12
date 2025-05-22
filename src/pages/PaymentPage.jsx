@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/common/global.css";
+import "../assets/css/payment.css";
 
 /**
  * PaymentPage simulates a credit card payment form.
@@ -59,6 +60,10 @@ export default function PaymentPage() {
         <main className="container">
             <section aria-labelledby="payment-form-title">
                 <h2 id="payment-form-title">Payment Information</h2>
+                <div className="payment-warning">
+                    This is only meant as a simulated payment. <strong>DO NOT</strong> enter your real payment
+                    information.
+                </div>
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Card Details</legend>
@@ -108,7 +113,7 @@ export default function PaymentPage() {
                         />
                     </fieldset>
 
-                    {error && <p role="alert" style={{ color: "red" }}>{error}</p>}
+                    {error && <p role="alert" style={{color: "red"}}>{error}</p>}
 
                     <button type="submit">Simulate Payment</button>
                 </form>

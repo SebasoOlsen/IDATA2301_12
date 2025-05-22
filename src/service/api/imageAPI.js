@@ -1,4 +1,4 @@
-const BASE_URL = "https://localhost:8443/api/images";
+const BASE_URL = "http://localhost:8080/api/images";
 
 // GET: Fetch images by type and typeId
 export const getImageByTypeAndId = async (type, typeId) => {
@@ -22,6 +22,7 @@ export const uploadImage = async (file, type, typeId) => {
   const response = await fetch(`${BASE_URL}/admin/upload`, {
     method: "POST",
     body: formData,
+    credentials: "include",
   });
 
   if (!response.ok) {

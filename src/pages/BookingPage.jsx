@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/common/global.css";
-import "../assets/css/booking.css"; // Adjust path if necessary
+import "../assets/css/booking.css";
 
 /**
  * BookingPage allows users to input their booking details.

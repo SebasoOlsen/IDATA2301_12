@@ -1,19 +1,14 @@
-const BASE_URL = "https://localhost:8443/api/hotels";
+const BASE_URL = "http://localhost:8080/api/hotels";
 
-// Utility to fetch with token or credentials
-const fetchWithAuth = async (url, options = {}) => {
-  const token = localStorage.getItem("token"); // Use cookies if not JWT-based
-
-  const headers = {
-    "Content-Type": "application/json",
-    ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    ...options.headers,
-  };
-
-  const response = await fetch(url, {
-    ...options,
-    headers,
-    credentials: "include", // Important if you're using session cookies
+//Create a new hotel
+export const createHotel = async (hotelData) => {
+  const response = await fetch(`${BASE_URL}/admin/createHotel`, {
+    method: "POST",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(hotelData),
   });
 
   if (!response.ok) {

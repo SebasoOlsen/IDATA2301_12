@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import "../../assets/css/admin/RoomTypeInput.css";
-
+/**
+ * RoomTypeInput component for managing a list of room types.
+ *
+ * Renders an input field and a list to add or remove room types.
+ * Allows users to enter a room type, add it to the list, and remove types as needed.
+ *
+ * Props:
+ * - roomTypes: Array of current room type strings.
+ * - setRoomTypes: Function to update the roomTypes array.
+ *
+ * State:
+ * - inputValue: The current value of the input field.
+ *
+ * @component
+ * @returns {JSX.Element} The input and list UI for managing room types.
+ */
 const RoomTypeInput = ({ roomTypes, setRoomTypes }) => {
   const [inputValue, setInputValue] = useState("");
 

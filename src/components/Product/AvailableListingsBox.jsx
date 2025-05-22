@@ -1,8 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../assets/css/available-listings.css"
+import SelectBookingDateModal from "./selectBookingDateModal.jsx";"./selectBookingDateModal.jsx"
 
 export default function AvailableListingsBox({ listings }) {
-  const { room, provider, price, currency } = listings;
+
+  const [selectedListingId, setSelectedListingId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenDateSelector = listingId => {
+      setSelectedListingId(listingId);
+      setShowModal(true);
+  }
+  const handleCloseDateSelector = () => {
+      setShowModal(false);
+  }
+
+  const handleDateSelect = (date) => {}
+
   return (
       <div className="wrapper">
           <h3 className="title">Available Listings</h3>
@@ -23,11 +37,21 @@ export default function AvailableListingsBox({ listings }) {
                     <p className="cost-p">{listing.price} </p>
                     <p className="currency-p">{listing.currency} </p>
                 </div>
-                <button className="view-dates-button">View dates</button>
+                <button className="view-dates-button"
+                        onClick={() => handleOpenDateSelector(listing.id)}
+                >View dates</button>
             </div>
         ))
       )}
         </div>
+
+          {showModal && (
+              <SelectBookingDateModal
+              listingId = {selectedListingId}
+              onClose = {() =>handleCloseDateSelector}
+              />
+          )}
+
       </div>
   );
 }

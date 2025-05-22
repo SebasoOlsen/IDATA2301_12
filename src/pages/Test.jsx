@@ -1,6 +1,12 @@
 import "../assets/css/common/global.css";
 import "../assets/css/product-page.css";
-
+/**
+ * Test component for displaying a sample hotel page layout.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered test hotel page.
+ */
+export default function Test() { ... }
 export default function Test() {
   return (
     <main>

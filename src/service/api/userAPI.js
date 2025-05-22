@@ -2,6 +2,14 @@ import {Urls} from "./Urls.js";
 
 const BASE_URL = `${Urls.BASE}/api/users`;
 
+/**
+ * User API service for interacting with user-related backend endpoints.
+ *
+ * Provides functions to search for users, update user information, and delete users via admin endpoints.
+ *
+ * @module userAPI
+ */
+
   export const getAllUsersBySearch = async (query) => {
     const url = query 
       ? `/admin/search?query=${encodeURIComponent(query)}`

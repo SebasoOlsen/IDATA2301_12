@@ -1,7 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/UserDropdown.css";
-
+/**
+ * UserDropdown component for displaying a user menu.
+ *
+ * Shows a dropdown with account options if the user is logged in.
+ * Handles login status, navigation, and logout.
+ *
+ * @component
+ * @returns {JSX.Element} The user dropdown menu UI.
+ */
 export default function UserDropdown() {
     const [isOpen, setIsOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -27,14 +35,15 @@ export default function UserDropdown() {
         fetch("/api/login/public/isLoggedIn", { credentials: "same-origin" })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Response loggedIn value:", data.loggedIn);
-                setIsLoggedIn(data.loggedIn);
-                if (!data.loggedIn) {
+                console.log("Response loggedIn value:", data.isLoggedIn);
+                setIsLoggedIn(data.isLoggedIn);
+                if (!data.isLoggedIn) {
                     console.log("User not logged in. Redirecting to login.");
                     navigate("/login");
                 } else {
                     console.log("User is logged in. Toggling dropdown.");
                     setIsOpen(!isOpen);
+                    setUserName(data.email)
                 }
             })
             .catch((error) => {

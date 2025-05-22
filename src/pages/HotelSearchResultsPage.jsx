@@ -3,7 +3,15 @@ import HotelSearchForm from "../components/HotelSearchForm.jsx";
 import {useSearchParams} from "react-router-dom";
 import HotelCard from "../components/HotelCard.jsx";
 import {searchHotels} from "../service/api/hotelAPI.js";
-
+/**
+ * HotelSearchResultsPage component for displaying hotel search results.
+ *
+ * Handles hotel search queries, fetches matching hotels, and displays them as a list.
+ * Integrates the search forn and result cards.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered hotel search results page.
+ */
 export default function HotelSearchResultsPage() {
 
     const [searchParams, setSearchParams] = useSearchParams();

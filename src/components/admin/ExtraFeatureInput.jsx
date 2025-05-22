@@ -1,6 +1,21 @@
 import React, { useState } from "react";
 import "../../assets/css/admin/ExtraFeatureInput.css";
-
+/**
+ * ExtraFeatureInput component for managing a list of extra features.
+ *
+ * Renders an input field and a list to add or remove extra features.
+ * Allows users to enter a feature, add it to the list, and remove features as needed.
+ *
+ * Props:
+ * - features: Array of current feature strings.
+ * - setFeatures: Function to update the features array.
+ *
+ * State:
+ * - inputValue: The current value of the input field.
+ *
+ * @component
+ * @returns {JSX.Element} The input and list UI for managing extra features.
+ */
 const ExtraFeatureInput = ({ features, setFeatures }) => {
   const [inputValue, setInputValue] = useState("");
 

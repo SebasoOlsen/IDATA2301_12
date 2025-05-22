@@ -19,7 +19,15 @@ import LoginPage from "./pages/LoginPage.jsx";
 import CreateNewListingPage from "./pages/admin/CreateNewListingPage.jsx";
 import CreateNewProviderPage from "./pages/admin/CreateNewProviderPage.jsx";
 import AdminHotels from "./pages/admin/Hotels.jsx";
-
+import ConfirmBookingPage from "./pages/ConfirmBookingPage.jsx";
+/**
+ * Main application component that sets up routing for all pages.
+ *
+ * Uses React Router to define routes for user, admin, and utility pages.
+ * Wraps all routes with a common layout component.
+ *
+ * @module App
+ */
 function App() {
   return (
     <BrowserRouter>
@@ -50,6 +58,7 @@ function App() {
             element={<CreateNewProviderPage />}
           />
           <Route path="/admin/hotels" element={<AdminHotels />} />
+          <Route path="/confirm-booking" element={<ConfirmBookingPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

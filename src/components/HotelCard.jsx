@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getImageByTypeAndId } from "../service/api/imageAPI";
-
+/**
+ * HotelCard component for displaying a summary of a hotel.
+ *
+ * Shows hotel image, name, location, room types, extra features, and location type.
+ * Fetches the hotel image by hotel ID and displays a fallback if unavailable.
+ * Includes a link to view more details about the hotel.
+ *
+ * Props:
+ * - hotel: Object containing hotel details, including `id`, `name`, `city`, `country`, `roomTypes`, `extraFeatures`, and `locationType`.
+ *
+ * @component
+ * @returns {JSX.Element} The UI for displaying a hotel card.
+ */
 const HotelCard = ({ hotel }) => {
   const [imageUrl, setImageUrl] = useState(null);
 

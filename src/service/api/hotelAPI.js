@@ -1,7 +1,14 @@
 import {Urls} from "./Urls.js";
 
 const BASE_URL = `${Urls.BASE}/api/hotels`;
-
+/**
+ * Hotel API service for interacting with hotel-related backend endpoints.
+ *
+ * Provides functions to create, fetch, update, and search hotels, as well as retrieve rooms by hotel ID.
+ * Handles both admin and public endpoints.
+ *
+ * @module hotelAPI
+ */
 //Create a new hotel
 export const createHotel = async (hotelData) => {
   const response = await fetch(`${BASE_URL}/admin/createHotel`, {

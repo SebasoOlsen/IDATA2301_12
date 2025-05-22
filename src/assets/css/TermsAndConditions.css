@@ -1,0 +1,52 @@
+/*
+TermsAndConditions
+ */
+.main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.main h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.content_section {
+    margin-bottom: 2rem;
+}
+
+.section_header {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 0.3rem;
+}
+
+.paragraph_text {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .section_header {
+        font-size: 1.2rem;
+    }
+
+    .paragraph_text {
+        font-size: 0.95rem;
+    }
+}

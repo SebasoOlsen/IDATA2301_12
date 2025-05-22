@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import { updateHotel } from "../../service/api/hotelAPI";
-
+/**
+ * EditHotelModal component for editing hotel details.
+ *
+ * Renders a modal dialog with a form to edit hotel information such as name, location type, country, city, and average review.
+ * Handles form state, input changes, and submission to update the hotel via API.
+ *
+ * Props:
+ * - hotel: The hotel object to edit.
+ * - onClose: Function to close the modal.
+ * - onUpdate: Function to call after a successful update.
+ *
+ * State:
+ * - form: Object containing the editable hotel fields.
+ *
+ * @component
+ * @returns {JSX.Element} The modal form for editing a hotel.
+ */
 const EditHotelModal = ({ hotel, onClose, onUpdate }) => {
   const [form, setForm] = useState({
     name: hotel.name || "",

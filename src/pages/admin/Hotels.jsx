@@ -45,7 +45,7 @@ const Hotels = () => {
 
   const handleToggleHide = async (hotel) => {
     try {
-      await updateHotelVisibility(hotel.id, !hotel.hidden);
+      await updateHotelVisibility(hotel.id, hotel.hidden);
       await loadHotels();
     } catch (err) {
       console.error("Failed to toggle hotel visibility:", err);

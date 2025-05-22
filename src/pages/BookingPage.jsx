@@ -14,6 +14,16 @@ import {getListingById} from "../service/api/listingAPI.js";
  * @returns {JSX.Element}
  */
 
+/**
+ * Listing fields:
+ *     private int id;
+ *     private ProviderResponseDTO provider;
+ *     private RoomResponseDTO room;
+ *     private int price;
+ *     private String currency;
+ *     private HotelResponseDTO hotel;
+ */
+
 export default function BookingPage() {
     const [formData, setFormData] = useState({
         name: "",
@@ -65,6 +75,11 @@ export default function BookingPage() {
 
     return (
         <main className="container">
+            <section className="listing-section" aria-labelledby="listing-heading">
+                <h1 className="listing ">a</h1>
+            </section>
+
+
             <section className="booking-section" aria-labelledby="booking-heading">
                 <h1 id="booking-heading">Book Your Stay</h1>
                 <form onSubmit={handleSubmit} className="booking-form">

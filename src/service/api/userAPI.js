@@ -1,3 +1,10 @@
+/**
+ * User API service for interacting with user-related backend endpoints.
+ *
+ * Provides functions to search for users, update user information, and delete users via admin endpoints.
+ *
+ * @module userAPI
+ */
 const API_URL = 'http://localhost:8080/api/users';
 
   export const getAllUsersBySearch = async (query) => {

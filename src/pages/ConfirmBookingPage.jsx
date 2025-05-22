@@ -3,7 +3,15 @@ import React, {useEffect, useState} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {checkLoginStatus} from "../service/api/loginAPI.js";
 import {createBooking} from "../service/api/bookingAPI.js";
-
+/**
+ * ConfirmBookingPage component for confirming a hotel booking.
+ *
+ * Checks user login status, displays booking details, and allows the user to confirm or go back.
+ * Handles invalid or missing booking information and redirects to login if needed.
+ *
+ * @component
+ * @returns {JSX.Element} The booking confirmation page UI.
+ */
 const ConfirmBookingPage = () => {
     const location = useLocation();
     const navigate = useNavigate();

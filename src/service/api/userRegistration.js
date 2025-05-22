@@ -1,4 +1,4 @@
-import {Urls} from "../service/api/Urls.js";
+import {Urls} from "./Urls.js";
 
 const BASE_URL = `${Urls.BASE}/api/users`;
 /**

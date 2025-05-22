@@ -1,5 +1,6 @@
 import {Urls} from "./Urls.js";
 
+const BASE_URL = `${Urls.BASE}/api/bookings`;
 
 export const createBooking = async () => {
 
@@ -7,7 +8,7 @@ export const createBooking = async () => {
 
 export const getBookedDates = async (listingId) => {
     const listingID = listingId;
-    const response = await fetch(`${Urls.BASE}/api/bookings/account/user`, {
+    const response = await fetch(`${BASE_URL}/account/user`, {
         method: "GET",
         credentials: "include",
         headers: {

@@ -1,7 +1,6 @@
 import {Urls} from "./Urls.js";
 
-//const BASE_URL = "https://localhost:8443/api/listings";
-const BASE_URL = (`${Urls.BASE}/api/listings`);
+const BASE_URL = `${Urls.BASE}/api/listings`;
 
 export const getListingsByHotelId = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/public/hotel/${hotelId}`, {

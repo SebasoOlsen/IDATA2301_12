@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:8080/api/hotels";
+import {Urls} from "./Urls.js";
+
+const BASE_URL = `${Urls.BASE}/api/hotels`;
 
 //Create a new hotel
 export const createHotel = async (hotelData) => {

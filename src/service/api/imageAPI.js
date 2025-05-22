@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:8080/api/images";
+import {Urls} from "./Urls.js";
+
+const BASE_URL = `${Urls.BASE}/api/images`;
 
 // GET: Fetch images by type and typeId
 export const getImageByTypeAndId = async (type, typeId) => {
@@ -29,5 +31,5 @@ export const uploadImage = async (file, type, typeId) => {
     throw new Error("Failed to upload image");
   }
 
-  return await response.text(); // Returns: "Image uploaded"
+  return await response.text();
 };

@@ -5,6 +5,21 @@ import "react-datepicker/dist/react-datepicker.css";
 import {getBookedDates} from "../../service/api/bookingAPI.js";
 import "../../assets/css/select-booking-date-modal.css";
 
+/**
+ * Modal component for selecting a booking date range.
+ *
+ * Fetches booked dates for a listing and disables them in the date picker.
+ * Users can select an available date range and submit it.
+ *
+ * Props:
+ * - listingId (string): ID of the listing.
+ * - onClose (function): Callback to close the modal.
+ * - onSubmit (function): Callback with selected date range and listing ID.
+ *
+ * @component
+ * @returns {JSX.Element}
+ */
+
 const selectBookingDateModal = ({ listingId, onClose, onSubmit}) => {
 
     const [bookedDates, setBookedDates] = useState([]);

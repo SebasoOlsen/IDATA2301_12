@@ -1,74 +1,68 @@
 const BASE_URL = "https://localhost:8443/api/hotels";
 
-//Create a new hotel
-export const createHotel = async (hotelData) => {
-  const response = await fetch(`${BASE_URL}/admin/createHotel`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(hotelData),
+// Utility to fetch with token or credentials
+const fetchWithAuth = async (url, options = {}) => {
+  const token = localStorage.getItem("token"); // Use cookies if not JWT-based
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...options.headers,
+  };
+
+  const response = await fetch(url, {
+    ...options,
+    headers,
+    credentials: "include", // Important if you're using session cookies
   });
 
   if (!response.ok) {
-    throw new Error("Failed to create hotel");
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
   }
 
   const text = await response.text();
   return text ? JSON.parse(text) : {};
 };
 
+// Create a new hotel
+export const createHotel = async (hotelData) => {
+  return await fetchWithAuth(`${BASE_URL}/admin/createHotel`, {
+    method: "POST",
+    body: JSON.stringify(hotelData),
+  });
+};
 
+// Get all hotels (admin)
 export const getAllHotels = async () => {
-  const res = await fetch(`${BASE_URL}/admin/allHotels`);
-  return res.json();
+  return await fetchWithAuth(`${BASE_URL}/admin/allHotels`);
 };
 
-//Fetch a hotel by ID
+// Fetch a hotel by ID
 export const getHotel = async (hotelId) => {
-  const response = await fetch(`${BASE_URL}/public/searchById/${hotelId}`);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch hotel");
-  }
-
-  return await response.json(); // returns the hotel object
+  return await fetchWithAuth(`${BASE_URL}/public/searchById/${hotelId}`, {
+    method: "GET",
+  });
 };
 
-// Get n random hotels
+// Get random hotels
 export const getRandomHotels = async (count = 3) => {
-  
-  const response = await fetch(`${BASE_URL}/public/randomHotels?count=${count}`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch random hotels");
-  }
-  return await response.json();
+  return await fetchWithAuth(`${BASE_URL}/public/randomHotels?count=${count}`);
 };
 
+// Public hotel search
 export const searchHotels = async (query) => {
-  console.log("Searching for: " + query);
   const params = new URLSearchParams({
     destination: query.destination,
     checkin: query.checkin,
     checkout: query.checkout,
-    rooms: query.rooms
+    rooms: query.rooms,
   });
-  const response = await fetch(`${BASE_URL}/public/search?${params}`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch hotels");
-  }
-  return await response.json();
-}
 
-export const getRoomsByHotelId = async (hotelId) => {
-  const res = await fetch(`${BASE_URL}/public/${hotelId}/rooms`);
-  return res.json();
+  return await fetchWithAuth(`${BASE_URL}/public/search?${params.toString()}`);
 };
 
-
-
-
-
-
-
-
+// Rooms by hotel ID
+export const getRoomsByHotelId = async (hotelId) => {
+  return await fetchWithAuth(`${BASE_URL}/public/${hotelId}/rooms`);
+};

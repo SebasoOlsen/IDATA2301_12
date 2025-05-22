@@ -49,25 +49,34 @@ const selectBookingDateModal = ({ listingId, onClose }) => {
         return disabled;
     }
 
+    const handleDateChange = (startDate, endDate) => {
+        setStartDate(startDate);
+        setEndDate(endDate);
+    }
+
     return (
         <div className="modal">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h1>Select a Date</h1>
-                    <button className="close-button" onClick={onClose}></button>
+                    <h1 className="header-text">Select a Date</h1>
+                    <button className="close-button" onClick={onClose}>X</button>
                 </div>
                 <div className="modal-body">
-                    {isLoading && <p>Loading available dates...</p>}
+                    {isLoading && <p className="loading-text">Loading available dates...</p>}
                     {error && (
-                        <div className="error-message">
-                            <p>{error}</p>
+                        <div className="error-message-container">
+                            <p className="error-text">{error}</p>
                         </div>
                     )}
                     {!isLoading && !error && (
                         <div className="date-selection">
                             <DatePicker
+                                showMonthYearDropdown={true}
                                 selected={startDate}
-                                onChange={onChange}
+                                onChange={(dates) => {
+                                    const [start, end] = dates
+                                    handleDateChange(start, end);
+                                }}
                                 startDate={startDate}
                                 endDate={endDate}
                                 excludeDates={getDisabledDates()}
@@ -84,7 +93,7 @@ const selectBookingDateModal = ({ listingId, onClose }) => {
 
                     <div className="modal-footer">
                         <button className="confirm-button"
-                                disabled={isLoading || error.length > 0}
+                                disabled={isLoading || error !== null}
                                 onClick={handleSubmit}
                         >Book dates</button>
                     </div>

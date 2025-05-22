@@ -7,7 +7,7 @@ export const createBooking = async () => {
 
 export const getBookedDates = async (listingId) => {
     const listingID = listingId;
-    const response = await fetch(`${Urls.BASE}/api/bookings/account/user`, {
+    const response = await fetch(`${Urls.BASE}/api/bookings/public/bookedDatesForListing/${listingId}`, {
         method: "GET",
         credentials: "include",
         headers: {

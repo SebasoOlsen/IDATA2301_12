@@ -1,6 +1,18 @@
 import React from "react";
 import "../../assets/css/admin/ImageUploadList.css";
-
+/**
+ * ImageUploadList component for managing hotel image uploads.
+ *
+ * Renders a file input for selecting multiple images, enforces a 1MB size limit per file,
+ * displays a list of selected images, and allows removal of images from the list.
+ *
+ * Props:
+ * - images: Array of File objects representing the selected images.
+ * - setImages: Function to update the images array.
+ *
+ * @component
+ * @returns {JSX.Element} The UI for uploading and managing hotel images.
+ */
 const MAX_FILE_MB = 1;
 const MAX_FILE_BYTES = MAX_FILE_MB * 1024 * 1024;
 

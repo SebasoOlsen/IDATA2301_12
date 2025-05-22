@@ -5,7 +5,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../../assets/css/admin/ImageCarousel.css";
-
+/**
+ * ImageCarousel component for displaying a carousel of images.
+ *
+ * Utilizes Swiper to render a navigable and paginated image slider.
+ * Shows a message if no images are provided.
+ *
+ * Props:
+ * - images: Array of image URLs to display in the carousel.
+ *
+ * @component
+ * @returns {JSX.Element} The image carousel UI or a fallback message.
+ */
 const ImageCarousel = ({ images }) => {
   if (!images || images.length === 0) {
     return <p>No images to display.</p>;

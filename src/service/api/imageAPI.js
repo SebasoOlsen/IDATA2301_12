@@ -1,5 +1,11 @@
 const BASE_URL = "http://localhost:8080/api/images";
-
+/**
+ * Image API service for interacting with image-related backend endpoints.
+ *
+ * Provides functions to fetch images by type and ID, and to upload images with metadata.
+ *
+ * @module imageAPI
+ */
 // GET: Fetch images by type and typeId
 export const getImageByTypeAndId = async (type, typeId) => {
   const url = `${BASE_URL}/public/urls?type=${encodeURIComponent(type)}&typeId=${encodeURIComponent(typeId)}`;

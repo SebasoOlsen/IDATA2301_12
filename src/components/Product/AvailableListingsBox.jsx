@@ -2,7 +2,23 @@ import React, {useState} from "react";
 import "../../assets/css/available-listings.css"
 import SelectBookingDateModal from "./selectBookingDateModal.jsx";"./selectBookingDateModal.jsx"
 import {useNavigate} from "react-router-dom";
-
+/**
+ * AvailableListingsBox component for displaying available room listings.
+ *
+ * Renders a list of available listings with room and provider information, price, and currency.
+ * Allows users to view available booking dates for each listing via a modal dialog.
+ * Handles navigation to the booking confirmation page upon date selection.
+ *
+ * Props:
+ * - listings: Array of listing objects to display.
+ *
+ * State:
+ * - selectedListingId: ID of the currently selected listing for booking.
+ * - showModal: Boolean indicating if the booking date modal is open.
+ *
+ * @component
+ * @returns {JSX.Element} The UI for displaying and booking available listings.
+ */
 export default function AvailableListingsBox({ listings }) {
 
   const [selectedListingId, setSelectedListingId] = useState(null);

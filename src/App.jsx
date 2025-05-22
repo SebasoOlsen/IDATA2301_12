@@ -15,7 +15,7 @@ import FavouritesPage from "./pages/FavouritesPage.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-import Test from "./pages/Test.jsx";
+//import Test from "./pages/Test.jsx";
 import CreateNewListingPage from "./pages/admin/CreateNewListingPage.jsx";
 import CreateNewProviderPage from "./pages/admin/CreateNewProviderPage.jsx";
 import AdminHotels from "./pages/admin/Hotels.jsx";
@@ -40,7 +40,7 @@ function App() {
           {/*<Route path="/contactInformation" element={<ContactInformation/>} />*/}
           <Route path="/my-page" element={<MyPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/test" element={<Test />} />
+          {/*<Route path="/test" element={<Test />} />*/}
           <Route
             path="/admin/create-new-listing"
             element={<CreateNewListingPage />}

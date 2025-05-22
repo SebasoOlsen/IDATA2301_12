@@ -120,3 +120,25 @@ export const getRoomsByHotelId = async (hotelId) => {
   const text = await response.text();
   return text ? JSON.parse(text) : {};
 };
+
+export const updateHotel = async (id, data) => {
+  const res = await fetch(`${BASE_URL}/admin/updateHotel/${id}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
+};
+
+export const updateHotelVisibility = async (id, visible) => {
+  const url = `${BASE_URL}/admin/updateHotelVisibility/${id}?visible=${visible}`;
+  const res = await fetch(url, {
+    method: "POST",
+    credentials: "include",
+  });
+
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+};

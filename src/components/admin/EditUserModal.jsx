@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { updateUser } from "../../service/api/userAPI";
 
 const EditUserModal = ({ user, onClose, onUpdate }) => {
   const [form, setForm] = useState({
@@ -20,13 +21,13 @@ const EditUserModal = ({ user, onClose, onUpdate }) => {
     if (!payload.password) delete payload.password;
 
     try {
-      const res = await fetch(`/users/${user.id}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) throw new Error("Update failed");
-      onUpdate();
+      try {
+        await updateUser(user.id, payload);
+        onUpdate();
+      } catch (err) {
+        alert("Update failed");
+        console.error("Update error:", err);
+      }
     } catch (err) {
       alert("Update failed");
       console.error(err);

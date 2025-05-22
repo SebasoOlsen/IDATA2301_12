@@ -1,6 +1,22 @@
 import React, { useState } from "react";
 import { updateUser } from "../../service/api/userAPI";
-
+/**
+ * EditUserModal component for editing user details.
+ *
+ * Renders a modal dialog with a form to edit user information such as first name, last name, email, telephone, role, and password.
+ * Handles form state, input changes, and submission to update the user via API.
+ *
+ * Props:
+ * - user: The user object to edit.
+ * - onClose: Functon to close the modal.
+ * - onUpdate: Function to call after a successful update.
+ *
+ * State:
+ * - form: Object containing the editable user fields.
+ *
+ * @component
+ * @returns {JSX.Element} The modal form for editing a user.
+ */
 const EditUserModal = ({ user, onClose, onUpdate }) => {
   const [form, setForm] = useState({
     firstName: user.firstName || "",

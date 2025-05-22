@@ -1,7 +1,15 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../assets/css/UserDropdown.css";
-
+/**
+ * UserDropdown component for displaying a user menu.
+ *
+ * Shows a dropdown with account options if the user is logged in.
+ * Handles login status, navigation, and logout.
+ *
+ * @component
+ * @returns {JSX.Element} The user dropdown menu UI.
+ */
 export default function UserDropdown() {
     const [isOpen, setIsOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);

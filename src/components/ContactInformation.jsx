@@ -1,7 +1,19 @@
 // File: IDATA2301_12/src/components/ContactInformationForm.jsx
 import React, { useState } from "react";
 import "../assets/css/contact-information.css";
-
+/**
+ * ContactInformationForm component for editing user contact information.
+ *
+ * Displays a form for updating first name, last name, email, phone number, and area code.
+ * Submits the updated information to the server and shows a success or error message.
+ *
+ * State:
+ * - form: Object containing user input fields (`firstName`, `lastName`, `email`, `phone`, `areaCode`).
+ * - message: Status message after form submission.
+ *
+ * @component
+ * @returns {JSX.Element} The UI for editing and submitting contact information.
+ */
 export default function ContactInformationForm() {
     const [form, setForm] = useState({
         firstName: "",

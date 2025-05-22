@@ -7,62 +7,72 @@ export default defineConfig({
   server: {
     proxy: {
       '/api-docs': {
-        target: "https://localhost:8443",
+        target: "http://localhost:8080",
         changeOrigin: true,
         secure: false
       },
       '/api/bookings/account/user': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/api/favourites/account/user': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/api/hotels/admin/allHotels': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false // allow self-signed certs (dev-only)
+      },
+      '/api/hotels/admin/createHotel': {
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/api/login/account/logout': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/api/login/public/isLoggedIn': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/api/login/public/process': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/bookings': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/favourites': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/hotels': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/images': {
-        target: 'https://localhost:8443',
+        target: 'http://localhost:8080',
         changeOrigin: true,
         secure: false  // allow self-signed certs (dev-only)
       },
       '/users': {
-        target: "https://localhost:8443",
+        target: "http://localhost:8080",
         changeOrigin: true,
         secure: false // allow self-signed certs (dev-only)
       },
       '/v3/api-docs': {
-        target: "https://localhost:8443",
+        target: "http://localhost:8080",
         changeOrigin: true,
         secure: false
       }

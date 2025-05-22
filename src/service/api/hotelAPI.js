@@ -1,9 +1,10 @@
-const BASE_URL = "https://localhost:8443/api/hotels";
+const BASE_URL = "http://localhost:8080/api/hotels";
 
 //Create a new hotel
 export const createHotel = async (hotelData) => {
   const response = await fetch(`${BASE_URL}/admin/createHotel`, {
     method: "POST",
+    credentials: "include",
     headers: {
       "Content-Type": "application/json",
     },

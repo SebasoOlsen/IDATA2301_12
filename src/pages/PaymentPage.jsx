@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../assets/css/common/global.css";
-import "../assets/css/pages/payment.css";
+import "../assets/css/payment.css";
 
 /**
  * PaymentPage simulates a credit card payment form.

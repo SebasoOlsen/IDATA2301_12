@@ -1,6 +1,7 @@
 import React from "react";
 import CreateListingForm from "../../components/admin/CreateListingForm.jsx";
 
+
 const CreateListingPage = () => {
   return (
     <div className="page-container">

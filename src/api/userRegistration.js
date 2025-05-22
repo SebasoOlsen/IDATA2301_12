@@ -1,15 +1,15 @@
-
+const API_URL = 'http://localhost:8080/api/users';
 
 
 //Check email availability using API call.
 export async function checkEmailAvailability(email) {
-    const response = await fetch(`/users/check_email?email=${encodeURIComponent(email)}`);
+    const response = await fetch(`${API_URL}/public/check_email?email=${encodeURIComponent(email)}`);
     return response.ok;
 }
 
 //Check telephone number availablity using API call.
 export async function checkTelephoneAvailability(telephone) {
-    const response = await fetch(`/users/check_telephone?telephone=${encodeURIComponent(telephone)}`);
+    const response = await fetch(`${API_URL}/public/check_telephone?telephone=${encodeURIComponent(telephone)}`);
     return response.ok;
 }
 
@@ -25,7 +25,7 @@ export async function submitForm(firstName, lastName, email, password, telephone
     };
 
     try {
-        return await fetch('https://localhost:8443/users', {
+        return await fetch(`${API_URL}/public/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

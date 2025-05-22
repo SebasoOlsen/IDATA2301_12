@@ -1,4 +1,5 @@
 import React from "react";
+import './PrivacyPolicy.css';
 
 /**
  * This React functional component renders the Privacy Policy page for the StayFinder project.

@@ -20,29 +20,62 @@ export const createHotel = async (hotelData) => {
   return text ? JSON.parse(text) : {};
 };
 
-// Create a new hotel
-export const createHotel = async (hotelData) => {
-  return await fetchWithAuth(`${BASE_URL}/admin/createHotel`, {
-    method: "POST",
-    body: JSON.stringify(hotelData),
-  });
-};
-
 // Get all hotels (admin)
 export const getAllHotels = async () => {
-  return await fetchWithAuth(`${BASE_URL}/admin/allHotels`);
+   const response = await fetch(`${BASE_URL}/admin/allHotels`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
+
 
 // Fetch a hotel by ID
 export const getHotel = async (hotelId) => {
-  return await fetchWithAuth(`${BASE_URL}/public/searchById/${hotelId}`, {
+  const response = await fetch(`${BASE_URL}/public/searchById/${hotelId}`, {
     method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
   });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
+
 
 // Get random hotels
 export const getRandomHotels = async (count = 3) => {
-  return await fetchWithAuth(`${BASE_URL}/public/randomHotels?count=${count}`);
+  const response = await fetch(`${BASE_URL}/public/randomHotels?count=${count}`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
 
 // Public hotel search
@@ -54,10 +87,36 @@ export const searchHotels = async (query) => {
     rooms: query.rooms,
   });
 
-  return await fetchWithAuth(`${BASE_URL}/public/search?${params.toString()}`);
+  const response = await fetch(`${BASE_URL}/public/search?${params.toString()}`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
 
 // Rooms by hotel ID
 export const getRoomsByHotelId = async (hotelId) => {
-  return await fetchWithAuth(`${BASE_URL}/public/${hotelId}/rooms`);
+  const response = await fetch(`${BASE_URL}/public/${hotelId}/rooms`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080/api/images";
+const BASE_URL = "/api/images";
 
 // GET: Fetch images by type and typeId
 export const getImageByTypeAndId = async (type, typeId) => {

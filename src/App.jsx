@@ -18,7 +18,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import Test from "./pages/Test.jsx";
 import CreateNewListingPage from "./pages/admin/CreateNewListingPage.jsx";
 import CreateNewProviderPage from "./pages/admin/CreateNewProviderPage.jsx";
-import ContactInformation from "./components/ContactInformation.jsx";
+import AdminHotels from "./pages/admin/Hotels.jsx";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
           <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
           <Route path="/favourites" element={<FavouritesPage />} />
           <Route path="/booking" element={<BookingPage />} />
-          <Route path="/contactInformation" element={<ContactInformation/>} />
+          {/*<Route path="/contactInformation" element={<ContactInformation/>} />*/}
           <Route path="/my-page" element={<MyPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/test" element={<Test />} />
@@ -49,6 +49,7 @@ function App() {
             path="/admin/create-new-provider"
             element={<CreateNewProviderPage />}
           />
+          <Route path="/admin/hotels" element={<AdminHotels />} />
         </Routes>
       </Layout>
     </BrowserRouter>

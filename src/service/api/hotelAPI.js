@@ -12,7 +12,27 @@ export const createHotel = async (hotelData) => {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to create hotel");
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
+};
+
+// Get all hotels (admin)
+export const getAllHotels = async () => {
+   const response = await fetch(`${BASE_URL}/admin/allHotels`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
   }
 
   const text = await response.text();
@@ -20,56 +40,83 @@ export const createHotel = async (hotelData) => {
 };
 
 
-export const getAllHotels = async () => {
-  const res = await fetch(`${BASE_URL}/admin/allHotels`);
-  return res.json();
-};
-
-//Fetch a hotel by ID
+// Fetch a hotel by ID
 export const getHotel = async (hotelId) => {
-  const response = await fetch(`${BASE_URL}/public/searchById/${hotelId}`);
+  const response = await fetch(`${BASE_URL}/public/searchById/${hotelId}`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
   if (!response.ok) {
-    throw new Error("Failed to fetch hotel");
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
   }
-
-  return await response.json(); // returns the hotel object
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
 
-// Get n random hotels
+
+// Get random hotels
 export const getRandomHotels = async (count = 3) => {
-  
-  const response = await fetch(`${BASE_URL}/public/randomHotels?count=${count}`);
+  const response = await fetch(`${BASE_URL}/public/randomHotels?count=${count}`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
   if (!response.ok) {
-    throw new Error("Failed to fetch random hotels");
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
   }
-  return await response.json();
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
 
+// Public hotel search
 export const searchHotels = async (query) => {
-  console.log("Searching for: " + query);
   const params = new URLSearchParams({
     destination: query.destination,
     checkin: query.checkin,
     checkout: query.checkout,
-    rooms: query.rooms
+    rooms: query.rooms,
   });
-  const response = await fetch(`${BASE_URL}/public/search?${params}`);
-  if (!response.ok) {
-    throw new Error("Failed to fetch hotels");
-  }
-  return await response.json();
-}
 
-export const getRoomsByHotelId = async (hotelId) => {
-  const res = await fetch(`${BASE_URL}/public/${hotelId}/rooms`);
-  return res.json();
+  const response = await fetch(`${BASE_URL}/public/search?${params.toString()}`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
 };
 
+// Rooms by hotel ID
+export const getRoomsByHotelId = async (hotelId) => {
+  const response = await fetch(`${BASE_URL}/public/${hotelId}/rooms`, {
+    method: "GET",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`HTTP ${response.status}: ${errorText}`);
+  }
 
-
-
-
-
-
-
+  const text = await response.text();
+  return text ? JSON.parse(text) : {};
+};

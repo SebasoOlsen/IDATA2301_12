@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {useParams} from "react-router-dom"
+import "../service/api/listingAPI.js"
 import "../assets/css/common/global.css";
 import "../assets/css/booking.css";
+import {getListingById} from "../service/api/listingAPI.js";
 
 /**
  * BookingPage allows users to input their booking details.
@@ -11,6 +14,16 @@ import "../assets/css/booking.css";
  * @returns {JSX.Element}
  */
 
+/**
+ * Listing fields:
+ *     private int id;
+ *     private ProviderResponseDTO provider;
+ *     private RoomResponseDTO room;
+ *     private int price;
+ *     private String currency;
+ *     private HotelResponseDTO hotel;
+ */
+
 export default function BookingPage() {
     const [formData, setFormData] = useState({
         name: "",
@@ -19,6 +32,18 @@ export default function BookingPage() {
         checkout: "",
         guests: 1,
     });
+
+    const [listing, setListing] = useState(null);
+
+    const {listingId} = useParams();
+
+    useEffect(async () => {
+        try {
+            setListing(await getListingById(listingId));
+        } catch (error) {
+            console.log('Error while getting listing:' + error);
+        }
+    })
 
     const [submitted, setSubmitted] = useState(false);
 
@@ -50,6 +75,11 @@ export default function BookingPage() {
 
     return (
         <main className="container">
+            <section className="listing-section" aria-labelledby="listing-heading">
+                <h1 className="listing ">a</h1>
+            </section>
+
+
             <section className="booking-section" aria-labelledby="booking-heading">
                 <h1 id="booking-heading">Book Your Stay</h1>
                 <form onSubmit={handleSubmit} className="booking-form">

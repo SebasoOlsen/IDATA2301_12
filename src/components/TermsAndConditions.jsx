@@ -1,4 +1,5 @@
 import React from "react";
+import './TermsAndConditions.css';
 
 /**
  * Displays the Terms & Conditions for the StayFinder demo project.

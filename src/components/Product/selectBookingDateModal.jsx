@@ -51,9 +51,7 @@ const selectBookingDateModal = ({ listingId, onClose, onSubmit}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Submitting dates: ', startDate, endDate);
         if (startDate && endDate) {
-            console.log("Passed check.")
             onSubmit({
                 listingId: listingId,
                 startDate: startDate,

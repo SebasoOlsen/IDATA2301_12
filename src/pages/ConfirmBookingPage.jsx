@@ -9,13 +9,16 @@ const ConfirmBookingPage = () => {
     const navigate = useNavigate();
     const { listing, startDate, endDate } = location.state || {};
     const [isLoading, setIsLoading] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [loginStatus, setLoginStatus] = useState({
+        isLoggedIn: false,
+        email: null
+    });
 
     useEffect(() => {
         const checkLogin = async () => {
             try {
-                const loggedIn = await checkLoginStatus();
-                setIsLoggedIn(loggedIn);
+                const status = await checkLoginStatus();
+                setLoginStatus(status);
             } catch (error) {
                 console.error('Error checking login status:', error);
             } finally {
@@ -28,7 +31,7 @@ const ConfirmBookingPage = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    if (!isLoggedIn) {
+    if (!loginStatus.isLoggedIn) {
         return (
         <div className="login-required-container">
             <div>Please login to continue</div>
@@ -55,11 +58,15 @@ const ConfirmBookingPage = () => {
         return new Date(date).toLocaleDateString();
     };
 
-    const handleConfirm = async () => {
-        const result = await createBooking({listing, startDate, endDate});
-        console.log('Booking result:', result);
-
-    };
+const handleConfirm = async () => {
+    const listingId = listing.id;
+    const formattedStartDate = startDate.toISOString().split('T')[0];
+    const formattedEndDate = endDate.toISOString().split('T')[0];
+    
+    const result = await createBooking(listingId, formattedStartDate, formattedEndDate);
+    console.log('Booking result:', result);
+    navigate('/PaymentPage');
+};
 
     return (
         <div className="confirm-booking-container">
@@ -71,15 +78,15 @@ const ConfirmBookingPage = () => {
                     <p>Check-out: {formatDate(endDate)}</p>
                 </section>
                 <section className="pricing-details">
-                    <p>listing.price</p>
-                    <p>listing.currency</p>
+                    <p>{listing.price}</p>
+                    <p>{listing.currency}</p>
                 </section>
                 {/* Add more listing details and total price calculation here */}
 
             </section>
             <button
                 className="confirm-booking-button"
-                onClick={() => {/* Add final booking submission logic */}}
+                onClick={handleConfirm}
             >
                 Confirm Booking
             </button>

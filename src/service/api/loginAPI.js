@@ -8,6 +8,5 @@ export const checkLoginStatus = async () => {
             "Content-Type": "application/json",
         },
     });
-    const data = await response.json();
-    return data.loggedIn;
+    return await response.json();
 }

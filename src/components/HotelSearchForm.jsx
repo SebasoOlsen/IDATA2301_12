@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "../assets/css/search-bar.css"; // New CSS file name
+import "../assets/css/search-bar.css";
 
 export default function SearchBar({ onSearch }) {
     const [formData, setFormData] = useState({

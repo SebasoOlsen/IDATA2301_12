@@ -80,12 +80,12 @@ section p {
 
 .payment-warning {
     background-color: #fff3cd;
-    color: #856402;
+    color: #5a4302;
     border: 1px solid #ffeebc;
     border-radius: 6px;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     line-height: 1.4;
     text-align: center;
 }

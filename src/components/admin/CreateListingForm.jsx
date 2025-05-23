@@ -4,6 +4,29 @@ import { getAllHotels, getRoomsByHotelId } from "../../service/api/hotelAPI";
 import { getProviders } from "../../service/api/providerAPI";
 import { createListing } from "../../service/api/listingAPI";
 
+/**
+ * CreateListingForm component for admin users.
+ *
+ * Renders a form to create a new listing by selecting a hotel, room, provider, price, and currency.
+ * Fetches hotels, rooms, and providers from the API and handles form submission to create a listing.
+ *
+ * State:
+ * - hotels: List of available hotels.
+ * - selectedHotelId: Currently selected hotel ID.
+ * - rooms: List of rooms for the selected hotel.
+ * - selectedRoomId: Currently selected room ID.
+ * - providers: List of available providers.
+ * - selectedProviderId: Currently selected provider ID.
+ * - price: Listing price.
+ * - currency: Selected currency.
+ *
+ * Side Effects:
+ * - Fetches hotels and providers on mount.
+ * - Fetches rooms when a hotel is selected.
+ *
+ * @component
+ * @returns {JSX.Element} The form for creating a new listing.
+ */
 const CreateListingForm = () => {
   const [hotels, setHotels] = useState([]);
   const [selectedHotelId, setSelectedHotelId] = useState("");
@@ -44,7 +67,6 @@ const CreateListingForm = () => {
     try {
       await createListing(payload);
       alert("Listing created!");
-      // Optionally reset
       setSelectedHotelId("");
       setSelectedRoomId("");
       setSelectedProviderId("");

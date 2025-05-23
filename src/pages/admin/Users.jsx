@@ -5,7 +5,16 @@ import PaginationControls from "../../components/admin/PaginationControls";
 import "../../assets/css/common/global.css";
 import "../../assets/css/admin/users.css";
 import { getAllUsersBySearch, deleteUser } from "../../service/api/userAPI";
-
+/**
+ * User's admin page for managing user accounts.
+ *
+ * Displays a searchable, paginated list of users with options to edit or delete each user.
+ * Integrates user search, pagination, editing via modal, and deletion with confirmation.
+ *
+ *
+ * @component
+ * @returns {JSX.Element} The rendered user management admin page.
+ */
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");

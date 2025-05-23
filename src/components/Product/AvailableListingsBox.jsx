@@ -1,8 +1,50 @@
-import React from "react";
+import React, {useState} from "react";
 import "../../assets/css/available-listings.css"
-
+import SelectBookingDateModal from "./selectBookingDateModal.jsx";"./selectBookingDateModal.jsx"
+import {useNavigate} from "react-router-dom";
+/**
+ * AvailableListingsBox component for displaying available room listings.
+ *
+ * Renders a list of available listings with room and provider information, price, and currency.
+ * Allows users to view available booking dates for each listing via a modal dialog.
+ * Handles navigation to the booking confirmation page upon date selection.
+ *
+ * Props:
+ * - listings: Array of listing objects to display.
+ *
+ * State:
+ * - selectedListingId: ID of the currently selected listing for booking.
+ * - showModal: Boolean indicating if the booking date modal is open.
+ *
+ * @component
+ * @returns {JSX.Element} The UI for displaying and booking available listings.
+ */
 export default function AvailableListingsBox({ listings }) {
-  const { room, provider, price, currency } = listings;
+
+  const [selectedListingId, setSelectedListingId] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
+  const handleOpenDateSelector = listingId => {
+      setSelectedListingId(listingId);
+      setShowModal(true);
+  }
+  const handleCloseDateSelector = () => {
+      setShowModal(false);
+  }
+
+  const handleSubmitDates = (bookingData) => {
+      console.log("Handling submit dates.")
+      setShowModal(false);
+      navigate('/confirm-booking', {
+          state: {
+              listing: listings.find(listing => listing.id === bookingData.listingId),
+              startDate: bookingData.startDate,
+              endDate: bookingData.endDate
+          }
+      })
+  }
+
   return (
       <div className="wrapper">
           <h3 className="title">Available Listings</h3>
@@ -23,11 +65,22 @@ export default function AvailableListingsBox({ listings }) {
                     <p className="cost-p">{listing.price} </p>
                     <p className="currency-p">{listing.currency} </p>
                 </div>
-                <button className="view-dates-button">View dates</button>
+                <button className="view-dates-button"
+                        onClick={() => handleOpenDateSelector(listing.id)}
+                >View dates</button>
             </div>
         ))
       )}
         </div>
+
+          {showModal && (
+              <SelectBookingDateModal
+              listingId = {selectedListingId}
+              onClose = {handleCloseDateSelector}
+              onSubmit = {handleSubmitDates}
+              />
+          )}
+
       </div>
   );
 }

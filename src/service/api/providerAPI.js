@@ -1,6 +1,14 @@
-const BASE_URL = "https://localhost:8443/api/providers";
+import {Urls} from "./Urls.js";
 
+const BASE_URL = `${Urls.BASE}/api/providers`;
 
+/**
+ * Provider API service for interacting with provider-related backend endpoints.
+ *
+ * Provides functions to fetch all providers and create a new provider.
+ *
+ * @module providerAPI
+ */
 export const getProviders = async () => {
   const res = await fetch(`${BASE_URL}`);
   return res.json();

@@ -1,5 +1,20 @@
 import React from "react";
-
+/**
+ * UserTable component for displaying a paginated list of users.
+ *
+ * Renders a table with user details, including ID, name, email, telephone, and role.
+ * Provides actions to edit or delete a user.
+ *
+ * Props:
+ * - users: Array of user objects to display.
+ * - page: Current page number for pagination.
+ * - rowsPerPage: Number of rows to display per page.
+ * - onEdit: Function to call when editing a user.
+ * - onDelete: Function to call when deleting a user.
+ *
+ * @component
+ * @returns {JSX.Element} The table displaying users with actions.
+ */
 const UserTable = ({ users, page, rowsPerPage, onEdit, onDelete }) => {
   const start = (page - 1) * rowsPerPage;
   const paginatedUsers = users.slice(start, start + rowsPerPage);

@@ -1,0 +1,400 @@
+/* My Page - Bookings Styles */
+.page-content {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.myPage-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.myPage-main h3 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Error message styling */
+.error-message {
+    background: linear-gradient(135deg, #ff6b6b, #ff5252);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    animation: slideInDown 0.5s ease-out;
+}
+
+/* No bookings message */
+.myPage-main > p {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    margin-bottom: 3rem;
+}
+
+/* Bookings List Container */
+.bookings-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 0;
+}
+
+/* Individual Booking Card */
+.booking-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.booking-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Booking card header */
+.booking-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+}
+
+/* Booking card title */
+.booking-card h3,
+.booking-card h4 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #ecf0f1;
+    text-align: center;
+}
+
+/* Booking details container */
+.booking-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Individual booking detail items */
+.booking-detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+.booking-detail:last-child {
+    border-bottom: none;
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 2px solid #ecf0f1;
+}
+
+.booking-detail-label {
+    color: #7f8c8d;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 120px;
+}
+
+.booking-detail-value {
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: right;
+    flex: 1;
+}
+
+/* Hotel name styling */
+.hotel-name {
+    color: #4a90e2 !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+}
+
+/* Date styling */
+.date-value {
+    color: #34495e !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* Status styling */
+.status-value {
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.status-confirmed {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white !important;
+}
+
+.status-pending {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white !important;
+}
+
+.status-cancelled {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white !important;
+}
+
+/* Room type styling */
+.room-type {
+    color: #8e44ad !important;
+    font-weight: 600 !important;
+}
+
+
+
+/* View Details Button */
+.booking-card button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.booking-card button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.booking-card button:hover::before {
+    left: 100%;
+}
+
+.booking-card button:hover {
+    background: linear-gradient(135deg, #357abd, #2c5aa0);
+    transform: translateY(-2px);
+}
+
+/* Quick Links Section */
+.quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.big-button {
+    display: inline-block;
+    padding: 1.25rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+}
+
+.big-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.big-button:hover::before {
+    left: 100%;
+}
+
+.big-button:hover {
+    background: linear-gradient(135deg, #357abd, #2c5aa0);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.4);
+    color: white;
+    text-decoration: none;
+}
+
+.big-button:active {
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .myPage-main {
+        padding: 1rem;
+    }
+
+    .myPage-main h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .bookings-list {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .quick-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .big-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .myPage-main h3 {
+        font-size: 1.75rem;
+    }
+
+    .booking-card-content {
+        padding: 1.5rem;
+    }
+
+    .booking-card h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading state */
+.bookings-list.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Focus states for accessibility */
+.big-button:focus-visible,
+.booking-card button:focus-visible {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+.page-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.page-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.page-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.page-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Additional enhancement for booking cards */
+.booking-card-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Enhanced hover effects */
+.booking-card:hover .booking-card-content {
+    transform: translateY(-2px);
+}
+
+/* Staggered animation for multiple cards */
+.booking-card:nth-child(1) { animation-delay: 0.1s; }
+.booking-card:nth-child(2) { animation-delay: 0.2s; }
+.booking-card:nth-child(3) { animation-delay: 0.3s; }
+.booking-card:nth-child(4) { animation-delay: 0.4s; }
+
+.booking-card {
+    animation: fadeInUp 0.6s ease-out both;
+}

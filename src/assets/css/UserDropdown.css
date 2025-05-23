@@ -1,0 +1,230 @@
+/* UserDropdown.css */
+
+/* Container for the dropdown */
+.user-dropdown-container {
+    position: relative;
+}
+
+/* Styling for the user icon button */
+.user-dropdown-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for the user icon */
+.user-icon {
+    border-radius: 50%;
+    height: 1rem;
+    width: 1rem;
+    flex: 0 0 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    /* If you need a border or shadow: */
+    /* border: 1px solid #e0e0e0; */
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    min-width: 280px; /* Increased from 250px */
+    max-width: 350px; /* Added max-width to prevent it from getting too wide */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    overflow: hidden;
+    /* Animation for the dropdown */
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Animation for the dropdown */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header section of the dropdown */
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #eaeaea;
+    min-height: 72px; /* Ensure consistent height */
+}
+
+/* User avatar/profile picture */
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 12px;
+    background-color: #f8ca39; /* Yellow similar to Booking.com */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Prevent avatar from shrinking */
+}
+
+/* Initial letter for avatar if no image */
+.user-initial {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Container for user information */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Take up remaining space */
+    min-width: 0; /* Allow text to wrap properly */
+}
+
+/* User name style */
+.user-name {
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    word-wrap: break-word; /* Break long words if needed */
+    overflow-wrap: break-word; /* Modern browsers */
+    line-height: 1.3; /* Better line spacing for wrapped text */
+    margin-bottom: 2px; /* Small spacing between name and level */
+}
+
+/* User level/membership level style */
+.user-level {
+    font-size: 14px;
+    color: #f8ca39; /* Yellow similar to Booking.com */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.2;
+}
+
+/* List of dropdown menu items */
+.dropdown-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Individual menu item */
+.dropdown-items li {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    min-height: 44px; /* Ensure consistent height for touch targets */
+}
+
+/* Hover effect for menu items */
+.dropdown-items li:hover {
+    background-color: #f5f5f5;
+}
+
+/* Icon in menu items */
+.dropdown-items li i {
+    margin-right: 12px;
+    color: #666;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0; /* Prevent icons from shrinking */
+}
+
+/* Text in menu items */
+.dropdown-items li span {
+    color: #333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 1; /* Allow text to take remaining space */
+}
+
+/* Footer section of dropdown */
+.dropdown-footer {
+    border-top: 1px solid #eaeaea;
+    padding: 8px 0;
+}
+
+/* Logout button */
+.logout-button {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #333;
+    min-height: 44px; /* Consistent height */
+}
+
+/* Hover effect for logout button */
+.logout-button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Icon in logout button */
+.logout-button i {
+    margin-right: 12px;
+    color: #666;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Text in logout button */
+.logout-button span {
+    color: #333;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    flex: 1;
+}
+
+/* Add a subtle arrow/pointer to the dropdown */
+.dropdown-menu::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    transform: rotate(45deg);
+    border-top: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 480px) {
+    .dropdown-menu {
+        min-width: 260px;
+        max-width: calc(100vw - 20px); /* Prevent overflow on small screens */
+        right: -10px; /* Adjust position to prevent edge cutoff */
+    }
+
+    .user-name {
+        font-size: 15px;
+    }
+
+    .user-level {
+        font-size: 13px;
+    }
+}

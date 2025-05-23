@@ -1,78 +1,64 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../assets/css/common/global.css";
 import "../assets/css/homepage.css";
-
+import { getRandomHotels } from "../service/api/hotelAPI";
+import HotelCard from "../components/HotelCard";
+import beachImage from "../assets/images/beach.jpg";
+/**
+ * HomePage component for displaying the main page.
+ *
+ * Shows a featured image, a hotel search form, and random featured hotel deals.
+ * Fetches random hotels to display as featured deals.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered home page.
+ */
 export default function HomePage() {
-  // Mocked hotel data for now
-  const hotels = [
-    {
-      name: "Andante Hotel",
-      location: "City Center",
-      price: "From $150/night",
-      image: "/pictures/adante_main.jpg",
-      providers: [
-        { name: "Booking.com", price: "1500 NOK" },
-        { name: "Agoda", price: "2000 NOK" },
-      ],
-      link: "/product",
-    },
-    // Add more hotel objects here if needed
-  ];
+  const [hotels, setHotels] = useState([]);
+
+  useEffect(() => {
+    const fetchHotels = async () => {
+      try {
+        const data = await getRandomHotels(3);
+        setHotels(data);
+      } catch (error) {
+        console.error("Error fetching random hotels:", error);
+      }
+    };
+    fetchHotels();
+  }, []);
 
   return (
-    <div className="wrapper">
-      <div className="page-content">
-        <div className="search-container">
-          <form className="search-form" action="/search" method="get">
-            <input
-              type="text"
-              name="destination"
-              className="search-input"
-              placeholder="Destination"
+      <main className="wrapper">
+        <section className="page-content">
+          {/* Optional: Beach image as img element for better loading control */}
+          <figure className="beach-image">
+            <img
+                src={beachImage}
+                alt="Beautiful beach resort background"
             />
-            <input type="date" name="checkin" className="search-input" />
-            <input type="date" name="checkout" className="search-input" />
-            <select name="rooms" className="search-input">
-              <option>1 Adult</option>
-              <option>2 Adults</option>
-              <option>3 Adults</option>
-            </select>
-            <button type="submit" className="search-button">
-              Search Hotels
-            </button>
-          </form>
-        </div>
+          </figure>
 
-        <div className="featured-deals">
-          {hotels.map((hotel, index) => (
-            <div className="hotel-card" key={index}>
-              <div
-                className="hotel-image"
-                style={{
-                  backgroundImage: `url('${hotel.image}')`,
-                }}
-              ></div>
-              <div className="hotel-info">
-                <div className="hotel-name">{hotel.name}</div>
-                <div className="hotel-location">{hotel.location}</div>
-                <div className="hotel-price">{hotel.price}</div>
-                <div className="provider-prices">
-                  {hotel.providers.map((provider, idx) => (
-                    <span key={idx}>
-                      {provider.name}
-                      <br />
-                      {provider.price}
-                    </span>
-                  ))}
-                </div>
-                <a href={hotel.link} className="view-deals-button">
-                  View Deal
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
+          <section className="search-container">
+            <form className="search-form" action="/search" method="get">
+              <input
+                  type="text"
+                  name="destination"
+                  className="search-input"
+                  placeholder="Destination"
+              />
+              <button type="submit" className="search-button">
+                Search Hotels
+              </button>
+            </form>
+          </section>
+
+          <section className="featured-deals">
+            {hotels.map((hotel) => (
+                <HotelCard key={hotel.id} hotel={hotel} />
+            ))}
+          </section>
+        </section>
+      </main>
   );
 }

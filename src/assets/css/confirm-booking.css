@@ -1,0 +1,260 @@
+/* confirm-booking.css */
+
+.confirm-booking-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 120px);
+}
+
+.confirm-booking-container h1 {
+    text-align: center;
+    color: #333;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+}
+
+.booking-details {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e9ecef;
+}
+
+.booking-details h2 {
+    color: #6ba3f5;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #6ba3f5;
+    padding-bottom: 0.5rem;
+}
+
+.dates {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #6ba3f5;
+}
+
+.dates p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+.pricing-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background-color: #e8f4fd;
+    border-radius: 8px;
+    border: 1px solid #6ba3f5;
+}
+
+.pricing-details p {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.pricing-details p:first-child {
+    color: #6ba3f5;
+}
+
+.confirm-booking-button {
+    width: 100%;
+    background: linear-gradient(135deg, #6ba3f5 0%, #5a9cf3 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(107, 163, 245, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.confirm-booking-button:hover {
+    background: linear-gradient(135deg, #5a9cf3 0%, #4a8ef0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(107, 163, 245, 0.4);
+}
+
+.confirm-booking-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(107, 163, 245, 0.3);
+}
+
+.back-button {
+    width: 100%;
+    background: transparent;
+    color: #6ba3f5;
+    border: 2px solid #6ba3f5;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.back-button:hover {
+    background-color: #6ba3f5;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(107, 163, 245, 0.3);
+}
+
+.back-button:active {
+    transform: translateY(0);
+}
+
+/* Login required styles */
+.login-required-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-top: 4px solid #6ba3f5;
+}
+
+.login-required-container div:first-child {
+    font-size: 1.5rem;
+    color: #495057;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.login-button {
+    background: linear-gradient(135deg, #6ba3f5 0%, #5a9cf3 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(107, 163, 245, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #5a9cf3 0%, #4a8ef0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(107, 163, 245, 0.4);
+}
+
+/* Loading state */
+.confirm-booking-container div:first-child {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #6c757d;
+    padding: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .confirm-booking-container {
+        padding: 1rem;
+        margin: 0 1rem;
+    }
+
+    .confirm-booking-container h1 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .booking-details {
+        padding: 1.5rem;
+    }
+
+    .booking-details h2 {
+        font-size: 1.5rem;
+    }
+
+    .dates {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+
+    .pricing-details {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .confirm-booking-button,
+    .back-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .confirm-booking-container {
+        padding: 0.5rem;
+    }
+
+    .confirm-booking-container h1 {
+        font-size: 1.75rem;
+    }
+
+    .booking-details {
+        padding: 1rem;
+    }
+
+    .booking-details h2 {
+        font-size: 1.25rem;
+    }
+
+    .dates p,
+    .pricing-details p {
+        font-size: 1rem;
+    }
+}
+
+/* Animation for smooth transitions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.booking-details {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.confirm-booking-button,
+.back-button {
+    animation: fadeIn 0.6s ease-out;
+}

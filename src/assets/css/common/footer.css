@@ -1,45 +1,218 @@
-/* =========================
-   FOOTER (Common)
-========================= */
 .footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    text-align: center;
-    display:flex;
-    flex-direction:column;
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
+    color: white;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
 }
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding: 2rem 5%;
-}
-html,body{
-    height:100%;
-    margin: 0;
-}
-/* 1) Make sure the root fills the viewport */
-html, body {
-    height: 100%;
-    margin: 0;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    padding: 3rem 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
-/* 2) Turn body into a column flex container */
-body {
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-/* 4) Footer never shrinks, so it always sits at the bottom */
-.footer {
-    flex-shrink: 0;
-    /* if you still want a little gap above it, you can keep margin-top */
-    /* margin-top: 3rem; */
-}
-
-.footer-paragraph {
+.footer-content > div {
+    text-align: center;
     padding: 1rem;
-    margin: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.footer-content > div:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #e8f4fd;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #bdc3c7;
+    margin: 0.5rem 0;
+}
+
+.footer-content a {
+    color: #74b9ff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.footer-content a:hover {
+    color: #0984e3;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer bottom section */
+.footer-paragraph {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 2rem;
+    margin: 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #95a5a6;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        min-height: auto;
+    }
+
+    .header-left,
+    .header-center,
+    .header-right {
+        flex: none;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .header-center {
+        font-size: 1.5rem;
+        order: -1;
+    }
+
+    .header-right {
+        gap: 1rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 1rem 1rem;
+    }
+
+    .footer-paragraph {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 0.75rem;
+    }
+
+    .header-center {
+        font-size: 1.3rem;
+    }
+
+    .logo-img {
+        height: 3rem;
+        width: 3rem;
+    }
+
+    .header-right a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-content {
+        padding: 1.5rem 1rem 1rem;
+    }
+
+    .footer-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+.header {
+    animation: slideInDown 0.6s ease-out;
+}
+
+.footer-content > div {
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.footer-content > div:nth-child(1) { animation-delay: 0.1s; }
+.footer-content > div:nth-child(2) { animation-delay: 0.2s; }
+.footer-content > div:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+.header-right a:focus-visible,
+.footer-content a:focus-visible {
+    outline: 2px solid #74b9ff;
+    outline-offset: 2px;
+}
+
+/* =========================
+   CUSTOM SCROLLBAR
+========================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #4a90e2, #357abd);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #357abd, #2c5aa0);
 }

@@ -4,7 +4,17 @@ import EditUserModal from "../../components/admin/EditUserModal";
 import PaginationControls from "../../components/admin/PaginationControls";
 import "../../assets/css/common/global.css";
 import "../../assets/css/admin/users.css";
-
+import { getAllUsersBySearch, deleteUser } from "../../service/api/userAPI";
+/**
+ * User's admin page for managing user accounts.
+ *
+ * Displays a searchable, paginated list of users with options to edit or delete each user.
+ * Integrates user search, pagination, editing via modal, and deletion with confirmation.
+ *
+ *
+ * @component
+ * @returns {JSX.Element} The rendered user management admin page.
+ */
 const Users = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
@@ -18,27 +28,17 @@ const Users = () => {
   }, [search]);
 
   const loadUsers = async (query = "") => {
-    const url = query
-      ? `/users/search?query=${encodeURIComponent(query)}`
-      : "/users";
-
     try {
-      const res = await fetch(url);
-
-      if (!res.ok) {
-        throw new Error(`HTTP ${res.status} - ${res.statusText}`);
-      }
-
-      const data = await res.json();
+      const data = await getAllUsersBySearch(query);
 
       if (!Array.isArray(data)) {
-        throw new Error("Expected array of users, got something else.");
+        throw new Error("Expected array of users");
       }
 
       setUsers(data);
     } catch (error) {
       console.error("Failed to load users:", error);
-      setUsers([]); // prevent UI crash
+      setUsers([]);
     }
   };
 
@@ -56,8 +56,13 @@ const Users = () => {
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
-      await fetch(`/api/users/${id}`, { method: "DELETE" });
-      loadUsers(search);
+      try {
+        await deleteUser(id);
+        loadUsers(search);
+      } catch (error) {
+        console.error("Error deleting user:", error);
+        alert("Failed to delete user. Please try again.");
+      }
     }
   };
 

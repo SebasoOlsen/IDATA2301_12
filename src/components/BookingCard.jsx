@@ -1,6 +1,21 @@
 import React from 'react';
-
-export default function BookingCard({ hotel, checkin, checkout, status }) {
+/**
+ * BookingCard component for displaying a summary of a hotel booking.
+ *
+ * Shows hotel name, check-in and check-out dates, booking status, and room type.
+ * Includes a button to view more booking details.
+ *
+ * Props:
+ * - hotel: Name of the hotel.
+ * - checkin: Check-in date.
+ * - checkout: Check-out date.
+ * - status: Booking status.
+ * - roomType: Type of room booked.
+ *
+ * @component
+ * @returns {JSX.Element} The UI for displaying booking information.
+ */
+export default function BookingCard({ hotel, checkin, checkout, status, roomType }) {
   return (
     <section className="bookings-list">
       <div className="booking-card">
@@ -9,7 +24,7 @@ export default function BookingCard({ hotel, checkin, checkout, status }) {
         <p>Check-in: {checkin}</p>
         <p>Check-out: {checkout}</p>
         <p>Status: {status}</p>
-        <button className="big-button">View Details</button>
+        <p>Room Type: {roomType}</p>
       </div>
     </section>
   );

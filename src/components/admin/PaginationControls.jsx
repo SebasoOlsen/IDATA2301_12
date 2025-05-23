@@ -1,5 +1,19 @@
 import React from "react";
-
+/**
+ * PaginationControls component for navigating paginated data.
+ *
+ * Renders pagination buttons to navigate between pages, including previous, next, and individual page numbers.
+ * Disables navigation buttons when on the first or last page.
+ *
+ * Props:
+ * - total: Total number of items.
+ * - currentPage: The currently active page number.
+ * - rowsPerPage: Number of items per page.
+ * - onPageChange: Function to call when the page changes.
+ *
+ * @component
+ * @returns {JSX.Element} The pagination controls UI.
+ */
 const PaginationControls = ({
   total,
   currentPage,

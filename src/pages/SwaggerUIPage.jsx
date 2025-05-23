@@ -1,6 +1,7 @@
 import React from 'react';
 import SwaggerUI from 'swagger-ui-react';
 import 'swagger-ui-react/swagger-ui.css';
+import {Urls} from "../service/api/Urls.js";
 
 /**
  * SwaggerUIPage component for displaying Swagger API documentation.
@@ -13,7 +14,7 @@ const SwaggerUIPage = () => {
     return(
         <div style={{width: '100%', height: '100%'}}>
             <SwaggerUI
-            url="https://localhost:8443/v3/api-docs"
+            url={`${Urls.BASE}/v3/api-docs`}
             docExpansion="none"
             filter="true"
             operations-sorter="method"

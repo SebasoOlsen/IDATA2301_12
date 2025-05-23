@@ -1,24 +1,19 @@
-import React, {useEffect, useState} from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
-import {checkLoginStatus} from "../service/api/loginAPI.js";
-import {createBooking} from "../service/api/bookingAPI.js";
-/**
- * ConfirmBookingPage component for confirming a hotel booking.
- *
- * Checks user login status, displays booking details, and allows the user to confirm or go back.
- * Handles invalid or missing booking information and redirects to login if needed.
- *
- * @component
- * @returns {JSX.Element} The booking confirmation page UI.
- */
+
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { checkLoginStatus } from "../service/api/loginAPI.js";
+import { createBooking } from "../service/api/bookingAPI.js";
+import "../assets/css/confirm-booking.css";
+
 const ConfirmBookingPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { listing, startDate, endDate } = location.state || {};
     const [isLoading, setIsLoading] = useState(true);
     const [loginStatus, setLoginStatus] = useState({
-        isLoggedIn: false,
-        email: null
+        loggedIn: false,
+        email: null,
+        role: null
     });
 
     useEffect(() => {
@@ -27,53 +22,47 @@ const ConfirmBookingPage = () => {
                 const status = await checkLoginStatus();
                 setLoginStatus(status);
             } catch (error) {
-                console.error('Error checking login status:', error);
+                console.error("Error checking login status:", error);
             } finally {
                 setIsLoading(false);
             }
-        }
+        };
         checkLogin();
-    }, [])
+    }, []);
 
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    if (!loginStatus.isLoggedIn) {
-        return (
-        <div className="login-required-container">
-            <div>Please login to continue</div>
-            <button
-                className="login-button"
-                onClick={() => navigate('/login')}
-            >Go to login
-            </button>
-        </div>
-    )
-    }
 
-    if (!listing) {
-        console.log('Invalid listing information: ', listing);
+    if (!loginStatus.loggedIn) {
+        return (
+            <div className="login-required-container">
+                <div>Please login to continue</div>
+                <button className="login-button" onClick={() => navigate("/login")}>
+                    Go to login
+                </button>
+            </div>
+        );
     }
 
     if (!listing || !startDate || !endDate) {
-        console.log('Invalid booking information: ', listing, startDate, endDate);
+        console.log("Invalid booking information:", listing, startDate, endDate);
         return <div>Invalid booking information</div>;
     }
-
 
     const formatDate = (date) => {
         return new Date(date).toLocaleDateString();
     };
 
-const handleConfirm = async () => {
-    const listingId = listing.id;
-    const formattedStartDate = startDate.toISOString().split('T')[0];
-    const formattedEndDate = endDate.toISOString().split('T')[0];
-    
-    const result = await createBooking(listingId, formattedStartDate, formattedEndDate);
-    console.log('Booking result:', result);
-    navigate('/PaymentPage');
-};
+    const handleConfirm = async () => {
+        const listingId = listing.id;
+        const formattedStartDate = startDate.toISOString().split("T")[0];
+        const formattedEndDate = endDate.toISOString().split("T")[0];
+
+        const result = await createBooking(listingId, formattedStartDate, formattedEndDate);
+        console.log("Booking result:", result);
+        navigate("/PaymentPage");
+    };
 
     return (
         <div className="confirm-booking-container">
@@ -88,19 +77,11 @@ const handleConfirm = async () => {
                     <p>{listing.price}</p>
                     <p>{listing.currency}</p>
                 </section>
-                {/* Add more listing details and total price calculation here */}
-
             </section>
-            <button
-                className="confirm-booking-button"
-                onClick={handleConfirm}
-            >
+            <button className="confirm-booking-button" onClick={handleConfirm}>
                 Confirm Booking
             </button>
-            <button
-                className="back-button"
-                onClick={() => navigate(-1)}
-            >
+            <button className="back-button" onClick={() => navigate(-1)}>
                 Back
             </button>
         </div>

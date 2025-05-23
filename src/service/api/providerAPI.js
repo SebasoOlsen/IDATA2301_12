@@ -15,10 +15,11 @@ export const getProviders = async () => {
 };
 
 export const createProvider = async (providerData) => {
-  const response = await fetch(BASE_URL, {
+  const response = await fetch(`${BASE_URL}/admin/createProvider`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      credentials: "include",
     },
     body: JSON.stringify(providerData),
   });

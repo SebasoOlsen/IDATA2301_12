@@ -20,12 +20,6 @@ export default function HotelInfoBox({ hotel }) {
       <p>
         <strong>Location:</strong> {locationType} {city}, {country}
       </p>
-      <p>
-        <strong>Rating:</strong> {averageRating}
-      </p>
-      <p>
-        <strong>Description:</strong> {description}
-      </p>
     </div>
   );
 }

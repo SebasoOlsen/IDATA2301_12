@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getAllHotels, getRoomsByHotelId } from "../../service/api/hotelAPI";
 import { getProviders } from "../../service/api/providerAPI";
 import { createListing } from "../../service/api/listingAPI";
+import "../../assets/css/admin/create-listing-form.css";
 
 /**
  * CreateListingForm component for admin users.

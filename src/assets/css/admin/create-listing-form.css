@@ -1,0 +1,226 @@
+.create-listing-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #6ba3f5;
+}
+
+.create-listing-form h2 {
+    text-align: center;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: #6ba3f5;
+}
+
+.create-listing-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.create-listing-form label:first-of-type {
+    margin-top: 0;
+}
+
+.create-listing-form select,
+.create-listing-form input[type="number"] {
+    width: 100%;
+    padding: 0.875rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.create-listing-form select:focus,
+.create-listing-form input[type="number"]:focus {
+    outline: none;
+    border-color: #6ba3f5;
+    box-shadow: 0 0 0 3px rgba(107, 163, 245, 0.1);
+    background-color: #f8fbff;
+}
+
+.create-listing-form select:hover,
+.create-listing-form input[type="number"]:hover {
+    border-color: #6ba3f5;
+}
+
+.create-listing-form select:disabled {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    cursor: not-allowed;
+    border-color: #dee2e6;
+}
+
+.create-listing-form select option {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.create-listing-form button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, #6ba3f5 0%, #5a9cf3 100%);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(107, 163, 245, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.create-listing-form button[type="submit"]:hover {
+    background: linear-gradient(135deg, #5a9cf3 0%, #4a8ef0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(107, 163, 245, 0.4);
+}
+
+.create-listing-form button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(107, 163, 245, 0.3);
+}
+
+.create-listing-form button[type="submit"]:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Form validation styling */
+.create-listing-form select:invalid,
+.create-listing-form input[type="number"]:invalid {
+    border-color: #dc3545;
+}
+
+.create-listing-form select:invalid:focus,
+.create-listing-form input[type="number"]:invalid:focus {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+/* Success states */
+.create-listing-form select:valid,
+.create-listing-form input[type="number"]:valid {
+    border-color: #28a745;
+}
+
+/* Form groups for better organization */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Currency and price inline layout */
+.price-currency-group {
+    display: flex;
+    gap: 1rem;
+    align-items: end;
+}
+
+.price-currency-group .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.price-currency-group .currency-group {
+    flex: 0 0 120px;
+}
+
+/* Loading state for form */
+.create-listing-form.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .create-listing-form {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .create-listing-form h2 {
+        font-size: 1.75rem;
+    }
+    
+    .price-currency-group {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .price-currency-group .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .price-currency-group .currency-group {
+        flex: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .create-listing-form {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .create-listing-form h2 {
+        font-size: 1.5rem;
+    }
+    
+    .create-listing-form select,
+    .create-listing-form input[type="number"] {
+        padding: 0.75rem;
+    }
+    
+    .create-listing-form button[type="submit"] {
+        padding: 0.875rem 1.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation for form appearance */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.create-listing-form {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Optional: Enhanced styling for select dropdowns */
+.create-listing-form select {
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 40px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}

@@ -1,3 +1,7 @@
+import {Urls} from "./Urls.js";
+
+const BASE_URL = `${Urls.BASE}/api/users`;
+
 /**
  * User API service for interacting with user-related backend endpoints.
  *
@@ -5,14 +9,13 @@
  *
  * @module userAPI
  */
-const API_URL = 'http://localhost:8080/api/users';
 
   export const getAllUsersBySearch = async (query) => {
     const url = query 
       ? `/admin/search?query=${encodeURIComponent(query)}`
       : "/admin/getAllUsers";
     try {
-        const res = await fetch(`${API_URL}${url}`, {
+        const res = await fetch(`${BASE_URL}${url}`, {
             method: "GET",
             credentials: "include",
             headers: {
@@ -31,7 +34,7 @@ const API_URL = 'http://localhost:8080/api/users';
   };
 
   export const updateUser = async (userId, userData) => {
-const res = await fetch(`${API_URL}/admin/edit/${userId}`, {
+const res = await fetch(`${BASE_URL}/admin/edit/${userId}`, {
     method: "POST",
     credentials: "include",
     headers: {
@@ -50,7 +53,7 @@ return text ? JSON.parse(text) : {};
 };
 
 export const deleteUser = async (userId) => {
-  const res = await fetch(`${API_URL}/admin/delete/${userId}`, {
+  const res = await fetch(`${BASE_URL}/admin/delete/${userId}`, {
     method: "DELETE",
     credentials: "include",
     headers: {

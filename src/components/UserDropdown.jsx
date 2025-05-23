@@ -35,14 +35,15 @@ export default function UserDropdown() {
         fetch("/api/login/public/isLoggedIn", { credentials: "same-origin" })
             .then((response) => response.json())
             .then((data) => {
-                console.log("Response loggedIn value:", data.loggedIn);
-                setIsLoggedIn(data.loggedIn);
-                if (!data.loggedIn) {
+                console.log("Response loggedIn value:", data.isLoggedIn);
+                setIsLoggedIn(data.isLoggedIn);
+                if (!data.isLoggedIn) {
                     console.log("User not logged in. Redirecting to login.");
                     navigate("/login");
                 } else {
                     console.log("User is logged in. Toggling dropdown.");
                     setIsOpen(!isOpen);
+                    setUserName(data.email)
                 }
             })
             .catch((error) => {

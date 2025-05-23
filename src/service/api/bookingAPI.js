@@ -1,8 +1,21 @@
 import {Urls} from "./Urls.js";
 
+const BASE_URL = `${Urls.BASE}/api/bookings`;
 
-export const createBooking = async () => {
+export const createBooking = async (listingId, startDate, endDate) => {
+    const url = new URL(`${Urls.BASE}/api/bookings/account/createBooking`);
+    url.searchParams.append('listingId', listingId);
+    url.searchParams.append('startDate', startDate);
+    url.searchParams.append('endDate', endDate);
 
+    const response = await fetch(url, {
+        method: "POST",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json",
+        }
+    });
+    return await response.json();
 }
 
 export const getBookedDates = async (listingId) => {

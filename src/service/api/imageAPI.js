@@ -1,4 +1,6 @@
-const BASE_URL = "http://localhost:8080/api/images";
+import {Urls} from "./Urls.js";
+
+const BASE_URL = `${Urls.BASE}/api/images`;
 /**
  * Image API service for interacting with image-related backend endpoints.
  *

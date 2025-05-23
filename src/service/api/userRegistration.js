@@ -1,5 +1,6 @@
-const API_URL = 'http://localhost:8080/api/users';
+import {Urls} from "./Urls.js";
 
+const BASE_URL = `${Urls.BASE}/api/users`;
 /**
  * Check if an email is available for registration.
  *
@@ -9,7 +10,7 @@ const API_URL = 'http://localhost:8080/api/users';
  * @returns {Promise<boolean>} True if the email is available, false otherwise.
  */
 export async function checkEmailAvailability(email) {
-    const response = await fetch(`${API_URL}/public/check_email?email=${encodeURIComponent(email)}`);
+    const response = await fetch(`${BASE_URL}/public/check_email?email=${encodeURIComponent(email)}`);
     return response.ok;
 }
 
@@ -22,7 +23,7 @@ export async function checkEmailAvailability(email) {
  * @returns {Promise<boolean>} True if the telephone number is available, false otherwise.
  */
 export async function checkTelephoneAvailability(telephone) {
-    const response = await fetch(`${API_URL}/public/check_telephone?telephone=${encodeURIComponent(telephone)}`);
+    const response = await fetch(`${BASE_URL}/public/check_telephone?telephone=${encodeURIComponent(telephone)}`);
     return response.ok;
 }
 
@@ -50,7 +51,7 @@ export async function submitForm(firstName, lastName, email, password, telephone
     };
 
     try {
-        return await fetch(`${API_URL}/public/register`, {
+        return await fetch(`${BASE_URL}/public/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

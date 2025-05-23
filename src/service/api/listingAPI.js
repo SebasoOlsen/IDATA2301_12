@@ -1,4 +1,6 @@
 import {Urls} from "./Urls.js";
+const BASE_URL = `${Urls.BASE}/api/listings`;
+
 /**
  * Listing API service for interacting with listing-related backend endpoints.
  *
@@ -6,8 +8,7 @@ import {Urls} from "./Urls.js";
  *
  * @module listingAPI
  */
-//const BASE_URL = "https://localhost:8443/api/listings";
-const BASE_URL = (`${Urls.BASE}/api/listings`);
+
 
 export const getListingsByHotelId = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/public/hotel/${hotelId}`, {

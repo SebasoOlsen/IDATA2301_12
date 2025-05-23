@@ -7,7 +7,7 @@ const BASE_URL = "http://localhost:8080/api/hotels";
  *
  * @module hotelAPI
  */
-//Create a new hotel
+
 export const createHotel = async (hotelData) => {
   const response = await fetch(`${BASE_URL}/admin/createHotel`, {
     method: "POST",
@@ -27,7 +27,6 @@ export const createHotel = async (hotelData) => {
   return text ? JSON.parse(text) : {};
 };
 
-// Get all hotels (admin)
 export const getAllHotels = async () => {
    const response = await fetch(`${BASE_URL}/admin/allHotels`, {
     method: "GET",
@@ -47,7 +46,6 @@ export const getAllHotels = async () => {
 };
 
 
-// Fetch a hotel by ID
 export const getHotel = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/public/searchById/${hotelId}`, {
     method: "GET",
@@ -66,7 +64,6 @@ export const getHotel = async (hotelId) => {
 };
 
 
-// Get random hotels
 export const getRandomHotels = async (count = 3) => {
   const response = await fetch(`${BASE_URL}/public/randomHotels?count=${count}`, {
     method: "GET",
@@ -85,7 +82,6 @@ export const getRandomHotels = async (count = 3) => {
   return text ? JSON.parse(text) : {};
 };
 
-// Public hotel search
 export const searchHotels = async (query) => {
   const params = new URLSearchParams({
     destination: query.destination,
@@ -110,7 +106,6 @@ export const searchHotels = async (query) => {
   return text ? JSON.parse(text) : {};
 };
 
-// Rooms by hotel ID
 export const getRoomsByHotelId = async (hotelId) => {
   const response = await fetch(`${BASE_URL}/public/${hotelId}/rooms`, {
     method: "GET",

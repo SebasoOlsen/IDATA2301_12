@@ -63,5 +63,5 @@ export const deleteUser = async (userId) => {
     throw new Error(`HTTP ${res.status}: ${errorText}`);
   }
 
-  return await res.text(); // optional: return some response message
+  return await res.text();
 };

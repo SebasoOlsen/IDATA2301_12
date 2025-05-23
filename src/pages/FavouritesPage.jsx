@@ -1,4 +1,4 @@
-// Language: javascript
+
 import React, { useState, useEffect } from "react";
 import "../assets/css/common/global.css";
 import "../assets/css/favourites.css";
@@ -29,7 +29,6 @@ export default function FavouritesPage() {
                 const data = await response.json();
                 console.log("JSON response:", data);
                 const formattedFavourites = data.map((f, index) => ({
-                    // Use f.id if available; also pass hotelId required for image fetching.
                     id: f.id || index,
                     hotelId: (f.listing && f.listing.hotel && f.listing.hotel.id) || null,
                     hotelName: f.listing?.hotel?.name || "Unknown Hotel",

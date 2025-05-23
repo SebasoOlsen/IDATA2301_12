@@ -18,7 +18,6 @@ export default function RegisterPage() {
     const [formValid, setFormValid] = useState(false);
     const navigate = useNavigate();
 
-    // Form input variables
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -28,7 +27,6 @@ export default function RegisterPage() {
         areaCode: ''
     });
 
-    // Form variable availability messages
     const [showEmailMessage, setShowEmailMessage]= useState(false);
     const [emailMessage, setEmailMessage] = useState('');
     const [emailMessageColor, setEmailMessageColor] = useState('black')
@@ -37,13 +35,10 @@ export default function RegisterPage() {
     const [telephoneMessage, setTelephoneMessage] = useState('');
     const [telephoneMessageColor, setTelephoneMessageColor] = useState('black')
 
-    // Error message
     const [errorMessage, setErrorMessage] = useState('');
 
-    // Success message
     const [successMessageHidden, setSuccessMessageHidden] = useState(true);
 
-    // Form state variables
     const [registerFormHidden, setRegisterFormHidden] = useState(false);
 
     const handleTelephoneBlur = async () => {

@@ -3,7 +3,7 @@ import "../assets/css/common/global.css";
 import "../assets/css/homepage.css";
 import { getRandomHotels } from "../service/api/hotelAPI";
 import HotelCard from "../components/HotelCard";
-import beachImage from "../assets/images/beach.jpg"; // Import the static image
+import beachImage from "../assets/images/beach.jpg";
 /**
  * HomePage component for displaying the main page.
  *

@@ -1,4 +1,3 @@
-// Language: javascript
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getImageByTypeAndId } from "../service/api/imageAPI";
@@ -19,8 +18,7 @@ import "../assets/css/favourites.css";
  * @component
  * @returns {JSX.Element} The UI for displaying a favourite hotel card.
  */
-// Generates fallback image URL using hotelId and hotelName.
-// Example: /1-Thon-Hotel-hotel.jpg
+
 
 export default function FavouritesCard({ hotelId, hotelName, roomTypes, city, country }) {
     const [imageUrl, setImageUrl] = useState(null);

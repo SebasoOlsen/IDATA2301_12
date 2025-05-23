@@ -15,7 +15,6 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
-  // Language: javascript
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = e.target.elements;

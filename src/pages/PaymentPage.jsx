@@ -41,7 +41,7 @@ export default function PaymentPage() {
             return;
         }
 
-        // Simulate success
+        // This simulates a successful payment... woohoo!
         setSubmitted(true);
     };
 

@@ -25,7 +25,7 @@ export default function MyPage() {
                     throw new Error("Network response was not OK: " + response.status);
                 }
                 const data = await response.json();
-                console.log("Raw booking data:", data); // Add this to debug
+                console.log("Raw booking data:", data);
 
                 const formattedBookings = data.map((b) => ({
                     id: b.id,

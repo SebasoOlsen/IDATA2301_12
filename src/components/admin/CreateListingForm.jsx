@@ -67,7 +67,6 @@ const CreateListingForm = () => {
     try {
       await createListing(payload);
       alert("Listing created!");
-      // Optionally reset
       setSelectedHotelId("");
       setSelectedRoomId("");
       setSelectedProviderId("");

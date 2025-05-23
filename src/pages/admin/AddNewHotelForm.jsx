@@ -54,7 +54,6 @@ const AddNewHotelForm = () => {
 
       alert("Hotel and images uploaded successfully!");
 
-      // Reset form
       setFormData({
         name: "",
         locationType: "",

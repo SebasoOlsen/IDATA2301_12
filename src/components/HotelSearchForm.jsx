@@ -1,62 +1,77 @@
-import React, {useState} from "react";
-import {useNavigate, useLocation} from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "../assets/css/search-bar.css"; // New CSS file name
 
+export default function SearchBar({ onSearch }) {
+    const [formData, setFormData] = useState({
+        destination: "",
+        checkin: "",
+        checkout: "",
+        rooms: "1"
+    });
 
-export default function HotelSearchForm({onSearch}) {
-
-    const [formData, setFormData] = useState({destination: "", checkin: "", checkout: "", rooms: ""})
-
+    const [isSearching, setIsSearching] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
     const handleInputChange = (e) => {
-        const {name, value} = e.target
-        setFormData((prev) => ({...prev, [name]: value}))
-    }
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSearching(true);
+
         console.log("Form data: " + JSON.stringify(formData));
-        if (location.pathname === "/search") {
-            onSearch?.(formData);
-        } else {
-            const query = new URLSearchParams(formData).toString();
-            console.log("Search query: " + query);
-            navigate(`/search?${query}`)
+
+        try {
+            if (location.pathname === "/search") {
+                // If we're already on the search page, just update results
+                await onSearch?.(formData);
+            } else {
+                // Navigate to search page with query params
+                const query = new URLSearchParams(formData).toString();
+                console.log("Search query: " + query);
+                navigate(`/search?${query}`);
+            }
+        } catch (error) {
+            console.error("Search error:", error);
+        } finally {
+            setIsSearching(false);
         }
-    }
+    };
 
     return (
-        <div className="wrapper">
+        <div className="search-container">
             <form className="search-form" onSubmit={handleSubmit}>
-                <input type="text"
-                       name="destination"
-                       className="search-input"
-                       placeholder="Where to?"
-                       onChange={handleInputChange}
+                <input
+                    type="text"
+                    name="destination"
+                    className="search-bar-input"
+                    placeholder="Where to?"
+                    value={formData.destination}
+                    onChange={handleInputChange}
+                    required
+                    aria-label="Destination"
                 />
-                <input type="date"
-                       name="checkin"
-                       className="search-input"
-                       onChange={handleInputChange}
-                />
-                <input type="date"
-                       name="checkout"
-                       className="search-input"
-                       onChange={handleInputChange}
-                />
-                <select name="rooms"
-                        className="search-input"
-                        onChange={handleInputChange}
+
+                <button
+                    type="submit"
+                    className="search-bar-button"
+                    disabled={isSearching}
+                    aria-label="Search for hotels"
                 >
-                    <option>1 Adult</option>
-                    <option>2 Adults</option>
-                    <option>3 Adults</option>
-                </select>
-                <button type="submit"
-                        className="search-button"
-                >Search Hotels</button>
+                    {isSearching ? (
+                        <>
+                            <span className="search-loading-spinner"></span>
+                            Searching...
+                        </>
+                    ) : (
+                        "Search Hotels"
+                    )}
+                </button>
             </form>
         </div>
-    )
+    );
 }

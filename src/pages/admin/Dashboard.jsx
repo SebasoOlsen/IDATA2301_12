@@ -5,7 +5,10 @@ import "../../assets/css/admin/dashboard.css";
 
 const links = [
   { name: "User Management", path: "/admin/users" },
-  { name: "Analytics", path: "/analytics" },
+    { name: "Hotel Management", path: "/admin/hotels" },
+    { name: "Add New Listing", path: "/admin/create-new-listing" },
+    { name: "Add New Provider", path: "/admin/create-new-provider" },
+    { name: "Add New Hotel", path: "/admin/add-new-hotel" },
 ];
 
 const Dashboard = () => {

@@ -1,4 +1,4 @@
-// /src/App.jsx
+// File: `IDATA2301_12/src/App.jsx`
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/common/Layout";
@@ -15,44 +15,85 @@ import FavouritesPage from "./pages/FavouritesPage.jsx";
 import BookingPage from "./pages/BookingPage.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
-//import Test from "./pages/Test.jsx";
 import CreateNewListingPage from "./pages/admin/CreateNewListingPage.jsx";
 import CreateNewProviderPage from "./pages/admin/CreateNewProviderPage.jsx";
 import AdminHotels from "./pages/admin/Hotels.jsx";
+import ContactInformation from "./components/ContactInformation.jsx";
+import TermsAndConditions from "./components/TermsAndConditions.jsx";
+import { UserProvider } from "./components/UserContext.jsx";
+import AdminRoute from "/src/components/AdminRoute.jsx";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/users" element={<AdminUsers />} />
-          <Route path="/AddNewHotelForm" element={<AddNewHotelForm />} />
-          <Route path="/RegisterPage" element={<RegisterPage />} />
-          <Route path="/Product/:id" element={<ProductPage />} />
-          <Route path="/PaymentPage" element={<PaymentPage />} />
-          <Route path="/search" element={<HotelSearchResultsPage />} />
-          <Route path="/api-docs" element={<SwaggerUIPage />} />
-          <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
-          <Route path="/favourites" element={<FavouritesPage />} />
-          <Route path="/booking" element={<BookingPage />} />
-          {/*<Route path="/contactInformation" element={<ContactInformation/>} />*/}
-          <Route path="/my-page" element={<MyPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          {/*<Route path="/test" element={<Test />} />*/}
-          <Route
-            path="/admin/create-new-listing"
-            element={<CreateNewListingPage />}
-          />
-          <Route
-            path="/admin/create-new-provider"
-            element={<CreateNewProviderPage />}
-          />
-          <Route path="/admin/hotels" element={<AdminHotels />} />
-        </Routes>
-      </Layout>
-    </BrowserRouter>
+      <UserProvider>
+        <BrowserRouter>
+          <Layout>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/RegisterPage" element={<RegisterPage />} />
+              <Route path="/Product/:id" element={<ProductPage />} />
+              <Route path="/PaymentPage" element={<PaymentPage />} />
+              <Route path="/search" element={<HotelSearchResultsPage />} />
+              <Route path="/api-docs" element={<SwaggerUIPage />} />
+              <Route path="/swagger-ui/*" element={<SwaggerUIPage />} />
+              <Route path="/favourites" element={<FavouritesPage />} />
+              <Route path="/booking" element={<BookingPage />} />
+              <Route path="/contactInformation" element={<ContactInformation />} />
+              <Route path="/my-page" element={<MyPage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+              <Route
+                  path="/admin/dashboard"
+                  element={
+                    <AdminRoute>
+                      <AdminDashboard />
+                    </AdminRoute>
+                  }
+              />
+              <Route
+                  path="/admin/users"
+                  element={
+                    <AdminRoute>
+                      <AdminUsers />
+                    </AdminRoute>
+                  }
+              />
+              <Route
+                  path="/admin/create-new-listing"
+                  element={
+                    <AdminRoute>
+                      <CreateNewListingPage />
+                    </AdminRoute>
+                  }
+              />
+              <Route
+                  path="/admin/create-new-provider"
+                  element={
+                    <AdminRoute>
+                      <CreateNewProviderPage />
+                    </AdminRoute>
+                  }
+              />
+              <Route
+                  path="/admin/add-new-hotel"
+                  element={
+                    <AdminRoute>
+                      <AddNewHotelForm />
+                    </AdminRoute>
+                  }
+              />
+              <Route
+                  path="/admin/hotels"
+                  element={
+                    <AdminRoute>
+                      <AdminHotels />
+                    </AdminRoute>
+                  }
+              />
+            </Routes>
+          </Layout>
+        </BrowserRouter>
+      </UserProvider>
   );
 }
 

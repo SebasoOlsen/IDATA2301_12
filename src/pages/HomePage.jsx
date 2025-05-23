@@ -39,13 +39,6 @@ export default function HomePage() {
                   className="search-input"
                   placeholder="Destination"
               />
-              <input type="date" name="checkin" className="search-input" />
-              <input type="date" name="checkout" className="search-input" />
-              <select name="rooms" className="search-input">
-                <option>1 Adult</option>
-                <option>2 Adults</option>
-                <option>3 Adults</option>
-              </select>
               <button type="submit" className="search-button">
                 Search Hotels
               </button>

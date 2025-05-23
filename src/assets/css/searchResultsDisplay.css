@@ -1,0 +1,71 @@
+/* =========================
+   SEARCH RESULTS DISPLAY STYLES
+   File: searchResultsDisplay.css
+========================= */
+
+/* Main wrapper for search results page */
+.search-results-wrapper {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+/* Results section header */
+.search-results-info {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.search-results-info h2 {
+    font-size: 2rem;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.search-results-info p {
+    font-size: 1.1rem;
+    color: #6b7280;
+}
+
+/* No results message */
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6b7280;
+    grid-column: 1 / -1; /* Span full width in grid */
+}
+
+.no-results h3 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1rem;
+}
+
+/* Loading state - uses the same class as homepage */
+.featured-deals.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/*
+   NOTE: The .featured-deals class and HotelCard component
+   will use the styles from homepage.css automatically.
+   This ensures consistent styling between homepage and search results.
+*/
+
+/* Responsive adjustments specific to search results */
+@media (max-width: 768px) {
+    .search-results-info {
+        padding: 0 1rem;
+    }
+
+    .search-results-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .search-results-info p {
+        font-size: 1rem;
+    }
+}

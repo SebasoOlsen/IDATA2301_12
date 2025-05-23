@@ -10,7 +10,6 @@ export default function BookingCard({ hotel, checkin, checkout, status, roomType
         <p>Check-out: {checkout}</p>
         <p>Status: {status}</p>
         <p>Room Type: {roomType}</p>
-        <button className="big-button">View Details</button>
       </div>
     </section>
   );

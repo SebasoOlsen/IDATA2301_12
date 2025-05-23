@@ -21,7 +21,8 @@ import AdminHotels from "./pages/admin/Hotels.jsx";
 import ContactInformation from "./components/ContactInformation.jsx";
 import TermsAndConditions from "./components/TermsAndConditions.jsx";
 import { UserProvider } from "./components/UserContext.jsx";
-import AdminRoute from "/src/components/AdminRoute.jsx";
+import AdminRoute from "../src/components/AdminRoute.jsx";
+import ConfirmBookingPage from "./pages/ConfirmBookingPage.jsx";
 
 function App() {
   return (
@@ -42,6 +43,8 @@ function App() {
               <Route path="/my-page" element={<MyPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/termsAndConditions" element={<TermsAndConditions />} />
+                <Route path="/confirm-booking" element={<ConfirmBookingPage />} />
+
               <Route
                   path="/admin/dashboard"
                   element={
